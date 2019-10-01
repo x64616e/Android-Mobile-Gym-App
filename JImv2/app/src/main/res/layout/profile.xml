@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:layout_width="175dp"
+        android:layout_height="52dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="188dp"
+        android:layout_marginTop="53dp"
+        android:layout_marginEnd="39dp"
+        android:layout_marginRight="39dp"
+        android:background="@drawable/rectangle"
+        android:baselineAligned="false"
+        android:text="Rank"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="32dp" />
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="97dp"
+        android:layout_height="103dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="263dp"
+        android:layout_marginRight="263dp"
+        tools:srcCompat="@tools:sample/avatars[5]" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginRight="163dp"
+        android:background="@color/gray"
+        android:gravity="center_horizontal"
+        android:padding="5dp"
+        android:text="Full Name"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="280dp"
+        android:layout_marginEnd="330dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginRight="63dp"
+        android:padding="5dp"
+        android:text="mm"
+        android:gravity="center_horizontal"
+        android:background="@color/gray"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="280dp"
+        android:layout_marginEnd="270dp"
+        android:layout_marginStart="90dp"
+        android:layout_marginRight="63dp"
+        android:padding="5dp"
+        android:text="dd"
+        android:gravity="center_horizontal"
+        android:background="@color/gray"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="280dp"
+        android:layout_marginEnd="170dp"
+        android:layout_marginStart="150dp"
+        android:layout_marginRight="63dp"
+        android:padding="5dp"
+        android:text="yyyy"
+        android:gravity="center_horizontal"
+        android:background="@color/gray"
+        android:textColor="@color/white" />
+    <ImageView
+        android:id="@+id/calendar"
+        android:layout_width="74dp"
+        android:layout_height="67dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="262dp"
+        android:layout_marginEnd="90dp"
+        android:layout_marginRight="30dp"
+        app:srcCompat="@mipmap/calendar" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="370dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginRight="163dp"
+        android:padding="5dp"
+        android:text="Weight"
+        android:gravity="center_horizontal"
+        android:background="@color/gray"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="440dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginRight="163dp"
+        android:padding="5dp"
+        android:text="Height"
+        android:gravity="center_horizontal"
+        android:background="@color/gray"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="510dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginRight="163dp"
+        android:padding="5dp"
+        android:text="Gym Experience"
+        android:gravity="center_horizontal"
+        android:background="@color/gray"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="580dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginRight="163dp"
+        android:padding="5dp"
+        android:text="Training Type"
+        android:gravity="center_horizontal"
+        android:background="@color/gray"
+        android:textColor="@color/white" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginRight="163dp"
+        android:ems="3"
+        android:inputType="textPersonName"
+        android:text="Name" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="235dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginRight="163dp"
+        android:ems="3"
+        android:inputType="textPersonName"
+        android:text="DOB" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="325dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginRight="163dp"
+        android:ems="3"
+        android:inputType="textPersonName"
+        android:text="Weight" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="395dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginRight="163dp"
+        android:ems="3"
+        android:inputType="textPersonName"
+        android:text="Height" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="465dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginRight="183dp"
+        android:ems="7"
+        android:inputType="textPersonName"
+        android:text="Gym Experience" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="535dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginRight="163dp"
+        android:ems="7"
+        android:inputType="textPersonName"
+        android:text="Training Type" />
+
+
+</RelativeLayout>
