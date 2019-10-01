@@ -67,12 +67,13 @@ tools:context=".MainActivity">
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/dark_blue2"
-        android:text="Gym App"
         android:elegantTextHeight="true"
+        android:text="Gym App"
+        android:textColor="@color/dark_blue2"
         android:textSize="40dp"
-        tools:layout_editor_absoluteX="135dp"
-        tools:layout_editor_absoluteY="28dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="27dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
