@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
+        android:layout_height="86dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp"
+        android:gravity="center"
+        android:inputType="date"
+        android:text="Leg Day"
+        android:background="@color/light_blue"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="180dp"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginBottom="60dp"
+        android:background="@drawable/rectangle"
+        android:gravity="center"
+        android:text="Done"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+
+
+    <RelativeLayout
+        android:layout_width="380dp"
+        android:layout_height="80dp"
+        android:layout_below="@+id/editText"
+        android:layout_marginTop="0dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/rectangle_border_sb"
+        android:id="@+id/exercise_card">
+        <ImageView
+            android:id="@+id/exercise_pic"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:layout_margin="4dp"
+            android:src="@drawable/ic_leg_press_2_1024x670" />
+
+        <TextView
+            android:id="@+id/exercise_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Leg Press"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/set_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="12dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginBottom="0dp"
+            android:layout_toEndOf="@+id/exercise_pic"
+            android:layout_toRightOf="@+id/exercise_pic"
+            android:width="10dp"
+            android:text="4"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="6dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginBottom="9dp"
+            android:layout_toEndOf="@+id/set_count"
+            android:layout_toRightOf="@+id/set_count"
+            android:text="sets of"
+            android:textSize="16dp"
+            android:id="@+id/setsof"/>
+
+        <EditText
+            android:id="@+id/rep_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="6dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginBottom="0dp"
+            android:layout_toEndOf="@+id/setsof"
+            android:layout_toRightOf="@+id/setsof"
+            android:text="4" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="6dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginBottom="9dp"
+            android:layout_toEndOf="@+id/rep_count"
+            android:layout_toRightOf="@+id/rep_count"
+            android:text="reps"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/weight_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="3dp"
+            android:layout_marginRight="3dp"
+            android:layout_toStartOf="@+id/weight_input"
+            android:layout_toLeftOf="@+id/weight_input"
+            android:text="Weight:"
+            android:textSize="16dp"
+            android:layout_centerVertical="true"
+            />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_toStartOf="@+id/weight_unit"
+            android:layout_toLeftOf="@+id/weight_unit"
+            android:id="@+id/weight_input"
+            android:text="120"
+            android:layout_centerVertical="true"
+            />
+
+        <TextView
+            android:id="@+id/weight_unit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_centerVertical="true"
+            android:text="lbs"
+            android:textSize="16dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="380dp"
+        android:layout_height="80dp"
+        android:layout_below="@+id/exercise_card"
+        android:layout_marginTop="0dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/rectangle_border_sb">
+
+        <ImageView
+            android:id="@+id/exercise_pic1"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
+            android:layout_margin="4dp"
+            android:src="@drawable/ic_alternate_bicep_curl_1" />
+
+        <TextView
+            android:id="@+id/exercise_name1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Curl"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/set_count1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="12dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginBottom="0dp"
+            android:layout_toEndOf="@+id/exercise_pic1"
+            android:layout_toRightOf="@+id/exercise_pic1"
+            android:width="10dp"
+            android:text="4" />
+
+        <TextView
+            android:id="@+id/setsof1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="6dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginBottom="9dp"
+            android:layout_toEndOf="@+id/set_count1"
+            android:layout_toRightOf="@+id/set_count1"
+            android:text="sets of"
+            android:textSize="16dp" />
+
+        <EditText
+            android:id="@+id/rep_count1"
+            android:layout_width="wrap_content"
+            android:maxLines="1"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="6dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginBottom="0dp"
+            android:layout_toEndOf="@+id/setsof1"
+            android:layout_toRightOf="@+id/setsof1"
+            android:text="24" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="6dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginBottom="9dp"
+            android:layout_toEndOf="@+id/rep_count1"
+            android:layout_toRightOf="@+id/rep_count1"
+            android:text="reps"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/weight_text1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="3dp"
+            android:layout_marginRight="3dp"
+            android:layout_toStartOf="@+id/weight_input1"
+            android:layout_toLeftOf="@+id/weight_input1"
+            android:text="Weight:"
+            android:textSize="16dp" />
+
+        <EditText
+            android:id="@+id/weight_input1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_toStartOf="@+id/weight_unit1"
+            android:layout_toLeftOf="@+id/weight_unit1"
+            android:text="40" />
+
+        <TextView
+            android:id="@+id/weight_unit1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:text="lbs"
+            android:textSize="16dp" />
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button1"
+        android:layout_marginBottom="20dp"
+        android:layout_centerHorizontal="true"
+        android:width="360dp"
+        android:text="Add Exercise to Workout" />
+
+
+</RelativeLayout>
