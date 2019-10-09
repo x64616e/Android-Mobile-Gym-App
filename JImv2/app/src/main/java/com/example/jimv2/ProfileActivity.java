@@ -18,11 +18,11 @@ public class ProfileActivity extends AppCompatActivity {
 
 
 
-        mBtGoBack = (Button) findViewById(R.id.bt_go_back);
-
-        val callback = .addCallback(this) {
-            // Handle the back button event
-        }
+//        mBtGoBack = (Button) findViewById(R.id.bt_go_back);
+//
+//        val callback = .addCallback(this) {
+//            // Handle the back button event
+//        }
 
     }
 }
