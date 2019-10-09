@@ -34,7 +34,8 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="13dp"
         android:layout_marginRight="13dp"
-        tools:srcCompat="@tools:sample/avatars[5]" />
+        tools:srcCompat="@tools:sample/avatars[5]"
+        android:clickable="true"/>
 
     <ImageView
         android:id="@+id/leftArrow"
