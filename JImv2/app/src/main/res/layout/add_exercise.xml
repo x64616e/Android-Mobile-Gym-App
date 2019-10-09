@@ -86,7 +86,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="60dp"
-        android:text="Back"
+        android:text="Done"
         android:textColor="@color/white"
         android:background="@drawable/rectangle"
         android:textSize="20sp"/>
