@@ -6,7 +6,7 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:background="@drawable/rectangle"
         android:text="Calendar"
         android:textAlignment="center"
@@ -36,6 +36,24 @@
         android:layout_marginBottom="0dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/backButtonCalendar"
+        android:layout_width="380dp"
+        android:layout_height="80dp"
+        android:layout_below="@+id/textView3"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="100dp"
+        android:background="@drawable/rectangledb"
+        android:text="Back"
+        android:textColor="@color/white"
+        android:textSize="35dp" />
 
 
 </RelativeLayout>

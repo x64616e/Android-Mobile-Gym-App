@@ -7,23 +7,22 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+public class ReportActivity extends AppCompatActivity {
 
     private Button button;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        button = (Button) findViewById(R.id.login_button);
+        setContentView(R.layout.report);
+        button = (Button) findViewById(R.id.reportDoneButton);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               openLandingScreen();
+                backToLanding();
             }
         });
     }
-    public void openLandingScreen(){
+    public void backToLanding(){
         Intent intent = new Intent(this,landing.class);
         startActivity(intent);
     }
-
 }

@@ -7,23 +7,22 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+public class CalendarActivity extends AppCompatActivity {
 
-    private Button button;
+    private Button button1;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        button = (Button) findViewById(R.id.login_button);
-        button.setOnClickListener(new View.OnClickListener() {
+        setContentView(R.layout.calendar);
+        button1 = (Button) findViewById(R.id.backButtonCalendar);
+        button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               openLandingScreen();
+                backToLanding();
             }
         });
     }
-    public void openLandingScreen(){
+    public void backToLanding(){
         Intent intent = new Intent(this,landing.class);
         startActivity(intent);
     }
-
 }
