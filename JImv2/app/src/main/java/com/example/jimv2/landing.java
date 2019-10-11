@@ -16,7 +16,7 @@ public class landing extends AppCompatActivity {
     private Button statisticsButton;
     private ImageButton userIconButton;
 
-    private Button addExercise;
+    private Button workoutButton;
     private Button excercise1;
     private ImageButton leftArrow;
     private ImageButton rightArrow;
@@ -40,6 +40,14 @@ public class landing extends AppCompatActivity {
             }
         });
 
+        workoutButton = (Button) findViewById(R.id.workoutButtonLanding);
+        workoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openWorkoutScreen();
+            }
+        });
+
         userIconButton = (ImageButton) findViewById(R.id.userIcon);
         userIconButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,21 +57,26 @@ public class landing extends AppCompatActivity {
         });
 
 
-
     }
 
     public void openCalendarScreen(){
         Intent intent = new Intent(this,CalendarActivity.class);
         startActivity(intent);
     }
+
     public void openStatisticsScreen(){
         Intent intent = new Intent(this,ReportActivity.class);
         startActivity(intent);
     }
+
     public void openProfileScreen(){
         Intent intent = new Intent(this,ProfileActivity.class);
         startActivity(intent);
     }
 
+    public void openWorkoutScreen(){
+        Intent intent = new Intent(this,WorkoutActivity.class);
+        startActivity(intent);
+    }
 
 }

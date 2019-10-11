@@ -16,11 +16,11 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginStart="38dp"
-        android:layout_marginLeft="38dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="199dp"
-        android:layout_marginRight="199dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="217dp"
+        android:layout_marginRight="217dp"
         android:background="@drawable/rectangle"
         android:baselineAligned="false"
         android:clickable="true"
@@ -28,7 +28,6 @@
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="32dp" />
-
 
     <ImageButton
         android:id="@+id/leftArrow"
@@ -38,9 +37,10 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_centerVertical="true"
-        android:layout_marginStart="-11dp"
-        android:layout_marginLeft="-11dp"
-        android:layout_marginTop="293dp"
+        android:layout_marginStart="-3dp"
+        android:layout_marginLeft="-3dp"
+        android:layout_marginTop="292dp"
+        android:background="@android:color/transparent"
         android:clickable="true"
         app:srcCompat="@mipmap/left2_arrow" />
 
@@ -51,12 +51,12 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="290dp"
-        android:layout_marginEnd="-12dp"
-        android:layout_marginRight="-12dp"
+        android:layout_marginTop="293dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginRight="3dp"
+        android:background="@android:color/transparent"
         android:clickable="true"
         app:srcCompat="@mipmap/right2_arrow" />
-
 
     <TextView
         android:id="@+id/exercise_list"
@@ -64,7 +64,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerInParent="true"
-        android:layout_marginTop="183dp"
+        android:layout_marginTop="162dp"
         android:height="280dp"
         android:background="@drawable/rectangle"
         android:textColor="@color/white"
@@ -105,13 +105,17 @@
         android:text="(+)"
         android:textColor="@color/white"
         android:textSize="20sp" />
+
     <Button
         android:id="@+id/statistics_button"
         android:layout_width="140dp"
         android:layout_height="60dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="80dp"
+        android:layout_marginEnd="41dp"
+        android:layout_marginRight="41dp"
+        android:layout_marginBottom="19dp"
         android:background="@drawable/rectangledb"
         android:gravity="center"
         android:text="Statistics"
@@ -119,24 +123,31 @@
         android:textSize="20sp" />
 
     <Button
-        android:id="@+id/exercise1"
+        android:id="@+id/workoutButtonLanding"
         android:layout_width="140dp"
         android:layout_height="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="160dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginLeft="34dp"
+        android:layout_marginBottom="92dp"
         android:background="@drawable/rectangledb"
         android:gravity="center"
-        android:text="Exercise1"
+        android:text="Workout"
         android:textColor="@color/white"
         android:textSize="20sp" />
+
     <Button
         android:id="@+id/calendar_button"
         android:layout_width="140dp"
         android:layout_height="60dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="38dp"
+        android:layout_marginRight="38dp"
+        android:layout_marginBottom="92dp"
         android:background="@drawable/rectangledb"
         android:gravity="center"
         android:text="Calendar"
@@ -145,19 +156,19 @@
 
     <EditText
         android:id="@+id/date_button"
-        android:clickable="true"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="35dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="144dp"
+        android:layout_marginTop="120dp"
         android:background="@drawable/rectangledb"
+        android:clickable="true"
         android:ems="10"
         android:inputType="date"
         android:text="10/31/2019"
-        android:textSize="20dp"
         android:textAlignment="center"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        android:textSize="20dp" />
 
     <ImageButton
         android:id="@+id/userIcon"
@@ -170,7 +181,7 @@
         android:layout_alignParentRight="true"
         android:layout_marginStart="250dp"
         android:layout_marginLeft="250dp"
-        android:layout_marginTop="19dp"
+        android:layout_marginTop="13dp"
         android:layout_marginEnd="17dp"
         android:layout_marginRight="17dp"
         android:clickable="true"

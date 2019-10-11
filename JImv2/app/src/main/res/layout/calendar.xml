@@ -26,8 +26,10 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
         android:layout_marginStart="2dp"
@@ -38,22 +40,32 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/backButtonCalendar"
-        android:layout_width="380dp"
-        android:layout_height="80dp"
-        android:layout_below="@+id/textView3"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
+        android:id="@+id/planRoutineButton"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="100dp"
-        android:background="@drawable/rectangledb"
-        android:text="Back"
+        android:layout_gravity="center"
+        android:layout_marginBottom="190dp"
+        android:background="@drawable/rectangle"
+        android:gravity="center"
+        android:text="Plan Routine"
         android:textColor="@color/white"
-        android:textSize="35dp" />
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/backButtonCalendar"
+        android:layout_width="380dp"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginBottom="60dp"
+        android:background="@drawable/rectangledb"
+        android:gravity="center"
+        android:text="Done"
+        android:textColor="@color/white"
+        android:textSize="35sp" />
 
 
 </RelativeLayout>

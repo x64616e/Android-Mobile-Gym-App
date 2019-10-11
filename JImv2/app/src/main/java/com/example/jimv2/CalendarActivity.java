@@ -10,6 +10,7 @@ import android.widget.Button;
 public class CalendarActivity extends AppCompatActivity {
 
     private Button doneButton;
+    private Button planRoutine;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.calendar);
@@ -20,9 +21,21 @@ public class CalendarActivity extends AppCompatActivity {
                 backToLanding();
             }
         });
+
+        planRoutine = (Button) findViewById(R.id.planRoutineButton);
+        planRoutine.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openPlanRoutine();
+            }
+        });
     }
     public void backToLanding(){
         Intent intent = new Intent(this,landing.class);
+        startActivity(intent);
+    }
+    public void openPlanRoutine(){
+        Intent intent = new Intent(this,PlanRoutineActivity.class);
         startActivity(intent);
     }
 }
