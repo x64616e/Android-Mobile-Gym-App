@@ -9,12 +9,12 @@ import android.widget.Button;
 
 public class CalendarActivity extends AppCompatActivity {
 
-    private Button button1;
+    private Button doneButton;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.calendar);
-        button1 = (Button) findViewById(R.id.backButtonCalendar);
-        button1.setOnClickListener(new View.OnClickListener() {
+        doneButton = (Button) findViewById(R.id.backButtonCalendar);
+        doneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 backToLanding();
