@@ -11,6 +11,7 @@ import android.widget.ImageView;
 public class WorkoutActivity extends AppCompatActivity {
 
     private Button doneButton;
+    private Button addExercise;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.workout2);
@@ -30,6 +31,14 @@ public class WorkoutActivity extends AppCompatActivity {
                 backToLanding();
             }
         });
+
+        addExercise = (Button) findViewById(R.id.addExerciseButton);
+        addExercise.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addExercise();
+            }
+        });
     }
 
     public void openHearRate(){
@@ -39,6 +48,10 @@ public class WorkoutActivity extends AppCompatActivity {
 
     public void backToLanding(){
         Intent intent = new Intent(this,landing.class);
+        startActivity(intent);
+    }
+    public void addExercise(){
+        Intent intent = new Intent(this,AddExcercise.class);
         startActivity(intent);
     }
 }

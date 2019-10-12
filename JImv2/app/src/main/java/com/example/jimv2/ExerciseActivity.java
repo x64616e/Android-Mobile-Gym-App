@@ -7,13 +7,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class CalculatorActivity extends AppCompatActivity {
+public class ExerciseActivity extends AppCompatActivity {
 
     private Button doneButton;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.calculator);
-//        doneButton = (Button) findViewById(R.id.calculator_button);
+        setContentView(R.layout.exercise);
+//        doneButton = (Button) findViewById(R.id.backButtonCalendar);
 //        doneButton.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -21,6 +21,7 @@ public class CalculatorActivity extends AppCompatActivity {
 //            }
 //        });
     }
+
 //    public void backToLanding(){
 //        Intent intent = new Intent(this,landing.class);
 //        startActivity(intent);

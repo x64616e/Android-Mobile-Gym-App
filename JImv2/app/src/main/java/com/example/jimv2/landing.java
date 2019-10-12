@@ -18,6 +18,8 @@ public class landing extends AppCompatActivity {
 
     private Button workoutButton;
     private Button excercise1;
+    private Button quickAddExer;
+    private Button calculatorButton;
     private ImageButton leftArrow;
     private ImageButton rightArrow;
 
@@ -48,6 +50,30 @@ public class landing extends AppCompatActivity {
             }
         });
 
+        calculatorButton = (Button) findViewById(R.id.calculator_button);
+        calculatorButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openCalculatorScreen();
+            }
+        });
+
+        excercise1 = (Button) findViewById(R.id.excerciseList1);
+        excercise1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openExercise();
+            }
+        });
+
+        quickAddExer = (Button) findViewById(R.id.quickAddExerciseButton);
+        quickAddExer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openAddExercise();
+            }
+        });
+
         userIconButton = (ImageButton) findViewById(R.id.userIcon);
         userIconButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,9 +100,20 @@ public class landing extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void openCalculatorScreen(){
+        Intent intent = new Intent(this,CalculatorActivity.class);
+        startActivity(intent);
+    }
     public void openWorkoutScreen(){
         Intent intent = new Intent(this,WorkoutActivity.class);
         startActivity(intent);
     }
-
+    public void openAddExercise(){
+        Intent intent = new Intent(this,AddExcercise.class);
+        startActivity(intent);
+    }
+    public void openExercise(){
+        Intent intent = new Intent(this,ExerciseActivity.class);
+        startActivity(intent);
+    }
 }
