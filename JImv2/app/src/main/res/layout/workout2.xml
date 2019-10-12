@@ -112,7 +112,7 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/exercise_card2"
+        android:id="@+id/exercise_card4"
         android:layout_width="145dp"
         android:layout_height="145dp"
         android:layout_alignParentStart="true"
@@ -125,16 +125,28 @@
         android:background="@drawable/rectangle_border_sb">
 
 
-
         <TextView
             android:id="@+id/exercise_name4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:text=""
+            android:text="Pile Squat"
             android:textColor="@color/dark_blue2"
             android:textSize="20dp"
             android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/exercise_pic4"
+            android:layout_width="99dp"
+            android:layout_height="108dp"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_marginBottom="4dp"
+            android:src="@drawable/ic_pile_squat_1" />
 
     </RelativeLayout>
 

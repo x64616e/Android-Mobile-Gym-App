@@ -105,9 +105,16 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:text="Squats"
+            android:text="Tricep Kickback"
             android:textSize="20dp"
             android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/exercise_pic3"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:layout_margin="4dp"
+            android:src="@drawable/ic_triceps_kickback_2" />
 
         <CheckBox
             android:id="@+id/checkBox1"
@@ -118,6 +125,47 @@
             android:layout_centerVertical="true"
             android:layout_marginEnd="10dp"
             android:layout_marginRight="10dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/exercise_card4"
+        android:layout_width="380dp"
+        android:layout_height="80dp"
+        android:layout_below="@+id/exercise_card2"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="79dp">
+
+        <CheckBox
+            android:id="@+id/checkBox4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp" />
+
+        <ImageView
+            android:id="@+id/exercise_pic4"
+            android:layout_width="87dp"
+            android:layout_height="76dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_marginBottom="4dp"
+            android:src="@drawable/ic_pile_squat_1" />
+
+        <TextView
+            android:id="@+id/exercise_name4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="Pile Squat"
+            android:textSize="20dp"
+            android:textStyle="bold" />
     </RelativeLayout>
 
     <SearchView
