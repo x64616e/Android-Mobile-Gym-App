@@ -41,6 +41,7 @@
 
     </RelativeLayout>
 
+
     <RelativeLayout
         android:id="@+id/exercise_card2"
         android:layout_width="145dp"
@@ -48,10 +49,12 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:layout_marginStart="200dp"
+        android:layout_marginStart="231dp"
+
+        android:layout_marginLeft="231dp"
 
         android:layout_marginTop="50dp"
-
+        android:layout_marginRight="35dp"
         android:background="@drawable/rectangle_border_sb">
 
         <ImageView
@@ -74,7 +77,6 @@
             android:textStyle="bold" />
 
     </RelativeLayout>
-
 
     <RelativeLayout
         android:id="@+id/exercise_card3"
@@ -118,22 +120,14 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:layout_marginStart="200dp"
+        android:layout_marginStart="231dp"
+
+        android:layout_marginLeft="231dp"
 
         android:layout_marginTop="210dp"
-
+        android:layout_marginRight="35dp"
         android:background="@drawable/rectangle_border_sb">
 
-
-        <TextView
-            android:id="@+id/exercise_name4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:text="Pile Squat"
-            android:textColor="@color/dark_blue2"
-            android:textSize="20dp"
-            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/exercise_pic4"
@@ -147,6 +141,16 @@
             android:layout_marginRight="4dp"
             android:layout_marginBottom="4dp"
             android:src="@drawable/ic_pile_squat_1" />
+
+        <TextView
+            android:id="@+id/exercise_name4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Pile Squat"
+            android:textColor="@color/dark_blue2"
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
     </RelativeLayout>
 
