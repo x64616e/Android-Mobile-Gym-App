@@ -10,7 +10,7 @@
         android:layout_width="180dp"
         android:layout_height="52dp"
         android:background="@drawable/rectangle"
-        android:text="Back"
+        android:text="Done"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="32dp"

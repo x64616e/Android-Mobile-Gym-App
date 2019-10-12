@@ -1,31 +1,31 @@
 package com.example.jimv2;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class PlanRoutineActivity extends AppCompatActivity {
+public class HeartRateActivity extends AppCompatActivity {
 
 
     private Button doneButton;
+
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.plan_routine);
+        setContentView(R.layout.heartrate);
 
-        doneButton = (Button) findViewById(R.id.planRoutineDone);
+        doneButton = (Button) findViewById(R.id.heartRateDone);
         doneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                backToCalendar();
+                backToLanding();
             }
         });
     }
-    public void backToCalendar(){
-        Intent intent = new Intent(this,CalendarActivity.class);
+
+    public void backToLanding(){
+        Intent intent = new Intent(this,WorkoutActivity.class);
         startActivity(intent);
     }
 }
