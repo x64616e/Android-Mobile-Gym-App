@@ -13,16 +13,16 @@ public class CalculatorActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.calculator);
-//        doneButton = (Button) findViewById(R.id.calculator_button);
-//        doneButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                backToLanding();
-//            }
-//        });
+        doneButton = (Button) findViewById(R.id.calcDoneButton);
+        doneButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                backToLanding();
+            }
+        });
     }
-//    public void backToLanding(){
-//        Intent intent = new Intent(this,landing.class);
-//        startActivity(intent);
-//    }
+    public void backToLanding(){
+        Intent intent = new Intent(this,landing.class);
+        startActivity(intent);
+    }
 }
