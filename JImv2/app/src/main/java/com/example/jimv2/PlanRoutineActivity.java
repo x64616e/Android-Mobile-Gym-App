@@ -20,12 +20,12 @@ public class PlanRoutineActivity extends AppCompatActivity {
         doneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                backToCalendar();
+                finish();
             }
         });
     }
-    public void backToCalendar(){
-        Intent intent = new Intent(this,CalendarActivity.class);
-        startActivity(intent);
-    }
+    //public void backToCalendar(){
+    //    Intent intent = new Intent(this,CalendarActivity.class);
+    //    startActivity(intent);
+    //}
 }

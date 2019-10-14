@@ -5,6 +5,101 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <RelativeLayout
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView3"
+        android:layout_marginTop="0dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/rectangle_border_sb"
+        android:layout_margin="10dp"
+        android:id="@+id/card1">
+
+        <TextView
+            android:id="@+id/exercise_name1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Pile Squats"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/exercise_name1"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="0dp"
+            android:text="  Pile Squats \n\t Sets = 5 \n\t Reps = 10 \n\t Weight = 250lbs "
+            android:textSize="30sp"
+            android:layout_marginBottom="10dp"/>
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="143dp"
+            android:layout_height="145dp"
+            android:layout_alignTop="@id/textView8"
+            android:layout_toEndOf="@+id/textView8"
+            android:layout_toRightOf="@+id/textView8"
+            android:layout_marginTop="0dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            app:srcCompat="@drawable/ic_pile_squat_1"
+            android:layout_marginBottom="10dp"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/card2"
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/card1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rectangle_border_sb">
+
+        <TextView
+            android:id="@+id/exercise_name2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Leg Raises"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/exercise_name2"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"
+            android:text="  Pile Squats \n\t Sets = 20 \n\t Reps = 10"
+            android:textSize="30sp" />
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="143dp"
+            android:layout_height="145dp"
+            android:layout_alignTop="@id/textView10"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="0dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+
+            app:srcCompat="@drawable/ic_leg_raises_1" />
+
+    </RelativeLayout>
+
+
     <EditText
         android:id="@+id/editText"
         android:layout_width="match_parent"
@@ -18,50 +113,6 @@
         android:textSize="30sp" />
 
     <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView3"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginStart="30dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/rectangle_border_sb"
-        android:text="  Pile Squats \n\t Sets = 5 \n\t Reps = 10 \n\t Weight = 250lbs "
-        android:textSize="30sp"
-        android:layout_gravity="center_horizontal"
-        />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView8"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginStart="30dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/rectangle_border_sb"
-        android:text="  Squats \n\t Sets = 5 \n\t Reps = 10 \n\t Weight = 250lbs "
-        android:textSize="30sp" />
-
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView9"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginStart="30dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/rectangle_border_sb"
-        android:text="  Squats \n\t Sets = 5 \n\t Reps = 10 \n\t Weight = 250lbs "
-        android:textSize="30sp" />
-
-    <TextView
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -70,34 +121,10 @@
         android:gravity="center"
         android:text="Leg Day"
         android:textSize="40sp"
-        android:textStyle="bold"
+        android:textStyle="bold|underline"
         android:textColor="#000000" />
 
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="143dp"
-        android:layout_height="145dp"
-        android:layout_alignTop="@id/textView8"
-        android:layout_toEndOf="@+id/textView8"
-        android:layout_toRightOf="@+id/textView8"
-        app:srcCompat="@drawable/ic_pile_squat_1" />
 
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="wrap_content"
-        android:layout_height="145dp"
-        android:layout_alignTop="@id/textView9"
-        android:layout_toEndOf="@+id/textView9"
-        android:layout_toRightOf="@+id/textView9"
-        app:srcCompat="@drawable/ic_leg_press_2_1024x670" />
 
-    <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="wrap_content"
-        android:layout_height="145dp"
-        android:layout_alignTop="@id/textView10"
-        android:layout_toEndOf="@+id/textView10"
-        android:layout_toRightOf="@+id/textView10"
-        app:srcCompat="@drawable/ic_leg_raises_1" />
 
 </RelativeLayout>
