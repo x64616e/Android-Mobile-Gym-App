@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CompletedDayActivity"></activity>
+        <activity
+            android:name=".PlanWorkoutActivity"
+            android:label="@string/title_activity_plan_workout"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".CompletedDayActivity" />
         <activity android:name=".ExerciseActivity" />
         <activity android:name=".AddExcercise" />
         <activity android:name=".CalculatorActivity" />

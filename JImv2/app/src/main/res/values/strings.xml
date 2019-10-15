@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">JImv2</string>
+    <string name="title_activity_plan_workout">PlanWorkoutActivity</string>
 </resources>
 
 
