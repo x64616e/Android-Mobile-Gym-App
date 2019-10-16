@@ -22,6 +22,7 @@ public class landing extends AppCompatActivity {
     private Button calculatorButton;
     private ImageButton leftArrow;
     private ImageButton rightArrow;
+    private Button friendsButton;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,6 +75,15 @@ public class landing extends AppCompatActivity {
             }
         });
 
+        friendsButton = (Button) findViewById(R.id.friends_button);
+        friendsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openFriends();
+            }
+        });
+
+
 //        quickAddExer = (Button) findViewById(R.id.quickAddExerciseButton);
 //        quickAddExer.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -92,6 +102,7 @@ public class landing extends AppCompatActivity {
 
 
     }
+
 
     public void openCalendarScreen(){
         Intent intent = new Intent(this,CalendarActivity.class);
@@ -130,6 +141,10 @@ public class landing extends AppCompatActivity {
     }
     public void forwardDay(){
         Intent intent = new Intent(this,landing3.class);
+        startActivity(intent);
+    }
+    public void openFriends(){
+        Intent intent = new Intent(this,FriendsActivity.class);
         startActivity(intent);
     }
 }

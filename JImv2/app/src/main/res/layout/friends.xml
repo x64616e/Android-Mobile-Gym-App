@@ -7,7 +7,7 @@
     android:orientation="vertical">
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/doneButton"
         android:layout_width="180dp"
         android:layout_height="60dp"
         android:layout_alignParentEnd="true"
@@ -19,7 +19,7 @@
         android:layout_marginBottom="25dp"
         android:background="@drawable/rectangle"
         android:gravity="center"
-        android:text="Add Friend"
+        android:text="Done"
         android:textColor="@color/white"
         android:textSize="20sp" />
 
