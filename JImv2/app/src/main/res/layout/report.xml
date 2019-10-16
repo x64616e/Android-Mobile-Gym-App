@@ -104,7 +104,7 @@
             android:textSize="30sp" />
 
         <ImageView
-            android:id="@+id/imageView5"
+            android:id="@+id/graphImage"
             android:layout_width="wrap_content"
             android:layout_height="277dp"
             android:layout_alignParentEnd="true"
@@ -113,7 +113,10 @@
             android:layout_marginEnd="0dp"
             android:layout_marginRight="0dp"
             android:layout_marginBottom="354dp"
-            tools:srcCompat="@mipmap/linegraph" />
+            android:background="@android:color/transparent"
+            android:visibility="visible"
+            app:srcCompat="@drawable/linegraph"
+            tools:visibility="visible" />
 
     </RelativeLayout>
 
@@ -129,16 +132,16 @@
         android:text="Squats"
         android:textSize="30sp" />
 
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="wrap_content"
-        android:layout_height="277dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="0dp"
-        android:layout_marginRight="0dp"
-        android:layout_marginBottom="354dp"
-        tools:srcCompat="@mipmap/linegraph" />
+<!--    <ImageView-->
+<!--        android:id="@+id/graphImage"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="277dp"-->
+<!--        android:layout_alignParentEnd="true"-->
+<!--        android:layout_alignParentRight="true"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_marginEnd="0dp"-->
+<!--        android:layout_marginRight="0dp"-->
+<!--        android:layout_marginBottom="354dp"-->
+<!--        tools:srcCompat="@mipmap/linegraph" />-->
 
 </RelativeLayout>
