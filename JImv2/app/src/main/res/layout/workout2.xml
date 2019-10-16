@@ -13,6 +13,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_marginStart="25dp"
+        android:layout_marginLeft="25dp"
         android:layout_marginTop="50dp"
         android:background="@drawable/rectangle_border_sb">
 
@@ -27,6 +28,7 @@
             android:layout_marginEnd="4dp"
             android:layout_marginRight="4dp"
             android:layout_marginBottom="4dp"
+            android:clickable="true"
             android:src="@drawable/ic_alternate_bicep_curl_1" />
 
         <TextView
@@ -50,9 +52,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_marginStart="231dp"
-
         android:layout_marginLeft="231dp"
-
         android:layout_marginTop="50dp"
         android:layout_marginRight="35dp"
         android:background="@drawable/rectangle_border_sb">
@@ -64,6 +64,7 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:layout_margin="4dp"
+            android:clickable="true"
             android:src="@drawable/ic_leg_press_2_1024x670" />
 
         <TextView
@@ -85,6 +86,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_marginStart="25dp"
+        android:layout_marginLeft="25dp"
         android:layout_marginTop="210dp"
         android:background="@drawable/rectangle_border_sb">
 
@@ -99,6 +101,7 @@
             android:layout_marginEnd="4dp"
             android:layout_marginRight="4dp"
             android:layout_marginBottom="4dp"
+            android:clickable="true"
             android:src="@drawable/ic_leg_raises_1" />
 
         <TextView
@@ -121,9 +124,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_marginStart="231dp"
-
         android:layout_marginLeft="231dp"
-
         android:layout_marginTop="210dp"
         android:layout_marginRight="35dp"
         android:background="@drawable/rectangle_border_sb">
@@ -140,6 +141,7 @@
             android:layout_marginEnd="4dp"
             android:layout_marginRight="4dp"
             android:layout_marginBottom="4dp"
+            android:clickable="true"
             android:src="@drawable/ic_pile_squat_1" />
 
         <TextView

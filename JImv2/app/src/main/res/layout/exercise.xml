@@ -9,16 +9,16 @@
 
         <RelativeLayout
             android:id="@+id/exercise_card2"
-            android:layout_width="177dp"
-            android:layout_height="179dp"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
-            android:layout_marginStart="190dp"
-            android:layout_marginLeft="190dp"
-            android:layout_marginTop="19dp"
-            android:layout_marginRight="195dp"
+            android:layout_marginStart="120dp"
+            android:layout_marginLeft="120dp"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
             android:background="@drawable/rectangle_border_sb">
 
                 <ImageView
@@ -32,7 +32,6 @@
                     android:layout_marginEnd="4dp"
                     android:layout_marginRight="4dp"
                     android:layout_marginBottom="4dp"
-                    android:contentDescription="TODO"
                     android:src="@drawable/ic_leg_press_2_1024x670" />
 
                 <TextView
@@ -50,9 +49,11 @@
 
         <EditText
             android:id="@+id/editText4"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="242dp"
+            android:layout_below="@+id/editText2"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="40dp"
             android:ems="6"
             android:hint="Sets"
             android:textAlignment="center"
@@ -63,14 +64,12 @@
             app:layout_constraintTop_toBottomOf="@+id/editText2" />
 
         <EditText
-            android:id="@+id/editText"
-            android:layout_width="143dp"
+            android:id="@+id/editText3"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="242dp"
-            android:layout_marginEnd="70dp"
-            android:layout_marginRight="70dp"
+            android:layout_below="@+id/editText2"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="220dp"
             android:ems="6"
             android:hint="Weight"
             android:textAlignment="center"
@@ -79,12 +78,13 @@
             app:layout_constraintHorizontal_bias="0.509"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editText2" />
-
         <EditText
             android:id="@+id/editText2"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="172dp"
+            android:layout_below="@+id/exercise_card2"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="40dp"
             android:ems="6"
             android:hint="Reps"
             android:textAlignment="center"
@@ -95,73 +95,70 @@
             app:layout_constraintTop_toTopOf="parent" />
 
 
+        <Button
+            android:id="@+id/exerciseDoneButton"
+            android:layout_width="180dp"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="180dp"
+            android:text="Done"
+            android:background="@drawable/rectangle"
+            android:textSize="20sp"/>
+
+        <Button
+            android:id="@+id/weightCalcButton"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/exercise_card2"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="-80dp"
+            android:layout_marginEnd="44dp"
+            android:layout_marginRight="44dp"
+            android:layout_marginBottom="-75dp"
+            android:background="@drawable/rectangle"
+            android:text="Weight Calculator"
+            android:textSize="20sp" />
+
         <TextView
-            android:id="@+id/editText1"
+            android:id="@+id/editText"
             android:layout_width="match_parent"
             android:layout_height="140dp"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="196dp"
-            android:background="@color/medium_blue"
+            android:layout_marginBottom="0dp"
             android:inputType="time"
             android:text=" Rest Timer"
             android:textColor="@color/white"
+            android:background="@color/medium_blue"
             android:textSize="30sp" />
 
         <TextView
             android:id="@+id/textView2"
-            android:layout_width="166dp"
-            android:layout_height="91dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentBottom="true"
             android:layout_marginStart="23dp"
             android:layout_marginLeft="23dp"
-            android:layout_marginBottom="216dp"
+            android:layout_marginBottom="1dp"
             android:text="0:30"
             android:textColor="@color/white"
             android:textSize="80sp" />
-
-        <Button
-            android:id="@+id/calendar_button"
-            android:layout_width="140dp"
-            android:layout_height="60dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginEnd="38dp"
-            android:layout_marginRight="38dp"
-            android:layout_marginBottom="232dp"
-            android:background="@drawable/rectangledb"
-            android:gravity="center"
-            android:text="Start/Stop"
-            android:textColor="@color/white"
-            android:textSize="20sp" />
-
-
         <Button
             android:id="@+id/button2"
-            android:layout_width="180dp"
-            android:layout_height="60dp"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="60dp"
-            android:text="Done/Skip"
-            android:background="@drawable/rectangle"
-            android:textSize="20sp"/>
-
-        <Button
-            android:id="@+id/button3"
             android:layout_width="140dp"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/exercise_card2"
+            android:layout_height="60dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_marginEnd="71dp"
-            android:layout_marginRight="71dp"
-            android:layout_marginBottom="-45dp"
-            android:background="@drawable/rectangle"
-            android:text="Weight Calculator"
-            android:textSize="20sp" />
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="50dp"
+            android:layout_marginRight="1dp"
+            android:layout_marginBottom="33dp"
+            android:text="Start/Stop"
+            android:background="@color/white"
+            android:textSize="20sp"/>
 
 </RelativeLayout>
 

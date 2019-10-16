@@ -16,6 +16,39 @@ public class WorkoutActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.workout2);
 
+        ImageView mImageView1 = (ImageView)findViewById(R.id.exercise_pic2);
+        mImageView1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openExercise();
+            }
+        });
+
+        ImageView mImageView2 = (ImageView)findViewById(R.id.exercise_pic3);
+        mImageView2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openExercise();
+            }
+        });
+
+        ImageView mImageView3 = (ImageView)findViewById(R.id.exercise_pic4);
+        mImageView3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openExercise();
+            }
+        });
+
+        ImageView mImageView4 = (ImageView)findViewById(R.id.exercise_pic1);
+        mImageView4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openExercise();
+            }
+        });
+
+
         ImageView mImageView = (ImageView)findViewById(R.id.heartIcon);
         mImageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,6 +74,10 @@ public class WorkoutActivity extends AppCompatActivity {
         });
     }
 
+    public void openExercise(){
+        Intent intent = new Intent(this,ExerciseActivity.class);
+        startActivity(intent);
+    }
     public void openHearRate(){
         Intent intent = new Intent(this,HeartRateActivity.class);
         startActivity(intent);
