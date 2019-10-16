@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-public class landing extends AppCompatActivity {
+public class landing3 extends AppCompatActivity {
 
 
     private Button calendarButton;
@@ -25,7 +25,7 @@ public class landing extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.landing);
+        setContentView(R.layout.landing3);
         calendarButton = (Button) findViewById(R.id.calendar_button);
         calendarButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -125,7 +125,7 @@ public class landing extends AppCompatActivity {
         startActivity(intent);
     }
     public void previousDay(){
-        Intent intent = new Intent(this,landing2.class);
+        Intent intent = new Intent(this,landing.class);
         startActivity(intent);
     }
     public void forwardDay(){
