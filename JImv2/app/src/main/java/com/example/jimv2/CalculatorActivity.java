@@ -22,7 +22,6 @@ public class CalculatorActivity extends AppCompatActivity {
         });
     }
     public void backToLanding(){
-        Intent intent = new Intent(this,landing.class);
-        startActivity(intent);
+    finish();
     }
 }

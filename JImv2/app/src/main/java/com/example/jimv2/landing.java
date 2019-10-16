@@ -50,13 +50,6 @@ public class landing extends AppCompatActivity {
             }
         });
 
-        calculatorButton = (Button) findViewById(R.id.calculator_button);
-        calculatorButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openCalculatorScreen();
-            }
-        });
 
         excercise1 = (Button) findViewById(R.id.excerciseList1);
         excercise1.setOnClickListener(new View.OnClickListener() {
@@ -66,13 +59,13 @@ public class landing extends AppCompatActivity {
             }
         });
 
-        quickAddExer = (Button) findViewById(R.id.quickAddExerciseButton);
-        quickAddExer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openAddExercise();
-            }
-        });
+//        quickAddExer = (Button) findViewById(R.id.quickAddExerciseButton);
+//        quickAddExer.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                openAddExercise();
+//            }
+//        });
 
         userIconButton = (ImageButton) findViewById(R.id.userIcon);
         userIconButton.setOnClickListener(new View.OnClickListener() {
