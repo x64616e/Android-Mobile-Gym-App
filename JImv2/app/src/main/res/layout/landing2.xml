@@ -77,9 +77,9 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="170dp"
         android:background="@android:color/transparent"
-        android:gravity="center"
-        android:text="Bicep Curl"
         android:clickable="true"
+        android:gravity="center"
+        android:text="Deadlift"
         android:textColor="@color/white"
         android:textSize="20sp" />
 
@@ -91,7 +91,7 @@
         android:layout_marginTop="215dp"
         android:background="@android:color/transparent"
         android:gravity="center"
-        android:text="Leg Press"
+        android:text="Power Clean"
         android:textColor="@color/white"
         android:textSize="20sp" />
     <!--    <Button-->
