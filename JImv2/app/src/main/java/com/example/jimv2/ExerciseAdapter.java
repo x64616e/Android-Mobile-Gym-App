@@ -48,4 +48,9 @@ public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.Exerci
     public int getItemCount() {
         return mExerciseList.size();
     }
+
+    public void filterList(ArrayList<ExerciseObject> filteredList){
+        mExerciseList = filteredList;
+        notifyDataSetChanged();
+    }
 }
