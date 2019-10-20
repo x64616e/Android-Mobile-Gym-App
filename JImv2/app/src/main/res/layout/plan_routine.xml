@@ -41,6 +41,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
         android:text="Monday"
+        android:textColor="@color/black"
         android:textStyle="bold"
         android:textSize="20dp"/>
 
@@ -52,7 +53,8 @@
         android:layout_marginBottom="30dp"
         android:width="360dp"
         android:layout_centerHorizontal="true"
-        android:text="Add Days to Workout" />
+        android:text="Add Days to Workout"
+        android:textSize="20dp"/>
 
     <Button
         android:id="@+id/legDay"
@@ -61,9 +63,9 @@
         android:layout_below="@+id/textView2"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="0dp"
-        android:background="@drawable/round_button"
+        android:background="@drawable/rectangle"
         android:text="Leg Day"
-        android:textSize="20dp" />
+        android:textSize="25dp" />
 
     <TextView
         android:id="@+id/textView3"
@@ -76,6 +78,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="160dp"
         android:text="Wednesday"
+        android:textColor="@color/black"
         android:textSize="20dp"
         android:textStyle="bold" />
 
@@ -86,9 +89,9 @@
         android:layout_below="@+id/textView3"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="0dp"
-        android:background="@drawable/round_button"
+        android:background="@drawable/rectangle"
         android:text="Chest Day"
-        android:textSize="20dp" />
+        android:textSize="25dp" />
 
 
     <!-- <android.support.v7.widget.RecyclerView
