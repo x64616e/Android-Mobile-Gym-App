@@ -1,6 +1,7 @@
 package com.example.jimv2;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
@@ -9,15 +10,16 @@ import java.util.ArrayList;
 import android.content.Intent;
 import android.view.View;
 
-public class AddExcercise extends AppCompatActivity {
+public class WorkoutActivityV2 extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
 
     private Button doneButton;
+    private Button addExercise;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.exerciseaddv2);
+        setContentView(R.layout.workoutv3);
         ArrayList<ExerciseObject> exerciseList = new ArrayList<>();
 
         exerciseList.add(new ExerciseObject(R.drawable.ic_pile_squat_1, "Pile Squat",1));
@@ -37,21 +39,34 @@ public class AddExcercise extends AppCompatActivity {
         exerciseList.add(new ExerciseObject(R.drawable.ic_decline_crunch_2, "Decline Crunch",15));
 
 
-        mRecyclerView = findViewById(R.id.recyclerView1); // view
+        mRecyclerView = findViewById(R.id.exerciseRecycleView); // view
         mRecyclerView.setHasFixedSize(true);
-        layoutManager = new LinearLayoutManager(this);
-        mAdapter = new ExerciseAdapter(exerciseList);
+        layoutManager = new GridLayoutManager(this,2);
+        mAdapter = new WorkoutAdapter(exerciseList);
         mRecyclerView.setLayoutManager(layoutManager);
         mRecyclerView.setAdapter(mAdapter);
 
-        doneButton = (Button) findViewById(R.id.doneButtonAddExercise);
+        doneButton = (Button) findViewById(R.id.doneButtonWorkout);
         doneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                backToLanding();
+            }
+        });
+
+        addExercise = (Button) findViewById(R.id.addExerciseButton);
+        addExercise.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addExercise();
             }
         });
     }
-
-
+    public void backToLanding(){
+        finish();
+    }
+    public void addExercise(){
+        Intent intent = new Intent(this,AddExcercise.class);
+        startActivity(intent);
+    }
 }

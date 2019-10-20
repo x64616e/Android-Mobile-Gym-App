@@ -26,9 +26,11 @@
         <activity android:name=".PlanRoutineActivity" />
         <activity android:name=".ReportActivity" />
         <activity android:name=".CalendarActivity" />
+        <activity android:name=".WorkoutActivityV2"/>
         <activity android:name=".landing" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".MainActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
