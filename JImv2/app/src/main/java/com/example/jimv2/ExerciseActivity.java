@@ -36,8 +36,7 @@ public class ExerciseActivity extends AppCompatActivity {
 
     }
     public void backToWorkout(){
-        Intent intent = new Intent(this,WorkoutActivity.class);
-        startActivity(intent);
+    finish();
     }
     public void openCalculatorScreen(){
         Intent intent = new Intent(this,CalculatorActivity.class);

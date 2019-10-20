@@ -12,7 +12,7 @@ import android.view.View;
 
 public class WorkoutActivityV2 extends AppCompatActivity {
     private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
+    private WorkoutAdapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
 
     private Button doneButton;
@@ -20,7 +20,7 @@ public class WorkoutActivityV2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.workoutv3);
-        ArrayList<ExerciseObject> exerciseList = new ArrayList<>();
+        final ArrayList<ExerciseObject> exerciseList = new ArrayList<>();
 
         exerciseList.add(new ExerciseObject(R.drawable.ic_pile_squat_1, "Pile Squat",1));
         exerciseList.add(new ExerciseObject(R.drawable.ic_alternate_bicep_curl_1, "Curl",2));
@@ -45,6 +45,13 @@ public class WorkoutActivityV2 extends AppCompatActivity {
         mAdapter = new WorkoutAdapter(exerciseList);
         mRecyclerView.setLayoutManager(layoutManager);
         mRecyclerView.setAdapter(mAdapter);
+        mAdapter.setOnItemClickListner(new WorkoutAdapter.OnClickListner() {
+            @Override
+            public void onItemClick(int position) {
+                exerciseList.get(position);
+                launchExercise();
+            }
+        });
 
         doneButton = (Button) findViewById(R.id.doneButtonWorkout);
         doneButton.setOnClickListener(new View.OnClickListener() {
@@ -69,4 +76,9 @@ public class WorkoutActivityV2 extends AppCompatActivity {
         Intent intent = new Intent(this,AddExcercise.class);
         startActivity(intent);
     }
+    public void launchExercise(){
+        Intent intent = new Intent(this,ExerciseActivity.class);
+        startActivity(intent);
+    }
+
 }
