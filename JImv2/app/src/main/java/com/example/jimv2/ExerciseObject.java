@@ -16,7 +16,7 @@ public class ExerciseObject {
         return exerciseImage;
     }
     public int getExerciseNumber(){
-        return exerciseImage;
+        return exerciseID;
     }
     public String getmText(){
         return exerciseName;
