@@ -61,6 +61,7 @@ public class AddExcercise extends AppCompatActivity {
                 Intent intent = new Intent(AddExcercise.this,WorkoutActivityV2.class);
                 intent.putParcelableArrayListExtra("list",sendToWorkout);
                 startActivity(intent);
+                finish();
             }
         });
     }
