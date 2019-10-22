@@ -24,9 +24,11 @@ public class WorkoutActivityV2 extends AppCompatActivity {
         setContentView(R.layout.workoutv3);
         populateArray();
         buildRecylcerView();
-        Bundle bundleObject = getIntent().getExtras();
-        //workouts = (ArrayList<ExerciseObject>) bundleObject.getSerializable("list");
-        //workoutList.addAll(workouts);
+
+        //This receives the parcelable
+        Intent intent = getIntent();
+        workouts = intent.getParcelableArrayListExtra("list");
+//        workoutList.addAll(workouts); //causes crash null pointer exception?
 
 
         doneButton = (Button) findViewById(R.id.doneButtonWorkout);
@@ -61,6 +63,17 @@ public class WorkoutActivityV2 extends AppCompatActivity {
         workoutList.add(new ExerciseObject(R.drawable.ic_alternate_bicep_curl_1, "Curl",2));
         workoutList.add(new ExerciseObject(R.drawable.ic_leg_press_2_1024x670, "Leg Press",3));
         workoutList.add(new ExerciseObject(R.drawable.ic_jm_press_2, "Bench Press",4));
+        workoutList.add(new ExerciseObject(R.drawable.ic_triceps_kickback_2, "Tricep Kickback",5));
+        workoutList.add(new ExerciseObject(R.drawable.ic_good_mornings_1, "Good Mornings",6));
+        workoutList.add(new ExerciseObject(R.drawable.ic_hammer_curls_with_rope_2, "Hammer Curl",7));
+        workoutList.add(new ExerciseObject(R.drawable.ic_preacher_hammer_curl_1, "Preacher Curl",8));
+        workoutList.add(new ExerciseObject(R.drawable.ic_tricep_dips_1, "Tricept Dip",9));
+        workoutList.add(new ExerciseObject(R.drawable.ic_prone_incline_biceps_curl_2, "Prone Curls",10));
+        workoutList.add(new ExerciseObject(R.drawable.ic_overhead_squat_2, "Overhead Squat",11));
+        workoutList.add(new ExerciseObject(R.drawable.ic_lunges_2_2, "Lunges",12));
+        workoutList.add(new ExerciseObject(R.drawable.ic_crunches_2, "Crunches",13));
+        workoutList.add(new ExerciseObject(R.drawable.ic_chin_ups_1, "Chin Ups",14));
+        workoutList.add(new ExerciseObject(R.drawable.ic_decline_crunch_2, "Decline Crunch",15));
 
     }
     public void buildRecylcerView(){

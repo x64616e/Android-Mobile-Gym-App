@@ -25,7 +25,6 @@ public class HeartRateActivity extends AppCompatActivity {
     }
 
     public void backToWorkout(){
-        Intent intent = new Intent(this,WorkoutActivity.class);
-        startActivity(intent);
+    finish();
     }
 }

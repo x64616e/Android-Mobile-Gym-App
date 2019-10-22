@@ -12,7 +12,6 @@
         <activity android:name=".FriendsActivity"></activity>
         <activity android:name=".landing3" />
         <activity android:name=".landing2" />
-        <activity android:name=".LandingPrevious" />
         <activity
             android:name=".PlanWorkoutActivity"
             android:label="@string/title_activity_plan_workout"
@@ -22,7 +21,6 @@
         <activity android:name=".AddExcercise" />
         <activity android:name=".CalculatorActivity" />
         <activity android:name=".HeartRateActivity" />
-        <activity android:name=".WorkoutActivity" />
         <activity android:name=".PlanRoutineActivity" />
         <activity android:name=".ReportActivity" />
         <activity android:name=".CalendarActivity" />

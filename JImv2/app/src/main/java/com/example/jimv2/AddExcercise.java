@@ -57,11 +57,10 @@ public class AddExcercise extends AppCompatActivity {
         doneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //TODO
                 Intent intent = new Intent(AddExcercise.this,WorkoutActivityV2.class);
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("list",sendToWorkout);
+                intent.putParcelableArrayListExtra("list",sendToWorkout);
                 startActivity(intent);
-                finish();
             }
         });
     }
@@ -78,7 +77,6 @@ public class AddExcercise extends AppCompatActivity {
     }
 
     private void populateList(){
-
         exerciseList.add(new ExerciseObject(R.drawable.ic_pile_squat_1, "Pile Squat",1));
         exerciseList.add(new ExerciseObject(R.drawable.ic_alternate_bicep_curl_1, "Curl",2));
         exerciseList.add(new ExerciseObject(R.drawable.ic_leg_press_2_1024x670, "Leg Press",3));

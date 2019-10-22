@@ -22,7 +22,7 @@
             android:background="@drawable/rectangle_border_sb">
 
                 <ImageView
-                    android:id="@+id/exercise_pic2"
+                    android:id="@+id/exercise_pic_exerciseAct"
                     android:layout_width="128dp"
                     android:layout_height="175dp"
                     android:layout_centerInParent="true"
@@ -35,7 +35,7 @@
                     android:src="@drawable/ic_leg_press_2_1024x670" />
 
                 <TextView
-                    android:id="@+id/exercise_name2"
+                    android:id="@+id/exercise_name_exerciseAct"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
