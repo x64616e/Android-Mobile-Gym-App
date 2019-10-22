@@ -10,9 +10,9 @@ public class ExerciseObject implements Parcelable {
     private int exerciseID;
     private String exerciseName;
     public boolean isSelected;
-    public int sets;
-    public int reps;
-    public double weight;
+//    public int sets;
+//    public int reps;
+//    public double weight;
 
     public ExerciseObject(int imageSource, String text, int number){
         exerciseImage = imageSource;
@@ -68,4 +68,6 @@ public class ExerciseObject implements Parcelable {
         dest.writeString(exerciseName);
         dest.writeByte((byte) (isSelected ? 1 : 0));
     }
+
+
 }

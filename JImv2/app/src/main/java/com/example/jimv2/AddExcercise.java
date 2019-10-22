@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.Button;
@@ -57,11 +58,21 @@ public class AddExcercise extends AppCompatActivity {
         doneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+
                 //TODO
-                Intent intent = new Intent(AddExcercise.this,WorkoutActivityV2.class);
-                intent.putParcelableArrayListExtra("list",sendToWorkout);
-                startActivity(intent);
+//                Intent intent = new Intent(AddExcercise.this,WorkoutActivityV2.class);
+//                Bundle bundle = new Bundle();
+//                bundle.putParcelableArrayList("list", (ArrayList<ExerciseObject>)sendToWorkout);
+//                intent.putExtras(bundle);
+//                startActivity(intent);
                 finish();
+
+
+
+
+
             }
         });
     }

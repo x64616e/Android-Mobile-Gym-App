@@ -9,6 +9,8 @@ import android.widget.Button;
 import java.util.ArrayList;
 import android.content.Intent;
 import android.view.View;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 
 public class WorkoutActivityV2 extends AppCompatActivity {
     private RecyclerView mRecyclerView;
@@ -18,6 +20,7 @@ public class WorkoutActivityV2 extends AppCompatActivity {
     public ArrayList<ExerciseObject> workouts = new ArrayList<>();
     private Button doneButton;
     private Button addExercise;
+    private ImageView heartIcon;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,11 +28,14 @@ public class WorkoutActivityV2 extends AppCompatActivity {
         populateArray();
         buildRecylcerView();
 
-        //This receives the parcelable
-        Intent intent = getIntent();
-        workouts = intent.getParcelableArrayListExtra("list");
-//        workoutList.addAll(workouts); //causes crash null pointer exception?
 
+        heartIcon = (ImageView) findViewById(R.id.heartIcon);
+        heartIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                launchHeartRate();
+            }
+        });
 
         doneButton = (Button) findViewById(R.id.doneButtonWorkout);
         doneButton.setOnClickListener(new View.OnClickListener() {
@@ -58,6 +64,10 @@ public class WorkoutActivityV2 extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void launchHeartRate(){
+        Intent intent = new Intent(this,HeartRateActivity.class);
+        startActivity(intent);
+    }
     public void populateArray(){
         workoutList.add(new ExerciseObject(R.drawable.ic_pile_squat_1, "Pile Squat",1));
         workoutList.add(new ExerciseObject(R.drawable.ic_alternate_bicep_curl_1, "Curl",2));
@@ -86,12 +96,11 @@ public class WorkoutActivityV2 extends AppCompatActivity {
         mAdapter.setOnItemClickListner(new WorkoutAdapter.OnClickListner() {
             @Override
             public void onItemClick(int position) {
-//                workoutList.get(position);
-////                launchExercise();
                 Intent intent = new Intent(WorkoutActivityV2.this,ExerciseActivity.class);
                 intent.putExtra("exercise",workoutList.get(position));
                 startActivity(intent);
             }
         });
     }
+
 }
