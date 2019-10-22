@@ -175,8 +175,8 @@
         android:textColor="@color/white"
         android:textSize="20sp" />
 
-    <EditText
-        android:id="@+id/date_button"
+    <TextView
+        android:id="@+id/currentDate"
         android:layout_width="wrap_content"
         android:layout_height="35dp"
         android:layout_alignParentTop="true"
@@ -186,7 +186,6 @@
         android:clickable="true"
         android:ems="10"
         android:inputType="date"
-        android:text="10/31/2019"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="20dp" />

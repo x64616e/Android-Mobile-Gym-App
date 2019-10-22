@@ -4,10 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.ContactsContract;
+import android.widget.TextView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 public class landing extends AppCompatActivity {
 
@@ -15,11 +18,8 @@ public class landing extends AppCompatActivity {
     private Button calendarButton;
     private Button statisticsButton;
     private ImageButton userIconButton;
-
     private Button workoutButton;
     private Button excercise1;
-    private Button quickAddExer;
-    private Button calculatorButton;
     private ImageButton leftArrow;
     private ImageButton rightArrow;
     private Button friendsButton;
@@ -27,6 +27,7 @@ public class landing extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.landing);
+        getCurrentDate();
         calendarButton = (Button) findViewById(R.id.calendar_button);
         calendarButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,14 +85,6 @@ public class landing extends AppCompatActivity {
         });
 
 
-//        quickAddExer = (Button) findViewById(R.id.quickAddExerciseButton);
-//        quickAddExer.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                openAddExercise();
-//            }
-//        });
-
         userIconButton = (ImageButton) findViewById(R.id.userIcon);
         userIconButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,6 +96,11 @@ public class landing extends AppCompatActivity {
 
     }
 
+    public void getCurrentDate(){
+        String date_n = new SimpleDateFormat("MMM dd, yyyy", Locale.getDefault()).format(new Date());
+        TextView date  = (TextView) findViewById(R.id.currentDate);
+        date.setText(date_n);
+    }
 
     public void openCalendarScreen(){
         Intent intent = new Intent(this,CalendarActivity.class);
