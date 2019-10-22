@@ -3,7 +3,9 @@ package com.example.jimv2;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class ExerciseObject implements Parcelable {
+import java.io.Serializable;
+
+public class ExerciseObject implements Serializable {
 
     private int exerciseImage;
     private int exerciseID;
@@ -23,17 +25,17 @@ public class ExerciseObject implements Parcelable {
         isSelected = in.readByte() != 0;
     }
 
-    public static final Creator<ExerciseObject> CREATOR = new Creator<ExerciseObject>() {
-        @Override
-        public ExerciseObject createFromParcel(Parcel in) {
-            return new ExerciseObject(in);
-        }
-
-        @Override
-        public ExerciseObject[] newArray(int size) {
-            return new ExerciseObject[size];
-        }
-    };
+//    public static final Creator<ExerciseObject> CREATOR = new Creator<ExerciseObject>() {
+//        @Override
+//        public ExerciseObject createFromParcel(Parcel in) {
+//            return new ExerciseObject(in);
+//        }
+//
+//        @Override
+//        public ExerciseObject[] newArray(int size) {
+//            return new ExerciseObject[size];
+//        }
+//    };
 
     public int getmImageResource(){
         return exerciseImage;
@@ -52,16 +54,16 @@ public class ExerciseObject implements Parcelable {
         isSelected = selected;
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(exerciseImage);
-        dest.writeInt(exerciseID);
-        dest.writeString(exerciseName);
-        dest.writeByte((byte) (isSelected ? 1 : 0));
-    }
+//    @Override
+//    public int describeContents() {
+//        return 0;
+//    }
+//
+//    @Override
+//    public void writeToParcel(Parcel dest, int flags) {
+//        dest.writeInt(exerciseImage);
+//        dest.writeInt(exerciseID);
+//        dest.writeString(exerciseName);
+//        dest.writeByte((byte) (isSelected ? 1 : 0));
+//    }
 }

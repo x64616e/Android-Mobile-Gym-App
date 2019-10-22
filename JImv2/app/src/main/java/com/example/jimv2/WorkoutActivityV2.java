@@ -15,19 +15,20 @@ public class WorkoutActivityV2 extends AppCompatActivity {
     private WorkoutAdapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
     public ArrayList<ExerciseObject> workoutList = new ArrayList<>();
+    public ArrayList<ExerciseObject> workouts = new ArrayList<>();
     private Button doneButton;
     private Button addExercise;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.workoutv3);
         populateArray();
         buildRecylcerView();
+        Bundle bundleObject = getIntent().getExtras();
+        //workouts = (ArrayList<ExerciseObject>) bundleObject.getSerializable("list");
+        //workoutList.addAll(workouts);
 
-//        Intent intent = getIntent();
-//                ExerciseObject exercise = intent.getParcelableExtra("exercise");
-//                workoutList.add(exercise);
-        ArrayList<ExerciseObject> workouts = (ArrayList<ExerciseObject>) getIntent().getSerializableExtra("list");
-        workoutList.addAll(workoutList);
+
         doneButton = (Button) findViewById(R.id.doneButtonWorkout);
         doneButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,8 +73,11 @@ public class WorkoutActivityV2 extends AppCompatActivity {
         mAdapter.setOnItemClickListner(new WorkoutAdapter.OnClickListner() {
             @Override
             public void onItemClick(int position) {
-                workoutList.get(position);
-                launchExercise();
+//                workoutList.get(position);
+////                launchExercise();
+                Intent intent = new Intent(WorkoutActivityV2.this,ExerciseActivity.class);
+                intent.putExtra("exercise",workoutList.get(position));
+                startActivity(intent);
             }
         });
     }
