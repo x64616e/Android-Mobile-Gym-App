@@ -10,14 +10,17 @@ public class ExerciseObject implements Parcelable {
     private int exerciseID;
     private String exerciseName;
     public boolean isSelected;
-//    public int sets;
-//    public int reps;
-//    public double weight;
+    public int exerciseSets;
+    public int excerciseReps;
+    public double exerciseWeight;
 
-    public ExerciseObject(int imageSource, String text, int number){
+    public ExerciseObject(int imageSource, String text, int number, int sets, int reps, double weight){
         exerciseImage = imageSource;
         exerciseName = text;
         exerciseID = number;
+        exerciseSets = sets;
+        excerciseReps = reps;
+        exerciseWeight = weight;
     }
 
     protected ExerciseObject(Parcel in) {
@@ -45,6 +48,10 @@ public class ExerciseObject implements Parcelable {
     public int getExerciseNumber(){
         return exerciseID;
     }
+    public int getExerciseSets() {return  exerciseSets;}
+    public int getExcerciseReps() {return  excerciseReps;}
+    public double getExerciseWeight() {return  exerciseWeight;}
+
     public String getmText(){
         return exerciseName;
     }
