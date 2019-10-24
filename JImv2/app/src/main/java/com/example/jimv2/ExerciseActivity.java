@@ -5,18 +5,32 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.Locale;
 
 public class ExerciseActivity extends AppCompatActivity {
 
 
     private Button doneButton;
+    private Button setExercise;
     private Button calculatorButton;
+    public TextView exerciseName;
+    public ImageView imageview;
+    public EditText exerciseSets;
+    public EditText exerciseReps;
+    public EditText exerciseWeight;
 
+    DatabaseReference databaseExercise;
     private static final long START_TIME_IN_MILLS = 30000;
 
     private TextView mTextViewCountDown;
@@ -26,21 +40,27 @@ public class ExerciseActivity extends AppCompatActivity {
     private CountDownTimer mCountDownTimer;
 
     private boolean mTimerRunning;
-
+    public String name;
     private long mTimeLeftInMillis = START_TIME_IN_MILLS;
 
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.exercise);
         Intent intent = getIntent();
 
+        databaseExercise = FirebaseDatabase.getInstance().getReference("exercises");
+
         ExerciseObject exercise = intent.getParcelableExtra("exercise");
         int imageRes = exercise.getmImageResource();
-        String name = exercise.getmText();
-        ImageView imageview = findViewById(R.id.exercise_pic_exerciseAct);
+        name = exercise.getmText();
+
+        imageview = findViewById(R.id.exercise_pic_exerciseAct);
         imageview.setImageResource(imageRes);
-        TextView exerciseName = findViewById(R.id.exercise_name_exerciseAct);
+        exerciseName = findViewById(R.id.exercise_name_exerciseAct);
         exerciseName.setText(name);
+        exerciseReps = findViewById(R.id.exercisereps);
+        exerciseSets = findViewById(R.id.exercisesets);
+        exerciseWeight = findViewById(R.id.exerciseweight);
 
         mTextViewCountDown = findViewById(R.id.text_view_countdown);
         mButtonStartPause = findViewById(R.id.button_start_pause);
@@ -80,6 +100,13 @@ public class ExerciseActivity extends AppCompatActivity {
             }
         });
 
+        setExercise = (Button) findViewById(R.id.setExercise);
+        setExercise.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            addExercise();
+            }
+        });
     }
 
     private void startTimer() {
@@ -133,5 +160,25 @@ public class ExerciseActivity extends AppCompatActivity {
     public void openCalculatorScreen(){
         Intent intent = new Intent(this,CalculatorActivity.class);
         startActivity(intent);
+    }
+
+    private void addExercise(){
+        String name = exerciseName.getText().toString().trim();
+        String sets = exerciseSets.getText().toString();
+        int exerciseSets = Integer.parseInt(sets);
+        String weight = exerciseWeight.getText().toString();
+        int exerciseWeight = Integer.parseInt(weight);
+        String reps = exerciseReps.getText().toString();
+        int exerciseReps = Integer.parseInt(reps);
+
+        if(!TextUtils.isEmpty(sets) && !TextUtils.isEmpty(weight)&& !TextUtils.isEmpty(reps)){
+            String id = databaseExercise.push().getKey();
+            ExerciseObject exercise = new ExerciseObject(1,name,exerciseSets,1,exerciseReps,exerciseWeight);
+            databaseExercise.child(id).setValue(exercise);
+            Toast.makeText(this, "Exercise Added", Toast.LENGTH_LONG).show();
+        }
+        else{
+            Toast.makeText(this,"Please Enter the Info", Toast.LENGTH_LONG).show();
+        }
     }
 }
