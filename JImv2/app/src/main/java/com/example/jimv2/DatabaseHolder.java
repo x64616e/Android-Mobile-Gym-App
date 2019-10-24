@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 public class DatabaseHolder extends RecyclerView.ViewHolder {
 
     public TextView exerciseName;
-    //TextView exerciseID;
+    TextView exerciseID;
     public EditText exerciseImage;
     public EditText exerciseSets;
     public EditText exerciseReps;

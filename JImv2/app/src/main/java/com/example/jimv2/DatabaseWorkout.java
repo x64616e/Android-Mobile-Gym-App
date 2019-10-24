@@ -3,12 +3,17 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.FirebaseOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,7 +34,7 @@ public class DatabaseWorkout extends AppCompatActivity {
         setContentView(R.layout.databaseworkout);
         recyclerView = (RecyclerView) findViewById(R.id.databaseRecyclerView);
         recyclerView.setHasFixedSize(true);
-
+        getCurrentDate();
         databaseref = FirebaseDatabase.getInstance().getReference().child("exercises");
 
         options = new FirebaseRecyclerOptions.Builder<ExerciseObject>().setQuery(databaseref,ExerciseObject.class).build();
@@ -82,5 +87,9 @@ public class DatabaseWorkout extends AppCompatActivity {
         if(adapter !=null)
             adapter.startListening();
     }
-
+    public void getCurrentDate(){
+        String date_n = new SimpleDateFormat("MMM dd, yyyy", Locale.getDefault()).format(new Date());
+        TextView date  = (TextView) findViewById(R.id.currentDate);
+        date.setText(date_n);
+    }
 }
