@@ -32,13 +32,11 @@ public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.Exerci
         // sparse boolean array for checking the state of the items
         private SparseBooleanArray itemStateArray = new SparseBooleanArray();
 
-
         public ExerciseViewHolder(@NonNull View itemView, final ExerciseAdapter.OnClickListner listner) {
             super(itemView);
             exerciseImage = itemView.findViewById(R.id.exercise_pic);
             exerciseName = itemView.findViewById(R.id.exercise_name);
             exerciseCheckbox = (CheckBox) itemView.findViewById(R.id.checkBox);
-            parentLayout = (RelativeLayout) itemView.findViewById(R.id.exercise_card);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -70,9 +68,9 @@ public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.Exerci
     }
 
 
-    public ExerciseAdapter(Context context, ArrayList<ExerciseObject> exerciseList){
+    public ExerciseAdapter( ArrayList<ExerciseObject> exerciseList){
         mExerciseList = exerciseList;
-        mContext = context;
+        //mContext = context;
     }
     public interface OnClickListner{
         void onItemClick(int position);
@@ -99,15 +97,15 @@ public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.Exerci
         holder.exerciseImage.setImageResource(currentExercise.getmImageResource());
         holder.exerciseName.setText(currentExercise.getmText());
 
-
-        /* example of a Toast */
-        holder.exerciseCheckbox.setOnClickListener(new View.OnClickListener() {
+        //TODO
+        /* holder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.d(TAG, "onClick: clicked on: " + currentExercise.getmText());
-                Toast.makeText(mContext, currentExercise.getmText() , Toast.LENGTH_SHORT).show();
+
+                //Toast.makeText(mContext, mExerciseList.get(position), Toast.LENGTH_SHORT).show();
             }
-        });
+        }); */
 
 
     }

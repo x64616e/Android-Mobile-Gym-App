@@ -46,6 +46,14 @@ public class AddExcercise extends AppCompatActivity {
 
         });
 
+
+        mRecyclerView = findViewById(R.id.recyclerView1); // view
+        mRecyclerView.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(this);
+        mAdapter = new ExerciseAdapter(exerciseList);
+        mRecyclerView.setLayoutManager(layoutManager);
+        mRecyclerView.setAdapter(mAdapter);
+
         doneButton = (Button) findViewById(R.id.doneButtonAddExercise);
         doneButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,18 +105,17 @@ public class AddExcercise extends AppCompatActivity {
         exerciseList.add(new ExerciseObject(R.drawable.ic_chin_ups_1, "Chin Ups",14,0,0,0.0));
         exerciseList.add(new ExerciseObject(R.drawable.ic_decline_crunch_2, "Decline Crunch",15,0,0,0.0));
     }
-
     public void buildRecylcerView(){
-            mRecyclerView = findViewById(R.id.recyclerView1); // view
-            mRecyclerView.setHasFixedSize(true);
-            layoutManager = new LinearLayoutManager(this);
-            mAdapter = new ExerciseAdapter(this, exerciseList);
-            mRecyclerView.setLayoutManager(layoutManager);
-            mRecyclerView.setAdapter(mAdapter);
-            mAdapter.setOnItemClickListner(new ExerciseAdapter.OnClickListner() {
-                @Override
-                public void onItemClick(int position) {
-            sendToWorkout.add(exerciseList.get(position));
+        mRecyclerView = findViewById(R.id.recyclerView1); // view
+        mRecyclerView.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(this);
+        mAdapter = new ExerciseAdapter(exerciseList);
+        mRecyclerView.setLayoutManager(layoutManager);
+        mRecyclerView.setAdapter(mAdapter);
+        mAdapter.setOnItemClickListner(new ExerciseAdapter.OnClickListner() {
+            @Override
+            public void onItemClick(int position) {
+                sendToWorkout.add(exerciseList.get(position));
             }
         });
     }

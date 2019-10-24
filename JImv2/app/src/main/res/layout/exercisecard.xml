@@ -18,7 +18,9 @@
             android:layout_width="80dp"
             android:layout_height="match_parent"
             android:layout_margin="4dp"
-            android:src="@drawable/ic_leg_press_2_1024x670" />
+            android:src="@drawable/ic_leg_press_2_1024x670"
+
+            />
 
         <TextView
             android:id="@+id/exercise_name"
