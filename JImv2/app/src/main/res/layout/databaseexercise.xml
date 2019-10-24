@@ -1,67 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    app:cardElevation="10dp" android:background="@drawable/rectangle_border_sb">
 
     <TextView
+        android:textColor="@color/medium_blue"
         android:id="@+id/exerciseNameDB"
         android:layout_width="76dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="21dp"
+        android:layout_marginStart="10dp"
         android:layout_marginLeft="21dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="5dp"
         android:text="Name" />
 
-    <TextView
+    <EditText
         android:id="@+id/exerciseSetsDB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="29dp"
-        android:layout_marginLeft="29dp"
-        android:layout_marginTop="42dp"
-        android:text="Sets" />
+        android:layout_centerInParent="true"
+        android:layout_marginStart="376dp"
+        android:layout_marginLeft="376dp"
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="6dp"
+        android:inputType="number"
+        android:text="0"
+        android:textColor="@color/medium_blue"
+        android:textSize="25dp" />
 
-    <TextView
+    <EditText
         android:id="@+id/exerciseRepsDB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="27dp"
-        android:layout_marginLeft="27dp"
-        android:layout_marginTop="64dp"
-        android:text="Reps" />
+        android:layout_centerInParent="true"
+        android:layout_marginStart="283dp"
+        android:layout_marginLeft="283dp"
+        android:layout_marginTop="26dp"
+        android:inputType="number"
+        android:text="0"
+        android:textColor="@color/medium_blue"
+        android:textSize="25dp" />
 
-    <TextView
+    <EditText
         android:id="@+id/exerciseWeightDB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="27dp"
-        android:layout_marginLeft="27dp"
-        android:layout_marginTop="87dp"
-        android:text="Weight" />
+        android:layout_centerInParent="true"
+        android:layout_marginStart="179dp"
+        android:layout_marginLeft="179dp"
+        android:layout_marginTop="29dp"
+        android:inputType="number"
+        android:text="0"
+        android:textColor="@color/medium_blue"
+        android:textSize="25dp" />
 
-    <TextView
+    <EditText
         android:id="@+id/exerciseImageDB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="267dp"
-        android:layout_marginLeft="267dp"
-        android:layout_marginTop="47dp"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="19dp"
+        android:layout_marginLeft="19dp"
+        android:layout_marginTop="35dp"
+        android:inputType="number"
         android:text="Image" />
 
+    <TextView
+        android:textColor="@color/medium_blue"
+        android:id="@+id/editText6"
+        android:layout_width="72dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="104dp"
+        android:layout_marginLeft="104dp"
+        android:layout_marginTop="42dp"
+        android:ems="10"
+        android:enabled="false"
+        android:inputType="textPersonName"
+        android:text="Weight:"
+        android:textSize="20dp" />
 
+    <TextView
+        android:id="@+id/editText7"
+        android:layout_width="53dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="233dp"
+        android:layout_marginLeft="233dp"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:enabled="false"
+        android:inputType="textPersonName"
+        android:text="Reps:"
+        android:textColor="@color/medium_blue"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/editText8"
+        android:layout_width="53dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="328dp"
+        android:layout_marginLeft="328dp"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:enabled="false"
+        android:inputType="textPersonName"
+        android:text="Sets:"
+        android:textColor="@color/medium_blue"
+        android:textSize="20dp" />
 </RelativeLayout>

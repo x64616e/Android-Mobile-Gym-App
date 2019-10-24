@@ -25,6 +25,7 @@
         <activity android:name=".ReportActivity" />
         <activity android:name=".CalendarActivity" />
         <activity android:name=".WorkoutActivityV2"/>
+        <activity android:name=".DatabaseWorkout"/>
         <activity android:name=".landing" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".MainActivity">

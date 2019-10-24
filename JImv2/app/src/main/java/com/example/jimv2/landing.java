@@ -142,7 +142,7 @@ public class landing extends AppCompatActivity {
         startActivity(intent);
     }
     public void openFriends(){
-        Intent intent = new Intent(this,FriendsActivity.class);
+        Intent intent = new Intent(this,DatabaseWorkout.class);
         startActivity(intent);
     }
 }

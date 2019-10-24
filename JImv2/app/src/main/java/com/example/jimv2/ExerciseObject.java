@@ -9,25 +9,62 @@ public class ExerciseObject implements Parcelable {
     private int exerciseImage;
     private int exerciseID;
     private String exerciseName;
-    public boolean isSelected;
     public int exerciseSets;
-    public int excerciseReps;
-    public double exerciseWeight;
+    public int exerciseReps;
+    public int exerciseWeight;
 
-    public ExerciseObject(int imageSource, String text, int number, int sets, int reps, double weight){
+    public ExerciseObject(int imageSource, String text, int number, int sets, int reps, int weight){
         exerciseImage = imageSource;
         exerciseName = text;
         exerciseID = number;
         exerciseSets = sets;
-        excerciseReps = reps;
+        exerciseReps = reps;
         exerciseWeight = weight;
+    }
+
+    public int getExerciseImage() {
+        return exerciseImage;
+    }
+
+    public void setExerciseImage(int exerciseImage) {
+        this.exerciseImage = exerciseImage;
+    }
+
+    public int getExerciseID() {
+        return exerciseID;
+    }
+
+    public void setExerciseID(int exerciseID) {
+        this.exerciseID = exerciseID;
+    }
+
+    public String getExerciseName() {
+        return exerciseName;
+    }
+
+    public void setExerciseName(String exerciseName) {
+        this.exerciseName = exerciseName;
+    }
+
+    public void setExerciseSets(int exerciseSets) {
+        this.exerciseSets = exerciseSets;
+    }
+
+    public void setExcerciseReps(int exerciseReps) {
+        this.exerciseReps = exerciseReps;
+    }
+
+    public void setExerciseWeight(int exerciseWeight) {
+        this.exerciseWeight = exerciseWeight;
+    }
+
+    public ExerciseObject() {
     }
 
     protected ExerciseObject(Parcel in) {
         exerciseImage = in.readInt();
         exerciseID = in.readInt();
         exerciseName = in.readString();
-        isSelected = in.readByte() != 0;
     }
 
     public static final Creator<ExerciseObject> CREATOR = new Creator<ExerciseObject>() {
@@ -49,19 +86,14 @@ public class ExerciseObject implements Parcelable {
         return exerciseID;
     }
     public int getExerciseSets() {return  exerciseSets;}
-    public int getExcerciseReps() {return  excerciseReps;}
-    public double getExerciseWeight() {return  exerciseWeight;}
+    public int getExcerciseReps() {return  exerciseReps;}
+    public int getExerciseWeight() {return  exerciseWeight;}
 
     public String getmText(){
         return exerciseName;
     }
 
-    public boolean getSelected() {
-        return isSelected;
-    }
-    public void setSelected(boolean selected) {
-        isSelected = selected;
-    }
+
 
     @Override
     public int describeContents() {
@@ -73,7 +105,6 @@ public class ExerciseObject implements Parcelable {
         dest.writeInt(exerciseImage);
         dest.writeInt(exerciseID);
         dest.writeString(exerciseName);
-        dest.writeByte((byte) (isSelected ? 1 : 0));
     }
 
 
