@@ -37,6 +37,7 @@ public class DatabaseWorkout extends AppCompatActivity {
         adapter = new FirebaseRecyclerAdapter<ExerciseObject, DatabaseHolder>(options) {
             @Override
             protected void onBindViewHolder(@NonNull DatabaseHolder holder, int position, @NonNull ExerciseObject model) {
+                findViewById(R.id.loadingBarDB).setVisibility(View.GONE);
               holder.exerciseName.setText(model.getExerciseName());
               holder.exerciseWeight.setText(model.getExerciseWeight() + "");
             holder.exerciseReps.setText(model.getExcerciseReps() + "");
