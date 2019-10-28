@@ -1,5 +1,6 @@
 package com.example.jimv2;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 public class WorkoutAdapter extends RecyclerView.Adapter<WorkoutAdapter.ExerciseViewHolder> {
     public ArrayList<ExerciseObject> mExerciseList;
     private OnClickListner mListener;
+    private static final String TAG = "WorkoutAdapter";
+
 
     public interface OnClickListner{
         void onItemClick(int position);
@@ -52,6 +55,8 @@ public class WorkoutAdapter extends RecyclerView.Adapter<WorkoutAdapter.Exercise
     @NonNull
     @Override
     public ExerciseViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        Log.d(TAG, "onCreateViewHolder: called.");
+
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.exercisesquare,parent,false); //card 2
         ExerciseViewHolder evh = new ExerciseViewHolder(v,mListener);
         return evh;
@@ -59,6 +64,8 @@ public class WorkoutAdapter extends RecyclerView.Adapter<WorkoutAdapter.Exercise
 
     @Override
     public void onBindViewHolder(@NonNull ExerciseViewHolder holder, int position) {
+        Log.d(TAG, "onBindViewHolder: called.");
+
         ExerciseObject currentExercise = mExerciseList.get(position);
         holder.exerciseImage.setImageResource(currentExercise.getmImageResource());
         holder.exerciseName.setText(currentExercise.getmText());

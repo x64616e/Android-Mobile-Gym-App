@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Parcelable;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.widget.Button;
 import java.util.ArrayList;
 import android.content.Intent;
@@ -19,6 +20,7 @@ public class AddExcercise extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private ExerciseAdapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
+    private static final String TAG = "AddExercise";
 
     private Button doneButton;
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,14 +47,6 @@ public class AddExcercise extends AppCompatActivity {
             }
 
         });
-
-
-        mRecyclerView = findViewById(R.id.recyclerView1); // view
-        mRecyclerView.setHasFixedSize(true);
-        layoutManager = new LinearLayoutManager(this);
-        mAdapter = new ExerciseAdapter(exerciseList);
-        mRecyclerView.setLayoutManager(layoutManager);
-        mRecyclerView.setAdapter(mAdapter);
 
         doneButton = (Button) findViewById(R.id.doneButtonAddExercise);
         doneButton.setOnClickListener(new View.OnClickListener() {
@@ -106,6 +100,8 @@ public class AddExcercise extends AppCompatActivity {
         exerciseList.add(new ExerciseObject(R.drawable.ic_decline_crunch_2, "Decline Crunch",15,0,0,0));
     }
     public void buildRecylcerView(){
+        Log.d(TAG, "buildRecyclerView: called.");
+
         mRecyclerView = findViewById(R.id.recyclerView1); // view
         mRecyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);

@@ -10,6 +10,7 @@ public class HeartRateActivity extends AppCompatActivity {
 
 
     private Button doneButton;
+    private static final String TAG = "HeartRateActivity";
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

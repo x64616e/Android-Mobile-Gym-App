@@ -13,6 +13,7 @@ import android.widget.Toast;
 public class ProfileActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
     private Button mBtGoBack;
+    private static final String TAG = "ProfileActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
