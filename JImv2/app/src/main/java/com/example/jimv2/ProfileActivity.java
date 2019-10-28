@@ -9,6 +9,7 @@ import android.widget.Button;
 public class ProfileActivity extends AppCompatActivity {
 
     private Button mBtGoBack;
+    private static final String TAG = "ProfileActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

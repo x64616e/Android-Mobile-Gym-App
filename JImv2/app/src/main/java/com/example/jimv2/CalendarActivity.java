@@ -13,7 +13,7 @@ public class CalendarActivity extends AppCompatActivity {
     private Button doneButton;
     private Button planRoutine;
     private Button completedButton;
-    public static final String TAG = "CalanderActivity";
+    public static final String TAG = "CalenderActivity";
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

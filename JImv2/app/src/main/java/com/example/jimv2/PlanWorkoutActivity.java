@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -12,6 +13,8 @@ public class PlanWorkoutActivity extends AppCompatActivity {
 
     private Button doneButton;
     private Button addExercise;
+    private static final String TAG = "PlanWorkoutActivity";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +37,8 @@ public class PlanWorkoutActivity extends AppCompatActivity {
     }
 
     public void toAddExercise(){
+        Log.d(TAG, "toAddExercise: called.");
+
         Intent intent = new Intent(this, AddExcercise.class);
         startActivity(intent);
     }

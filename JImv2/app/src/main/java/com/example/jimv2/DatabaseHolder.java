@@ -15,6 +15,7 @@ public class DatabaseHolder extends RecyclerView.ViewHolder {
     public EditText exerciseSets;
     public EditText exerciseReps;
     public EditText exerciseWeight;
+    private static final String TAG = "DatabaseHolder";
 
     public DatabaseHolder(@NonNull View itemView) {
         super(itemView);

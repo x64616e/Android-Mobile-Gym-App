@@ -8,6 +8,8 @@ import android.widget.Button;
 
 public class FriendsActivity extends AppCompatActivity {
 
+    private static final String TAG = "FriendsActivity";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
