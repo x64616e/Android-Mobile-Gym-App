@@ -3,10 +3,12 @@ package com.example.jimv2;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -31,9 +33,10 @@ public class ExerciseActivity extends AppCompatActivity {
     public EditText exerciseWeight;
 
     DatabaseReference databaseExercise;
-    private static final long START_TIME_IN_MILLS = 30000;
 
+    private EditText mEditTextInput;
     private TextView mTextViewCountDown;
+    private Button mButtonSet;
     private Button mButtonStartPause;
     private Button mButtonReset;
 
@@ -41,7 +44,10 @@ public class ExerciseActivity extends AppCompatActivity {
 
     private boolean mTimerRunning;
     public String name;
-    private long mTimeLeftInMillis = START_TIME_IN_MILLS;
+
+    private long mStartTimeInMillis;
+    private long mTimeLeftInMillis = mStartTimeInMillis;
+    private long mEndTime;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,9 +68,32 @@ public class ExerciseActivity extends AppCompatActivity {
         exerciseSets = findViewById(R.id.exercisesets);
         exerciseWeight = findViewById(R.id.exerciseweight);
 
+        mEditTextInput = findViewById(R.id.edit_txt_input);
         mTextViewCountDown = findViewById(R.id.text_view_countdown);
+
+        mButtonSet = findViewById(R.id.button_set);
         mButtonStartPause = findViewById(R.id.button_start_pause);
         mButtonReset = findViewById(R.id.button_reset);
+
+        mButtonSet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String input = mEditTextInput.getText().toString();
+                if ( input.length() == 0){
+                    Toast.makeText(ExerciseActivity.this, "Cant Be Empty", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                long millisInput = Long.parseLong(input) * 1000;
+                if ( millisInput == 0){
+                    Toast.makeText(ExerciseActivity.this, "Enter Positive Number", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                setTime(millisInput);
+                mEditTextInput.setText("");
+
+            }
+        });
 
         mButtonStartPause.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,7 +138,14 @@ public class ExerciseActivity extends AppCompatActivity {
         });
     }
 
+    private void setTime( long milliseconds){
+        mStartTimeInMillis = milliseconds;
+        resetTimer();
+        closeKeyboard();
+    }
+
     private void startTimer() {
+        mEndTime = System.currentTimeMillis() + mTimeLeftInMillis;
         mCountDownTimer = new CountDownTimer(mTimeLeftInMillis, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
@@ -121,26 +157,26 @@ public class ExerciseActivity extends AppCompatActivity {
             public void onFinish() {
                 mTimerRunning = false;
                 mButtonStartPause.setText("Start");
-                mButtonStartPause.setVisibility(View.INVISIBLE);
-                mButtonReset.setVisibility(View.VISIBLE);
+                updateWatchInterface();
+
 
             }
         }.start();
 
         mTimerRunning = true;
-        mButtonStartPause.setText("pause");
-        mButtonReset.setVisibility(View.INVISIBLE);
+        updateWatchInterface();
+
     }
 
     private void pauseTimer() {
         mCountDownTimer.cancel();
         mTimerRunning = false;
-        mButtonStartPause.setText("Start");
-        mButtonReset.setVisibility(View.VISIBLE);
+        updateWatchInterface();
     }
     private void resetTimer() {
-        mTimeLeftInMillis = START_TIME_IN_MILLS;
+        mTimeLeftInMillis = mStartTimeInMillis;
         updateCountDownText();
+        updateWatchInterface();
         mButtonReset.setVisibility(View.INVISIBLE);
         mButtonStartPause.setVisibility(View.VISIBLE);
     }
@@ -154,6 +190,67 @@ public class ExerciseActivity extends AppCompatActivity {
         mTextViewCountDown.setText(timeLeftFormatted);
     }
 
+    private void updateWatchInterface() {
+        if (mTimerRunning){
+            mEditTextInput.setVisibility(View.INVISIBLE);
+            mButtonSet.setVisibility(View.INVISIBLE);
+            mButtonReset.setVisibility((View.INVISIBLE));
+            mButtonStartPause.setText("Pause");
+        }else {
+            mEditTextInput.setVisibility(View.VISIBLE);
+            mButtonSet.setVisibility(View.VISIBLE);
+            mButtonStartPause.setText("Start");
+
+            if (mTimeLeftInMillis < 1000) {
+                mButtonStartPause.setVisibility(View.INVISIBLE);
+            }else {
+                mButtonStartPause.setVisibility(View.VISIBLE);
+            }
+
+            if (mTimeLeftInMillis < mStartTimeInMillis){
+                mButtonReset.setVisibility(View.VISIBLE);
+            }else {
+                mButtonReset.setVisibility(View.INVISIBLE);
+            }
+        }
+    }
+
+    private void closeKeyboard() {
+        View view = this.getCurrentFocus();
+        if ( view != null) {
+            InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
+    }
+
+    protected void onStop() {
+        super.onStop();
+
+        SharedPreferences prefs = getSharedPreferences( "prefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+
+        editor.putLong("startTimeInMillis", mStartTimeInMillis);
+        editor.putLong("millisLeft", mTimeLeftInMillis);
+        editor.putBoolean("timerRunning", mTimerRunning);
+        editor.putLong("endTime", mEndTime);
+
+        editor.apply();
+
+        if (mCountDownTimer != null ){
+            mCountDownTimer.cancel();
+        }
+    }
+    protected void onStart() {
+        super.onStart();
+
+        SharedPreferences prefs = getSharedPreferences( "prefs", MODE_PRIVATE);
+
+        //mStartTimeInMillis = prefs.getLong("millisleft", 60000);
+        //mTimeLeftInMillis = prefs.getLong("millisLeft", mStartTimeInMillis);
+        //mTimerRunning = prefs.getBoolean("timerRunning", false );
+
+        updateCountDownText();
+    }
     public void backToWorkout(){
         finish();
     }

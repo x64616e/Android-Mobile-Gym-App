@@ -1,6 +1,19 @@
 <resources>
     <string name="app_name">JImv2</string>
     <string name="title_activity_plan_workout">PlanWorkoutActivity</string>
+
+    <string-array name="gymexperience">
+        <item>Beginner</item>
+        <item>Intermediate</item>
+        <item>Advance</item>
+    </string-array>
+
+    <string-array name="trainingtype">
+        <item>WeightLifting</item>
+        <item>Bodybuilder</item>
+        <item>PowerLifting</item>
+    </string-array>
+
 </resources>
 
 

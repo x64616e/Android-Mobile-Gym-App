@@ -107,7 +107,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="26dp"
         android:layout_marginLeft="26dp"
-        android:layout_marginBottom="174dp"
+        android:layout_marginBottom="200dp"
         android:background="@drawable/rectangle"
         android:text="Set Info"
         android:textSize="20sp" />
@@ -118,7 +118,7 @@
         android:layout_height="60dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="174dp"
+        android:layout_marginBottom="200dp"
         android:background="@drawable/rectangle"
         android:text="Done"
         android:textSize="20sp" />
@@ -141,14 +141,46 @@
         <TextView
             android:id="@+id/editText"
             android:layout_width="match_parent"
-            android:layout_height="140dp"
+            android:layout_height="120dp"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="0dp"
             android:inputType="time"
-            android:text=" Rest Timer"
             android:textColor="@color/white"
             android:background="@color/medium_blue"
             android:textSize="28sp" />
+
+        <EditText
+            android:id="@+id/edit_txt_input"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="220dp"
+            android:layout_marginLeft="160dp"
+            android:layout_marginBottom="120dp"
+            android:hint="Seconds"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textSize="30sp"/>
+
+    <Button
+        android:id="@+id/button_set"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="200dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginRight="100dp"
+        android:layout_marginLeft="180dp"
+        android:layout_marginBottom="130dp"
+        android:text="Set"
+        android:textColor="@color/black"
+        android:background="@color/gray"
+        android:textSize="20sp"/>
+
+
+
+
 
         <TextView
             android:id="@+id/text_view_countdown"
