@@ -1,5 +1,6 @@
 package com.example.jimv2;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +26,7 @@ public class DatabaseWorkout extends AppCompatActivity {
     DatabaseReference databaseref;
     FirebaseRecyclerOptions <ExerciseObject> options;
     FirebaseRecyclerAdapter <ExerciseObject, DatabaseHolder> adapter;
+    private static final String TAG = "DatabaseWorkout";
 
 
 
@@ -54,6 +56,8 @@ public class DatabaseWorkout extends AppCompatActivity {
             @NonNull
             @Override
             public DatabaseHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                Log.d(TAG, "onCreateViewHolder: called.");
+
                 View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.databaseexercise,parent,false);
                 return new DatabaseHolder(view);
             }
@@ -69,6 +73,7 @@ public class DatabaseWorkout extends AppCompatActivity {
 
     @Override
     protected void onStart(){
+        Log.d(TAG, "onStart: called.");
         super.onStart();
         if(adapter !=null)
             adapter.startListening();
@@ -76,6 +81,7 @@ public class DatabaseWorkout extends AppCompatActivity {
 
     @Override
     protected void onStop(){
+        Log.d(TAG, "onStop: called.");
         if(adapter !=null)
             adapter.stopListening();
         super.onStop();
@@ -83,11 +89,13 @@ public class DatabaseWorkout extends AppCompatActivity {
 
     @Override
     protected void onResume(){
+        Log.d(TAG, "onResume: called.");
         super.onResume();
         if(adapter !=null)
             adapter.startListening();
     }
     public void getCurrentDate(){
+        Log.d(TAG, "getCurrentDate: called.");
         String date_n = new SimpleDateFormat("MMM dd, yyyy", Locale.getDefault()).format(new Date());
         TextView date  = (TextView) findViewById(R.id.currentDate);
         date.setText(date_n);

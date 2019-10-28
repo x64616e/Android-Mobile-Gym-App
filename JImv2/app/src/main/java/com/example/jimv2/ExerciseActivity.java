@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -42,6 +43,8 @@ public class ExerciseActivity extends AppCompatActivity {
     private boolean mTimerRunning;
     public String name;
     private long mTimeLeftInMillis = START_TIME_IN_MILLS;
+    private static final String TAG = "ExerciseActivity";
+
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -110,6 +113,9 @@ public class ExerciseActivity extends AppCompatActivity {
     }
 
     private void startTimer() {
+
+        Log.d(TAG, "startTimer: called.");
+
         mCountDownTimer = new CountDownTimer(mTimeLeftInMillis, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
@@ -133,12 +139,14 @@ public class ExerciseActivity extends AppCompatActivity {
     }
 
     private void pauseTimer() {
+        Log.d(TAG, "pauseTimer: called.");
         mCountDownTimer.cancel();
         mTimerRunning = false;
         mButtonStartPause.setText("Start");
         mButtonReset.setVisibility(View.VISIBLE);
     }
     private void resetTimer() {
+        Log.d(TAG, "resetTimer: called.");
         mTimeLeftInMillis = START_TIME_IN_MILLS;
         updateCountDownText();
         mButtonReset.setVisibility(View.INVISIBLE);
@@ -146,6 +154,7 @@ public class ExerciseActivity extends AppCompatActivity {
     }
 
     private void updateCountDownText() {
+        Log.d(TAG, "updateCountDownText: called.");
         int minutes = (int) (mTimeLeftInMillis/1000) / 60;
         int seconds = (int) (mTimeLeftInMillis/1000) % 60;
 
@@ -158,11 +167,14 @@ public class ExerciseActivity extends AppCompatActivity {
         finish();
     }
     public void openCalculatorScreen(){
+        Log.d(TAG, "openCalculatorScreen: called.");
         Intent intent = new Intent(this,CalculatorActivity.class);
         startActivity(intent);
     }
 
     private void addExercise(){
+        Log.d(TAG, "addExercise: called.");
+
         String name = exerciseName.getText().toString().trim();
         String sets = exerciseSets.getText().toString();
         int exerciseSets = Integer.parseInt(sets);
