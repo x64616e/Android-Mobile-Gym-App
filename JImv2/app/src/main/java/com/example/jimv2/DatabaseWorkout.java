@@ -39,20 +39,19 @@ public class DatabaseWorkout extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.databaseRecyclerView);
         recyclerView.setHasFixedSize(true);
         getCurrentDate();
+
         databaseref = FirebaseDatabase.getInstance().getReference().child("exercises");
-
         options = new FirebaseRecyclerOptions.Builder<ExerciseObject>().setQuery(databaseref,ExerciseObject.class).build();
-
         adapter = new FirebaseRecyclerAdapter<ExerciseObject, DatabaseHolder>(options) {
             @Override
             protected void onBindViewHolder(@NonNull DatabaseHolder holder, int position, @NonNull ExerciseObject model) {
                 findViewById(R.id.loadingBarDB).setVisibility(View.GONE);
-              holder.exerciseName.setText(model.getExerciseName());
-              holder.exerciseWeight.setText(model.getExerciseWeight() + "");
-            holder.exerciseReps.setText(model.getExcerciseReps() + "");
-            holder.exerciseSets.setText(model.getExerciseSets() + "");
-            //holder.exerciseImage.setText(model.getExerciseImage()+ "");
-             holder.exerciseWeight.setText(model.getExerciseWeight()+ "");
+                holder.exerciseName.setText(model.getExerciseName());
+                holder.exerciseWeight.setText(model.getExerciseWeight() + "");
+                holder.exerciseReps.setText(model.getExcerciseReps() + "");
+                holder.exerciseSets.setText(model.getExerciseSets() + "");
+                //holder.exerciseImage.setText(model.getExerciseImage()+ "");
+                holder.exerciseWeight.setText(model.getExerciseWeight()+ "");
             }
 
             @NonNull

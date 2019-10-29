@@ -9,15 +9,25 @@ import android.widget.Button;
 import java.util.ArrayList;
 import android.content.Intent;
 import android.view.View;
+import java.text.SimpleDateFormat;
 import android.widget.ImageButton;
+import java.util.Date;
+import java.util.Calendar;
 import android.widget.ImageView;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class WorkoutActivityV2 extends AppCompatActivity {
+    Date currentDate = Calendar.getInstance().getTime();
+    SimpleDateFormat df = new SimpleDateFormat("ddMMMyyyy");
+    String formattedDate = df.format(currentDate);
+
     private RecyclerView mRecyclerView;
     private WorkoutAdapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
     public ArrayList<ExerciseObject> workoutList = new ArrayList<>();
     public ArrayList<ExerciseObject> workouts = new ArrayList<>();
+    DatabaseReference databaseExercise;
     private Button doneButton;
     private Button addExercise;
     private ImageView heartIcon;
@@ -27,8 +37,8 @@ public class WorkoutActivityV2 extends AppCompatActivity {
         setContentView(R.layout.workoutv3);
         populateArray();
         buildRecylcerView();
-
-
+        databaseExercise = FirebaseDatabase.getInstance().getReference(formattedDate);
+        saveToDatabase();
         heartIcon = (ImageView) findViewById(R.id.heartIcon);
         heartIcon.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,4 +113,12 @@ public class WorkoutActivityV2 extends AppCompatActivity {
         });
     }
 
+    public void saveToDatabase(){
+        for (ExerciseObject exercise: workoutList) {
+            int number = exercise.getExerciseNumber();
+            String id = Integer.toString(number);
+            //String id = databaseExercise.push().getKey();
+            databaseExercise.child(id).setValue(exercise);
+        }
+    }
 }
