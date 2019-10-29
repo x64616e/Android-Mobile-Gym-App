@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 public class WorkoutAdapter extends RecyclerView.Adapter<WorkoutAdapter.ExerciseViewHolder> {
     public ArrayList<ExerciseObject> mExerciseList;
     private OnClickListner mListener;
+    private View.OnLongClickListener longListener;
     private static final String TAG = "WorkoutAdapter";
 
 
@@ -23,6 +24,9 @@ public class WorkoutAdapter extends RecyclerView.Adapter<WorkoutAdapter.Exercise
 
     public void setOnItemClickListner(OnClickListner listner){
         mListener = listner;
+    }
+    public void setOnLongClickListener(View.OnLongClickListener listener){
+        longListener = listener;
     }
 
     public static class ExerciseViewHolder extends RecyclerView.ViewHolder{
@@ -70,6 +74,7 @@ public class WorkoutAdapter extends RecyclerView.Adapter<WorkoutAdapter.Exercise
         holder.exerciseImage.setImageResource(currentExercise.getmImageResource());
         holder.exerciseName.setText(currentExercise.getmText());
     }
+
 
     @Override
     public int getItemCount() {

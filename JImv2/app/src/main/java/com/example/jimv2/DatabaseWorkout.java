@@ -13,6 +13,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
@@ -22,6 +23,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class DatabaseWorkout extends AppCompatActivity {
+    Date currentDate = Calendar.getInstance().getTime();
+    SimpleDateFormat df = new SimpleDateFormat("ddMMMyyyy");
+    String formattedDate = df.format(currentDate);
+    StringBuilder completeDate = new StringBuilder("complete");
+
     RecyclerView recyclerView;
     DatabaseReference databaseref;
     FirebaseRecyclerOptions <ExerciseObject> options;
@@ -39,8 +45,10 @@ public class DatabaseWorkout extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.databaseRecyclerView);
         recyclerView.setHasFixedSize(true);
         getCurrentDate();
+        completeDate.append(formattedDate);
+        String Date = completeDate.toString();
 
-        databaseref = FirebaseDatabase.getInstance().getReference().child("exercises");
+        databaseref = FirebaseDatabase.getInstance().getReference().child(Date);
         options = new FirebaseRecyclerOptions.Builder<ExerciseObject>().setQuery(databaseref,ExerciseObject.class).build();
         adapter = new FirebaseRecyclerAdapter<ExerciseObject, DatabaseHolder>(options) {
             @Override

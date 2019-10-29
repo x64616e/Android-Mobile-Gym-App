@@ -1,7 +1,7 @@
 package com.example.jimv2;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import java.lang.*;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -18,11 +18,17 @@ import android.widget.Toast;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 
 public class ExerciseActivity extends AppCompatActivity {
 
-
+    Date currentDate = Calendar.getInstance().getTime();
+    SimpleDateFormat df = new SimpleDateFormat("ddMMMyyyy");
+    String formattedDate = df.format(currentDate);
+    StringBuilder completeDate = new StringBuilder("complete");
     private Button doneButton;
     private Button setExercise;
     private Button calculatorButton;
@@ -53,8 +59,9 @@ public class ExerciseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.exercise);
         Intent intent = getIntent();
-
-        databaseExercise = FirebaseDatabase.getInstance().getReference("exercises");
+        completeDate.append(formattedDate);
+        String Date = completeDate.toString();
+        databaseExercise = FirebaseDatabase.getInstance().getReference(Date);
 
         ExerciseObject exercise = intent.getParcelableExtra("exercise");
         int imageRes = exercise.getmImageResource();
@@ -259,23 +266,29 @@ public class ExerciseActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void addExercise(){
-        String name = exerciseName.getText().toString().trim();
-        String sets = exerciseSets.getText().toString();
-        int exerciseSets = Integer.parseInt(sets);
-        String weight = exerciseWeight.getText().toString();
-        int exerciseWeight = Integer.parseInt(weight);
-        String reps = exerciseReps.getText().toString();
-        int exerciseReps = Integer.parseInt(reps);
+    private void addExercise() {
+        try {
+            String name = exerciseName.getText().toString().trim();
+            String sets = exerciseSets.getText().toString();
+            int exerciseSets = Integer.parseInt(sets);
+            String weight = exerciseWeight.getText().toString();
+            int exerciseWeight = Integer.parseInt(weight);
+            String reps = exerciseReps.getText().toString();
+            int exerciseReps = Integer.parseInt(reps);
 
-        if(!TextUtils.isEmpty(sets) && !TextUtils.isEmpty(weight)&& !TextUtils.isEmpty(reps)){
-            String id = databaseExercise.push().getKey();
-            ExerciseObject exercise = new ExerciseObject(1,name,exerciseSets,1,exerciseReps,exerciseWeight);
-            databaseExercise.child(id).setValue(exercise);
-            Toast.makeText(this, "Exercise Added", Toast.LENGTH_LONG).show();
+            if (!TextUtils.isEmpty(sets) && !TextUtils.isEmpty(weight) && !TextUtils.isEmpty(reps)) {
+                String id = databaseExercise.push().getKey();
+                ExerciseObject exercise = new ExerciseObject(1, name, exerciseSets, 1, exerciseReps, exerciseWeight);
+                databaseExercise.child(id).setValue(exercise);
+                Toast.makeText(this, "Statistics Recorded", Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(this, "Please Enter the Info", Toast.LENGTH_LONG).show();
+                finish();
+            }
         }
-        else{
-            Toast.makeText(this,"Please Enter the Info", Toast.LENGTH_LONG).show();
+        catch (NumberFormatException nfe){
+            Toast.makeText(this, "Please Enter the Info", Toast.LENGTH_LONG).show();
+            nfe.printStackTrace();
         }
     }
 }

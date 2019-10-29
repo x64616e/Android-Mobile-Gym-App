@@ -85,15 +85,15 @@ public class WorkoutActivityV2 extends AppCompatActivity {
         workoutList.add(new ExerciseObject(R.drawable.ic_jm_press_2, "Bench Press",4,0,0,0));
         workoutList.add(new ExerciseObject(R.drawable.ic_triceps_kickback_2, "Tricep Kickback",5,0,0,0));
         workoutList.add(new ExerciseObject(R.drawable.ic_good_mornings_1, "Good Mornings",6,0,0,0));
-        workoutList.add(new ExerciseObject(R.drawable.ic_hammer_curls_with_rope_2, "Hammer Curl",7,0,0,0));
-        workoutList.add(new ExerciseObject(R.drawable.ic_preacher_hammer_curl_1, "Preacher Curl",8,0,0,0));
-        workoutList.add(new ExerciseObject(R.drawable.ic_tricep_dips_1, "Tricept Dip",9,0,0,0));
-        workoutList.add(new ExerciseObject(R.drawable.ic_prone_incline_biceps_curl_2, "Prone Curls",10,0,0,0));
-        workoutList.add(new ExerciseObject(R.drawable.ic_overhead_squat_2, "Overhead Squat",11,0,0,0));
-        workoutList.add(new ExerciseObject(R.drawable.ic_lunges_2_2, "Lunges",12,0,0,0));
-        workoutList.add(new ExerciseObject(R.drawable.ic_crunches_2, "Crunches",13,0,0,0));
-        workoutList.add(new ExerciseObject(R.drawable.ic_chin_ups_1, "Chin Ups",14,0,0,0));
-        workoutList.add(new ExerciseObject(R.drawable.ic_decline_crunch_2, "Decline Crunch",15,0,0,0));
+//        workoutList.add(new ExerciseObject(R.drawable.ic_hammer_curls_with_rope_2, "Hammer Curl",7,0,0,0));
+//        workoutList.add(new ExerciseObject(R.drawable.ic_preacher_hammer_curl_1, "Preacher Curl",8,0,0,0));
+//        workoutList.add(new ExerciseObject(R.drawable.ic_tricep_dips_1, "Tricept Dip",9,0,0,0));
+//        workoutList.add(new ExerciseObject(R.drawable.ic_prone_incline_biceps_curl_2, "Prone Curls",10,0,0,0));
+//        workoutList.add(new ExerciseObject(R.drawable.ic_overhead_squat_2, "Overhead Squat",11,0,0,0));
+//        workoutList.add(new ExerciseObject(R.drawable.ic_lunges_2_2, "Lunges",12,0,0,0));
+//        workoutList.add(new ExerciseObject(R.drawable.ic_crunches_2, "Crunches",13,0,0,0));
+//        workoutList.add(new ExerciseObject(R.drawable.ic_chin_ups_1, "Chin Ups",14,0,0,0));
+//        workoutList.add(new ExerciseObject(R.drawable.ic_decline_crunch_2, "Decline Crunch",15,0,0,0));
 
     }
     public void buildRecylcerView(){

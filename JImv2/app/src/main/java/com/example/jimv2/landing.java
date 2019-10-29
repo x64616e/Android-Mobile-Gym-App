@@ -14,20 +14,26 @@ import android.widget.TextView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+
+import com.firebase.ui.database.FirebaseListAdapter;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 
+
 public class landing extends AppCompatActivity {
 
     RecyclerView recyclerView;
     DatabaseReference databaseref;
+    FirebaseListAdapter<ExerciseObject> firebaseListAdapter;
     FirebaseRecyclerOptions <ExerciseObject> options;
     FirebaseRecyclerAdapter <ExerciseObject, DatabaseHolder> adapter;
     Date currentDate = Calendar.getInstance().getTime();
@@ -58,10 +64,21 @@ public class landing extends AppCompatActivity {
         options = new FirebaseRecyclerOptions.Builder<ExerciseObject>().setQuery(databaseref,ExerciseObject.class).build();
         adapter = new FirebaseRecyclerAdapter<ExerciseObject, DatabaseHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull DatabaseHolder holder, int position, @NonNull ExerciseObject model) {
+            protected void onBindViewHolder(@NonNull DatabaseHolder holder, final int position, @NonNull ExerciseObject model) {
 //                findViewById(R.id.loadingBarDB).setVisibility(View.GONE);
                 holder.exerciseName.setText(model.getExerciseName());
+
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(landing.this, "This item is removed from workout: " + position, Toast.LENGTH_SHORT).show();
+                        DatabaseReference myRef = adapter.getRef(position);
+                        myRef.removeValue();
+                        adapter.notifyDataSetChanged();
+                    }
+                });
             }
+
 
             @NonNull
             @Override
