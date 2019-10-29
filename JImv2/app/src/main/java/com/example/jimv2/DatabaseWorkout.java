@@ -47,7 +47,7 @@ public class DatabaseWorkout extends AppCompatActivity {
         getCurrentDate();
         completeDate.append(formattedDate);
         String Date = completeDate.toString();
-
+        numberBox = findViewById(R.id.numberOfExercises);
         databaseref = FirebaseDatabase.getInstance().getReference().child(Date);
         options = new FirebaseRecyclerOptions.Builder<ExerciseObject>().setQuery(databaseref,ExerciseObject.class).build();
         adapter = new FirebaseRecyclerAdapter<ExerciseObject, DatabaseHolder>(options) {
@@ -60,15 +60,19 @@ public class DatabaseWorkout extends AppCompatActivity {
                 holder.exerciseSets.setText(model.getExerciseSets() + "");
                 //holder.exerciseImage.setText(model.getExerciseImage()+ "");
                 holder.exerciseWeight.setText(model.getExerciseWeight()+ "");
+                numberBox.setText(String.valueOf(position+1));
+
             }
 
             @NonNull
             @Override
             public DatabaseHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
                 Log.d(TAG, "onCreateViewHolder: called.");
+                //numberOfExercises = adapter.getItemCount();
 
                 View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.databaseexercise,parent,false);
                 return new DatabaseHolder(view);
+
             }
         };
 
@@ -76,7 +80,8 @@ public class DatabaseWorkout extends AppCompatActivity {
         recyclerView.setLayoutManager(linearlayoutManager);
         adapter.startListening();
         recyclerView.setAdapter(adapter);
-//        numberBox.setText(numberOfExercises);
+
+        //numberBox.setText(numberOfExercises + "");
 
         }
 

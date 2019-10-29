@@ -43,7 +43,7 @@
 
     <TextView
         android:id="@+id/editText9"
-        android:layout_width="222dp"
+        android:layout_width="195dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
@@ -52,7 +52,21 @@
         android:layout_marginTop="61dp"
         android:ems="10"
         android:enabled="false"
-        android:text="Completed Exercises"
+        android:text="Completed Exercises:"
+        android:textColor="@color/medium_blue"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/numberOfExercises"
+        android:layout_width="34dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="62dp"
+        android:layout_marginEnd="71dp"
+        android:layout_marginRight="71dp"
+        android:text="0"
         android:textColor="@color/medium_blue"
         android:textSize="20dp" />
 
