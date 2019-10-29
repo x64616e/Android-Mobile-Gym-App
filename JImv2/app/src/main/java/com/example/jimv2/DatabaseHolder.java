@@ -20,7 +20,7 @@ public class DatabaseHolder extends RecyclerView.ViewHolder {
     public DatabaseHolder(@NonNull View itemView) {
         super(itemView);
         exerciseName = (TextView) itemView.findViewById(R.id.exerciseNameDB);
-        exerciseImage = (EditText) itemView.findViewById(R.id.exerciseImageDB);
+        //exerciseImage = (EditText) itemView.findViewById(R.id.exerciseImageDB);
         exerciseSets = (EditText) itemView.findViewById(R.id.exerciseSetsDB);
         exerciseReps = (EditText) itemView.findViewById(R.id.exerciseRepsDB);
         exerciseWeight = (EditText) itemView.findViewById(R.id.exerciseWeightDB);

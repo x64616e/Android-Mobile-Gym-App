@@ -68,13 +68,13 @@ public class landing extends AppCompatActivity {
             }
         });
 
-        excercise1 = (Button) findViewById(R.id.excerciseList1);
-        excercise1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openExercise();
-            }
-        });
+//        excercise1 = (Button) findViewById(R.id.excerciseList1);
+//        excercise1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                openExercise();
+//            }
+//        });
 
         friendsButton = (Button) findViewById(R.id.friends_button);
         friendsButton.setOnClickListener(new View.OnClickListener() {

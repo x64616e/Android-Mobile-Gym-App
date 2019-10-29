@@ -26,6 +26,8 @@ public class DatabaseWorkout extends AppCompatActivity {
     DatabaseReference databaseref;
     FirebaseRecyclerOptions <ExerciseObject> options;
     FirebaseRecyclerAdapter <ExerciseObject, DatabaseHolder> adapter;
+    public int numberOfExercises;
+    TextView numberBox;
     private static final String TAG = "DatabaseWorkout";
 
 
@@ -49,7 +51,7 @@ public class DatabaseWorkout extends AppCompatActivity {
               holder.exerciseWeight.setText(model.getExerciseWeight() + "");
             holder.exerciseReps.setText(model.getExcerciseReps() + "");
             holder.exerciseSets.setText(model.getExerciseSets() + "");
-            holder.exerciseImage.setText(model.getExerciseImage()+ "");
+            //holder.exerciseImage.setText(model.getExerciseImage()+ "");
              holder.exerciseWeight.setText(model.getExerciseWeight()+ "");
             }
 
@@ -67,7 +69,7 @@ public class DatabaseWorkout extends AppCompatActivity {
         recyclerView.setLayoutManager(linearlayoutManager);
         adapter.startListening();
         recyclerView.setAdapter(adapter);
-
+//        numberBox.setText(numberOfExercises);
 
         }
 
