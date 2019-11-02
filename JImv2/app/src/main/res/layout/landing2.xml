@@ -30,21 +30,6 @@
         android:textSize="32dp" />
 
     <ImageButton
-        android:id="@+id/leftArrow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="-3dp"
-        android:layout_marginLeft="-3dp"
-        android:layout_marginTop="292dp"
-        android:background="@android:color/transparent"
-        android:clickable="true"
-        app:srcCompat="@mipmap/left2_arrow" />
-
-    <ImageButton
         android:id="@+id/rightArrow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -70,30 +55,6 @@
         android:textColor="@color/white"
         android:textSize="40dp" />
 
-    <Button
-        android:id="@+id/excerciseList1"
-        android:layout_width="200dp"
-        android:layout_height="40dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="170dp"
-        android:background="@android:color/transparent"
-        android:clickable="true"
-        android:gravity="center"
-        android:text="Deadlift"
-        android:textColor="@color/white"
-        android:textSize="20sp" />
-
-    <Button
-        android:id="@+id/excerciseList2"
-        android:layout_width="200dp"
-        android:layout_height="40dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="215dp"
-        android:background="@android:color/transparent"
-        android:gravity="center"
-        android:text="Power Clean"
-        android:textColor="@color/white"
-        android:textSize="20sp" />
     <!--    <Button-->
     <!--        android:id="@+id/quickAddExerciseButton"-->
     <!--        android:layout_width="200dp"-->
@@ -142,6 +103,23 @@
 
 
     <Button
+        android:id="@+id/friends_button"
+        android:layout_width="140dp"
+        android:layout_height="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="35dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginBottom="21dp"
+        android:background="@drawable/rectangledb"
+        android:gravity="center"
+        android:text="Statistics"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+    <Button
         android:id="@+id/statistics_button"
         android:layout_width="140dp"
         android:layout_height="60dp"
@@ -149,17 +127,17 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="137dp"
-        android:layout_marginLeft="137dp"
-        android:layout_marginBottom="19dp"
+        android:layout_marginStart="233dp"
+        android:layout_marginLeft="233dp"
+        android:layout_marginBottom="23dp"
         android:background="@drawable/rectangledb"
         android:gravity="center"
-        android:text="Statistics"
+        android:text="Friends"
         android:textColor="@color/white"
         android:textSize="20sp" />
 
-    <EditText
-        android:id="@+id/date_button"
+    <TextView
+        android:id="@+id/currentDate"
         android:layout_width="wrap_content"
         android:layout_height="35dp"
         android:layout_alignParentTop="true"
@@ -169,7 +147,6 @@
         android:clickable="true"
         android:ems="10"
         android:inputType="date"
-        android:text="10/30/2019"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="20dp" />
@@ -191,5 +168,17 @@
         android:clickable="true"
         android:background="@android:color/transparent"
         app:srcCompat="@drawable/shrek_icon2" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/landingRecyclerView"
+        android:layout_width="285dp"
+        android:layout_height="281dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="63dp"
+        android:layout_marginLeft="63dp"
+        android:layout_marginTop="162dp" />
 
 </RelativeLayout>
