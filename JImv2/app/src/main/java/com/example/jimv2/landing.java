@@ -27,6 +27,7 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import org.w3c.dom.Text;
 
 
 public class landing extends AppCompatActivity {
@@ -37,15 +38,15 @@ public class landing extends AppCompatActivity {
     FirebaseRecyclerOptions <ExerciseObject> options;
     FirebaseRecyclerAdapter <ExerciseObject, DatabaseHolder> adapter;
     Date currentDate = Calendar.getInstance().getTime();
-    SimpleDateFormat df = new SimpleDateFormat("ddMMMyyyy");
-    String formattedDate = df.format(currentDate);
+    Date dateCurrentlyViewing = Calendar.getInstance().getTime();
+
     private static final String TAG = "Landing";
 
     private Button calendarButton;
     private Button statisticsButton;
     private ImageButton userIconButton;
     private Button workoutButton;
-    private Button excercise1;
+    //private Button exercise1;
     private ImageButton leftArrow;
     private ImageButton rightArrow;
     private Button friendsButton;
@@ -53,13 +54,23 @@ public class landing extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.landing);
+
+
+        if(getIntent().hasExtra("com.example.jimv2.PASSDATE")) {
+            long passedDate = getIntent().getExtras().getLong("com.example.jimv2.PASSDATE");
+            dateCurrentlyViewing.setTime(passedDate);
+        }
+
         getCurrentDate();
+
         recyclerView = (RecyclerView) findViewById(R.id.landingRecyclerView);
         recyclerView.setHasFixedSize(true);
 
         //****
         //Recycler View from Database Query
         //***
+        SimpleDateFormat df = new SimpleDateFormat("ddMMMyyyy");
+        String formattedDate = df.format(dateCurrentlyViewing);
         databaseref = FirebaseDatabase.getInstance().getReference().child(formattedDate);
         options = new FirebaseRecyclerOptions.Builder<ExerciseObject>().setQuery(databaseref,ExerciseObject.class).build();
         adapter = new FirebaseRecyclerAdapter<ExerciseObject, DatabaseHolder>(options) {
@@ -164,7 +175,7 @@ public class landing extends AppCompatActivity {
     }
 
     public void getCurrentDate(){
-        String date_n = new SimpleDateFormat("MMM dd, yyyy", Locale.getDefault()).format(new Date());
+        String date_n = new SimpleDateFormat("MMM dd, yyyy", Locale.getDefault()).format(dateCurrentlyViewing.getTime());
         TextView date  = (TextView) findViewById(R.id.currentDate);
         date.setText(date_n);
     }
@@ -201,11 +212,21 @@ public class landing extends AppCompatActivity {
         startActivity(intent);
     }
     public void previousDay(){
-        Intent intent = new Intent(this,landing2.class);
+        Intent intent = new Intent(this,landing.class);
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(dateCurrentlyViewing);
+        cal.add(Calendar.DATE, -1);
+        Date passDate = cal.getTime();
+        intent.putExtra("com.example.jimv2.PASSDATE", passDate.getTime());
         startActivity(intent);
     }
     public void forwardDay(){
-        Intent intent = new Intent(this,landing3.class);
+        Intent intent = new Intent(this,landing.class);
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(dateCurrentlyViewing);
+        cal.add(Calendar.DATE, 1);
+        Date passDate = cal.getTime();
+        intent.putExtra("com.example.jimv2.PASSDATE", passDate.getTime());
         startActivity(intent);
     }
     public void openFriends(){
