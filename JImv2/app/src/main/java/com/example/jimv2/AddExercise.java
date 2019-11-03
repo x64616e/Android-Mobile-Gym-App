@@ -129,17 +129,10 @@ public class AddExercise extends AppCompatActivity {
             @Override
             public void onItemClick(int position) {
                 ExerciseObject exercise = new ExerciseObject();
-
-                sendToWorkout.add(exerciseList.get(position));
-                saveToDatabase();
-                Intent intent = new Intent(AddExercise.this, WorkoutActivityV2.class);
-                intent.putExtra("exercise", exerciseList.get(position));
-                startActivity(intent);
-
-//                exercise = exerciseList.get(position);
-//                int number = exercise.getExerciseNumber();
-//                String id = Integer.toString(number);
-//                databaseExercise.child(id).setValue((ExerciseObject)exercise);
+                exercise = exerciseList.get(position);
+                int number = exercise.getExerciseNumber();
+                String id = Integer.toString(number);
+                databaseref.child(id).setValue((ExerciseObject)exercise);
 
                 finish();
 
@@ -147,12 +140,5 @@ public class AddExercise extends AppCompatActivity {
         });
     }
 
-    public void saveToDatabase() {
-        for (ExerciseObject exercise : sendToWorkout) {
-            int number = exercise.getExerciseNumber();
-            String id = Integer.toString(number);
-            //String id = databaseExercise.push().getKey();
-            databaseExercise.child(id).setValue(exercise);
-        }
     }
-}
+
