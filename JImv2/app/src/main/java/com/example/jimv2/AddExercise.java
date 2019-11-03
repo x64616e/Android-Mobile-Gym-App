@@ -30,8 +30,8 @@ public class AddExercise extends AppCompatActivity {
     String formattedDate = df.format(currentDate);
 
     DatabaseReference databaseref;
-    public  ArrayList<ExerciseObject> exerciseList;
-    public  ArrayList<ExerciseObject> sendToWorkout;
+    public ArrayList<ExerciseObject> exerciseList;
+    public ArrayList<ExerciseObject> sendToWorkout;
     private RecyclerView mRecyclerView;
     private ExerciseAdapter mAdapter;
     DatabaseReference databaseExercise;
@@ -39,6 +39,7 @@ public class AddExercise extends AppCompatActivity {
     private static final String TAG = "AddExercise";
 
     private Button doneButton;
+
     protected void onCreate(Bundle savedInstanceState) {
         exerciseList = new ArrayList<>();
         super.onCreate(savedInstanceState);
@@ -61,7 +62,7 @@ public class AddExercise extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-            filter(s.toString());
+                filter(s.toString());
             }
 
         });
@@ -70,7 +71,6 @@ public class AddExercise extends AppCompatActivity {
         doneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
 
 
                 //TODO
@@ -83,17 +83,14 @@ public class AddExercise extends AppCompatActivity {
                 finish();
 
 
-
-
-
             }
         });
     }
 
-    private void filter(String text){
+    private void filter(String text) {
         ArrayList<ExerciseObject> filteredList = new ArrayList<>();
-        for(ExerciseObject item:exerciseList){
-            if(item.getmText().toLowerCase().contains(text.toLowerCase())){
+        for (ExerciseObject item : exerciseList) {
+            if (item.getmText().toLowerCase().contains(text.toLowerCase())) {
                 filteredList.add(item);
             }
         }
@@ -101,24 +98,25 @@ public class AddExercise extends AppCompatActivity {
 
     }
 
-    private void populateList(){
-        exerciseList.add(new ExerciseObject(R.drawable.ic_pile_squat_1, "Pile Squat",1,0,0,0));
-        exerciseList.add(new ExerciseObject(R.drawable.ic_alternate_bicep_curl_1, "Curl",2,0,0,0));
-        exerciseList.add(new ExerciseObject(R.drawable.ic_leg_press_2_1024x670, "Leg Press",3,0,0,0));
-        exerciseList.add(new ExerciseObject(R.drawable.ic_jm_press_2, "Bench Press",4,0,0,0));
-        exerciseList.add(new ExerciseObject(R.drawable.ic_triceps_kickback_2, "Tricep Kickback",5,0,0,0));
-        exerciseList.add(new ExerciseObject(R.drawable.ic_good_mornings_1, "Good Mornings",6,0,0,0));
-        exerciseList.add(new ExerciseObject(R.drawable.ic_hammer_curls_with_rope_2, "Hammer Curl",7,0,0,0));
-        exerciseList.add(new ExerciseObject(R.drawable.ic_preacher_hammer_curl_1, "Preacher Curl",8,0,0,0));
-        exerciseList.add(new ExerciseObject(R.drawable.ic_tricep_dips_1, "Tricept Dip",9,0,0,0));
-        exerciseList.add(new ExerciseObject(R.drawable.ic_prone_incline_biceps_curl_2, "Prone Curls",10,0,0,0));
-        exerciseList.add(new ExerciseObject(R.drawable.ic_overhead_squat_2, "Overhead Squat",11,0,0,0));
-        exerciseList.add(new ExerciseObject(R.drawable.ic_lunges_2_2, "Lunges",12,0,0,0));
-        exerciseList.add(new ExerciseObject(R.drawable.ic_crunches_2, "Crunches",13,0,0,0));
-        exerciseList.add(new ExerciseObject(R.drawable.ic_chin_ups_1, "Chin Ups",14,0,0,0));
-        exerciseList.add(new ExerciseObject(R.drawable.ic_decline_crunch_2, "Decline Crunch",15,0,0,0));
+    private void populateList() {
+        exerciseList.add(new ExerciseObject(R.drawable.ic_pile_squat_1, "Pile Squat", 1, 0, 0, 0));
+        exerciseList.add(new ExerciseObject(R.drawable.ic_alternate_bicep_curl_1, "Curl", 2, 0, 0, 0));
+        exerciseList.add(new ExerciseObject(R.drawable.ic_leg_press_2_1024x670, "Leg Press", 3, 0, 0, 0));
+        exerciseList.add(new ExerciseObject(R.drawable.ic_jm_press_2, "Bench Press", 4, 0, 0, 0));
+        exerciseList.add(new ExerciseObject(R.drawable.ic_triceps_kickback_2, "Tricep Kickback", 5, 0, 0, 0));
+        exerciseList.add(new ExerciseObject(R.drawable.ic_good_mornings_1, "Good Mornings", 6, 0, 0, 0));
+        exerciseList.add(new ExerciseObject(R.drawable.ic_hammer_curls_with_rope_2, "Hammer Curl", 7, 0, 0, 0));
+        exerciseList.add(new ExerciseObject(R.drawable.ic_preacher_hammer_curl_1, "Preacher Curl", 8, 0, 0, 0));
+        exerciseList.add(new ExerciseObject(R.drawable.ic_tricep_dips_1, "Tricept Dip", 9, 0, 0, 0));
+        exerciseList.add(new ExerciseObject(R.drawable.ic_prone_incline_biceps_curl_2, "Prone Curls", 10, 0, 0, 0));
+        exerciseList.add(new ExerciseObject(R.drawable.ic_overhead_squat_2, "Overhead Squat", 11, 0, 0, 0));
+        exerciseList.add(new ExerciseObject(R.drawable.ic_lunges_2_2, "Lunges", 12, 0, 0, 0));
+        exerciseList.add(new ExerciseObject(R.drawable.ic_crunches_2, "Crunches", 13, 0, 0, 0));
+        exerciseList.add(new ExerciseObject(R.drawable.ic_chin_ups_1, "Chin Ups", 14, 0, 0, 0));
+        exerciseList.add(new ExerciseObject(R.drawable.ic_decline_crunch_2, "Decline Crunch", 15, 0, 0, 0));
     }
-    public void buildRecylcerView(){
+
+    public void buildRecylcerView() {
         Log.d(TAG, "buildRecyclerView: called.");
 
         mRecyclerView = findViewById(R.id.recyclerView1); // view
@@ -132,20 +130,29 @@ public class AddExercise extends AppCompatActivity {
             public void onItemClick(int position) {
                 ExerciseObject exercise = new ExerciseObject();
 
-//                sendToWorkout.add(exerciseList.get(position));
-//                Intent intent = new Intent(AddExercise.this,WorkoutActivityV2.class);
-//                intent.putExtra("exercise",exerciseList.get(position));
-//                startActivity(intent);
+                sendToWorkout.add(exerciseList.get(position));
+                saveToDatabase();
+                Intent intent = new Intent(AddExercise.this, WorkoutActivityV2.class);
+                intent.putExtra("exercise", exerciseList.get(position));
+                startActivity(intent);
 
-                exercise = exerciseList.get(position);
-
-                int number = exercise.getExerciseNumber();
-                String id = Integer.toString(number);
-                databaseExercise.child(id).setValue((ExerciseObject)exercise);
+//                exercise = exerciseList.get(position);
+//                int number = exercise.getExerciseNumber();
+//                String id = Integer.toString(number);
+//                databaseExercise.child(id).setValue((ExerciseObject)exercise);
 
                 finish();
 
             }
         });
+    }
+
+    public void saveToDatabase() {
+        for (ExerciseObject exercise : sendToWorkout) {
+            int number = exercise.getExerciseNumber();
+            String id = Integer.toString(number);
+            //String id = databaseExercise.push().getKey();
+            databaseExercise.child(id).setValue(exercise);
+        }
     }
 }

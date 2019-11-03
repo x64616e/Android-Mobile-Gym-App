@@ -56,15 +56,16 @@ public class WorkoutActivityV2 extends AppCompatActivity {
         databaseref = FirebaseDatabase.getInstance().getReference().child(formattedDate);
         options = new FirebaseRecyclerOptions.Builder<ExerciseObject>().setQuery(databaseref,ExerciseObject.class).build();
 
-//        try {
-//            if (!exercise.equals(null)) {
-//                workouts.add(exercise);
-//                saveToDatabase();
-//            }
-//        }
-//        catch (NullPointerException nfe){
-//            nfe.printStackTrace();
-//        }
+        try {
+            if (!exercise.equals(null)) {
+                workouts.add(exercise);
+                saveToDatabase();
+            }
+        }
+        catch (NullPointerException nfe){
+            nfe.printStackTrace();
+        }
+
 
 
 //        databaseExercise = FirebaseDatabase.getInstance().getReference(formattedDate);
@@ -111,10 +112,6 @@ public class WorkoutActivityV2 extends AppCompatActivity {
         mRecyclerView.setAdapter(adapter);
 
 
-
-
-
-
         heartIcon = (ImageView) findViewById(R.id.heartIcon);
         heartIcon.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -141,6 +138,7 @@ public class WorkoutActivityV2 extends AppCompatActivity {
     public void backToLanding(){
         finish();
     }
+
     public void addExercise(){
         Intent intent = new Intent(this,AddExercise.class);
         startActivity(intent);
@@ -155,24 +153,6 @@ public class WorkoutActivityV2 extends AppCompatActivity {
         startActivity(intent);
     }
 
-//    public void populateArray(){
-//        workoutList.add(new ExerciseObject(R.drawable.ic_pile_squat_1, "Pile Squat",1,0,0,0));
-//        workoutList.add(new ExerciseObject(R.drawable.ic_alternate_bicep_curl_1, "Curl",2,0,0,0));
-//        workoutList.add(new ExerciseObject(R.drawable.ic_leg_press_2_1024x670, "Leg Press",3,0,0,0));
-//        workoutList.add(new ExerciseObject(R.drawable.ic_jm_press_2, "Bench Press",4,0,0,0));
-//        workoutList.add(new ExerciseObject(R.drawable.ic_triceps_kickback_2, "Tricep Kickback",5,0,0,0));
-//        workoutList.add(new ExerciseObject(R.drawable.ic_good_mornings_1, "Good Mornings",6,0,0,0));
-//        workoutList.add(new ExerciseObject(R.drawable.ic_hammer_curls_with_rope_2, "Hammer Curl",7,0,0,0));
-//        workoutList.add(new ExerciseObject(R.drawable.ic_preacher_hammer_curl_1, "Preacher Curl",8,0,0,0));
-//        workoutList.add(new ExerciseObject(R.drawable.ic_tricep_dips_1, "Tricept Dip",9,0,0,0));
-//        workoutList.add(new ExerciseObject(R.drawable.ic_prone_incline_biceps_curl_2, "Prone Curls",10,0,0,0));
-//        workoutList.add(new ExerciseObject(R.drawable.ic_overhead_squat_2, "Overhead Squat",11,0,0,0));
-//        workoutList.add(new ExerciseObject(R.drawable.ic_lunges_2_2, "Lunges",12,0,0,0));
-//        workoutList.add(new ExerciseObject(R.drawable.ic_crunches_2, "Crunches",13,0,0,0));
-//        workoutList.add(new ExerciseObject(R.drawable.ic_chin_ups_1, "Chin Ups",14,0,0,0));
-//        workoutList.add(new ExerciseObject(R.drawable.ic_decline_crunch_2, "Decline Crunch",15,0,0,0));
-
-//}
 
     public void buildRecylcerView(){
         mRecyclerView = findViewById(R.id.exerciseRecycleView); // view
