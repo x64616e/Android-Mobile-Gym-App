@@ -25,9 +25,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class AddExercise extends AppCompatActivity {
 
-    Date currentDate = Calendar.getInstance().getTime();
-    SimpleDateFormat df = new SimpleDateFormat("ddMMMyyyy");
-    String formattedDate = df.format(currentDate);
+    Date dateCurrentlyViewing = Calendar.getInstance().getTime();
+
 
     DatabaseReference databaseref;
     public ArrayList<ExerciseObject> exerciseList;
@@ -47,6 +46,14 @@ public class AddExercise extends AppCompatActivity {
         populateList();
         EditText editText = findViewById(R.id.search);
         buildRecylcerView();
+
+        if(getIntent().hasExtra("com.example.jimv2.PASSDATE")) {
+            long passedDate = getIntent().getExtras().getLong("com.example.jimv2.PASSDATE");
+            dateCurrentlyViewing.setTime(passedDate);
+        }
+
+        SimpleDateFormat df = new SimpleDateFormat("ddMMMyyyy");
+        String formattedDate = df.format(dateCurrentlyViewing);
         databaseref = FirebaseDatabase.getInstance().getReference().child(formattedDate);
 
         editText.addTextChangedListener(new TextWatcher() {

@@ -201,6 +201,7 @@ public class landing extends AppCompatActivity {
     }
     public void openWorkoutScreen(){
         Intent intent = new Intent(this,WorkoutActivityV2.class);
+        intent.putExtra("com.example.jimv2.PASSDATE", dateCurrentlyViewing.getTime());
         startActivity(intent);
     }
     public void openAddExercise(){

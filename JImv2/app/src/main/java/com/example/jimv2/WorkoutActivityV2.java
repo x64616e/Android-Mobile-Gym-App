@@ -28,9 +28,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class WorkoutActivityV2 extends AppCompatActivity {
 
-    Date currentDate = Calendar.getInstance().getTime();
-    SimpleDateFormat df = new SimpleDateFormat("ddMMMyyyy");
-    String formattedDate = df.format(currentDate);
+    Date dateCurrentlyViewing = Calendar.getInstance().getTime();
 
     DatabaseReference databaseref;
     FirebaseRecyclerOptions<ExerciseObject> options;
@@ -52,6 +50,14 @@ public class WorkoutActivityV2 extends AppCompatActivity {
         //populateArray();
         buildRecylcerView();
         Intent intent = getIntent();
+
+        if(getIntent().hasExtra("com.example.jimv2.PASSDATE")) {
+            long passedDate = getIntent().getExtras().getLong("com.example.jimv2.PASSDATE");
+            dateCurrentlyViewing.setTime(passedDate);
+        }
+
+        SimpleDateFormat df = new SimpleDateFormat("ddMMMyyyy");
+        String formattedDate = df.format(dateCurrentlyViewing);
         ExerciseObject exercise = intent.getParcelableExtra("exercise");
         databaseref = FirebaseDatabase.getInstance().getReference().child(formattedDate);
         options = new FirebaseRecyclerOptions.Builder<ExerciseObject>().setQuery(databaseref,ExerciseObject.class).build();
@@ -141,6 +147,7 @@ public class WorkoutActivityV2 extends AppCompatActivity {
 
     public void addExercise(){
         Intent intent = new Intent(this,AddExercise.class);
+        intent.putExtra("com.example.jimv2.PASSDATE", dateCurrentlyViewing.getTime());
         startActivity(intent);
     }
     public void launchExercise(){
