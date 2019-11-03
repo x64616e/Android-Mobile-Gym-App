@@ -55,6 +55,8 @@ public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.Exerci
                     }
                 }
             });
+
+
         }
 
         void bind(int position) {

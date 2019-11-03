@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import android.content.Intent;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class AddExcercise extends AppCompatActivity {
     public  ArrayList<ExerciseObject> exerciseList;
@@ -111,7 +112,12 @@ public class AddExcercise extends AppCompatActivity {
         mAdapter.setOnItemClickListner(new ExerciseAdapter.OnClickListner() {
             @Override
             public void onItemClick(int position) {
-                sendToWorkout.add(exerciseList.get(position));
+//                ExerciseObject object1 = new ExerciseObject();
+//                sendToWorkout.add(exerciseList.get(position));
+                Intent intent = new Intent(AddExcercise.this,WorkoutActivityV2.class);
+                intent.putExtra("exercise",exerciseList.get(position));
+                startActivity(intent);
+                finish();
             }
         });
     }

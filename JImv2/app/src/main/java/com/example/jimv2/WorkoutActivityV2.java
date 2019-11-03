@@ -9,11 +9,14 @@ import android.widget.Button;
 import java.util.ArrayList;
 import android.content.Intent;
 import android.view.View;
+import android.content.Intent;
 import java.text.SimpleDateFormat;
 import android.widget.ImageButton;
 import java.util.Date;
 import java.util.Calendar;
 import android.widget.ImageView;
+import android.widget.Toast;
+
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -37,6 +40,18 @@ public class WorkoutActivityV2 extends AppCompatActivity {
         setContentView(R.layout.workoutv3);
         populateArray();
         buildRecylcerView();
+        Intent intent = getIntent();
+        ExerciseObject exercise = intent.getParcelableExtra("exercise");
+
+        try {
+            if (!exercise.equals(null)) {
+                workouts.add(exercise);
+            }
+        }
+        catch (NullPointerException nfe){
+            nfe.printStackTrace();
+        }
+        workoutList.addAll(workouts);
         databaseExercise = FirebaseDatabase.getInstance().getReference(formattedDate);
         saveToDatabase();
         heartIcon = (ImageView) findViewById(R.id.heartIcon);
@@ -51,7 +66,7 @@ public class WorkoutActivityV2 extends AppCompatActivity {
         doneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                backToLanding();
+                finish();
             }
         });
         addExercise = (Button) findViewById(R.id.addExerciseButton);
@@ -85,6 +100,7 @@ public class WorkoutActivityV2 extends AppCompatActivity {
         workoutList.add(new ExerciseObject(R.drawable.ic_jm_press_2, "Bench Press",4,0,0,0));
         workoutList.add(new ExerciseObject(R.drawable.ic_triceps_kickback_2, "Tricep Kickback",5,0,0,0));
         workoutList.add(new ExerciseObject(R.drawable.ic_good_mornings_1, "Good Mornings",6,0,0,0));
+
 //        workoutList.add(new ExerciseObject(R.drawable.ic_hammer_curls_with_rope_2, "Hammer Curl",7,0,0,0));
 //        workoutList.add(new ExerciseObject(R.drawable.ic_preacher_hammer_curl_1, "Preacher Curl",8,0,0,0));
 //        workoutList.add(new ExerciseObject(R.drawable.ic_tricep_dips_1, "Tricept Dip",9,0,0,0));
