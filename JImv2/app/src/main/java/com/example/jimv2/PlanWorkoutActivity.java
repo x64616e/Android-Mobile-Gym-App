@@ -39,7 +39,7 @@ public class PlanWorkoutActivity extends AppCompatActivity {
     public void toAddExercise(){
         Log.d(TAG, "toAddExercise: called.");
 
-        Intent intent = new Intent(this, AddExcercise.class);
+        Intent intent = new Intent(this, AddExercise.class);
         startActivity(intent);
     }
 }

@@ -46,7 +46,7 @@ public class landing3 extends AppCompatActivity {
     private Button statisticsButton;
     private ImageButton userIconButton;
     private Button workoutButton;
-    private Button excercise1;
+    private Button Exercise1;
     private ImageButton leftArrow;
     private ImageButton rightArrow;
     private Button friendsButton;
@@ -212,7 +212,7 @@ public class landing3 extends AppCompatActivity {
         startActivity(intent);
     }
     public void openAddExercise(){
-        Intent intent = new Intent(this,AddExcercise.class);
+        Intent intent = new Intent(this,AddExercise.class);
         startActivity(intent);
     }
     public void openExercise(){

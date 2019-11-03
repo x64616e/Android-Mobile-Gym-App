@@ -193,7 +193,7 @@ public class landing extends AppCompatActivity {
         startActivity(intent);
     }
     public void openAddExercise(){
-        Intent intent = new Intent(this,AddExcercise.class);
+        Intent intent = new Intent(this,AddExercise.class);
         startActivity(intent);
     }
     public void openExercise(){
