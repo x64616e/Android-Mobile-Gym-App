@@ -9,17 +9,32 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.widget.Button;
+
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+
 import android.content.Intent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class AddExercise extends AppCompatActivity {
+
+    Date currentDate = Calendar.getInstance().getTime();
+    SimpleDateFormat df = new SimpleDateFormat("ddMMMyyyy");
+    String formattedDate = df.format(currentDate);
+
+    DatabaseReference databaseref;
     public  ArrayList<ExerciseObject> exerciseList;
     public  ArrayList<ExerciseObject> sendToWorkout;
     private RecyclerView mRecyclerView;
     private ExerciseAdapter mAdapter;
+    DatabaseReference databaseExercise;
     private RecyclerView.LayoutManager layoutManager;
     private static final String TAG = "AddExercise";
 
@@ -31,6 +46,8 @@ public class AddExercise extends AppCompatActivity {
         populateList();
         EditText editText = findViewById(R.id.search);
         buildRecylcerView();
+        databaseref = FirebaseDatabase.getInstance().getReference().child(formattedDate);
+
         editText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -62,6 +79,7 @@ public class AddExercise extends AppCompatActivity {
 //                bundle.putParcelableArrayList("list", (ArrayList<ExerciseObject>)sendToWorkout);
 //                intent.putExtras(bundle);
 //                startActivity(intent);
+
                 finish();
 
 
@@ -112,12 +130,21 @@ public class AddExercise extends AppCompatActivity {
         mAdapter.setOnItemClickListner(new ExerciseAdapter.OnClickListner() {
             @Override
             public void onItemClick(int position) {
-//                ExerciseObject object1 = new ExerciseObject();
+                ExerciseObject exercise = new ExerciseObject();
+
 //                sendToWorkout.add(exerciseList.get(position));
-                Intent intent = new Intent(AddExercise.this,WorkoutActivityV2.class);
-                intent.putExtra("exercise",exerciseList.get(position));
-                startActivity(intent);
+//                Intent intent = new Intent(AddExercise.this,WorkoutActivityV2.class);
+//                intent.putExtra("exercise",exerciseList.get(position));
+//                startActivity(intent);
+
+                exercise = exerciseList.get(position);
+
+                int number = exercise.getExerciseNumber();
+                String id = Integer.toString(number);
+                databaseExercise.child(id).setValue((ExerciseObject)exercise);
+
                 finish();
+
             }
         });
     }

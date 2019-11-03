@@ -1,10 +1,14 @@
 package com.example.jimv2;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
 import android.widget.Button;
 import java.util.ArrayList;
 import android.content.Intent;
@@ -17,13 +21,20 @@ import java.util.Calendar;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class WorkoutActivityV2 extends AppCompatActivity {
+
     Date currentDate = Calendar.getInstance().getTime();
     SimpleDateFormat df = new SimpleDateFormat("ddMMMyyyy");
     String formattedDate = df.format(currentDate);
+
+    DatabaseReference databaseref;
+    FirebaseRecyclerOptions<ExerciseObject> options;
+    FirebaseRecyclerAdapter<ExerciseObject, WorkoutHolder> adapter;
 
     private RecyclerView mRecyclerView;
     private WorkoutAdapter mAdapter;
@@ -38,22 +49,72 @@ public class WorkoutActivityV2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.workoutv3);
-        populateArray();
+        //populateArray();
         buildRecylcerView();
         Intent intent = getIntent();
         ExerciseObject exercise = intent.getParcelableExtra("exercise");
+        databaseref = FirebaseDatabase.getInstance().getReference().child(formattedDate);
+        options = new FirebaseRecyclerOptions.Builder<ExerciseObject>().setQuery(databaseref,ExerciseObject.class).build();
 
-        try {
-            if (!exercise.equals(null)) {
-                workouts.add(exercise);
+//        try {
+//            if (!exercise.equals(null)) {
+//                workouts.add(exercise);
+//                saveToDatabase();
+//            }
+//        }
+//        catch (NullPointerException nfe){
+//            nfe.printStackTrace();
+//        }
+
+
+//        databaseExercise = FirebaseDatabase.getInstance().getReference(formattedDate);
+//        saveToDatabase();
+
+
+        adapter = new FirebaseRecyclerAdapter<ExerciseObject, WorkoutHolder>(options) {
+            @Override
+            protected void onBindViewHolder(@NonNull WorkoutHolder holder, final int position, @NonNull final ExerciseObject model) {
+                holder.exerciseName.setText(model.getExerciseName());
+
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        DatabaseReference myRef = adapter.getRef(position);
+
+                        //myRef.removeValue();
+                        //adapter.notifyDataSetChanged();
+                        //ExerciseObject exercise = (ExerciseObject) new ExerciseObject(myRef.getDatabase());
+                        Intent intent = new Intent(WorkoutActivityV2.this,ExerciseActivity.class);
+                        intent.putExtra("exercise",model);
+                        startActivity(intent);
+                    }
+                });
+
             }
-        }
-        catch (NullPointerException nfe){
-            nfe.printStackTrace();
-        }
-        workoutList.addAll(workouts);
-        databaseExercise = FirebaseDatabase.getInstance().getReference(formattedDate);
-        saveToDatabase();
+
+            @NonNull
+            @Override
+            public WorkoutHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                //numberOfExercises = adapter.getItemCount();
+
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.exercisesquare,parent,false);
+                return new WorkoutHolder(view);
+
+            }
+
+
+        };
+
+        layoutManager = new GridLayoutManager(this,2);
+        mRecyclerView.setLayoutManager(layoutManager);
+        adapter.startListening();
+        mRecyclerView.setAdapter(adapter);
+
+
+
+
+
+
         heartIcon = (ImageView) findViewById(R.id.heartIcon);
         heartIcon.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,14 +154,14 @@ public class WorkoutActivityV2 extends AppCompatActivity {
         Intent intent = new Intent(this,HeartRateActivity.class);
         startActivity(intent);
     }
-    public void populateArray(){
-        workoutList.add(new ExerciseObject(R.drawable.ic_pile_squat_1, "Pile Squat",1,0,0,0));
-        workoutList.add(new ExerciseObject(R.drawable.ic_alternate_bicep_curl_1, "Curl",2,0,0,0));
-        workoutList.add(new ExerciseObject(R.drawable.ic_leg_press_2_1024x670, "Leg Press",3,0,0,0));
-        workoutList.add(new ExerciseObject(R.drawable.ic_jm_press_2, "Bench Press",4,0,0,0));
-        workoutList.add(new ExerciseObject(R.drawable.ic_triceps_kickback_2, "Tricep Kickback",5,0,0,0));
-        workoutList.add(new ExerciseObject(R.drawable.ic_good_mornings_1, "Good Mornings",6,0,0,0));
 
+//    public void populateArray(){
+//        workoutList.add(new ExerciseObject(R.drawable.ic_pile_squat_1, "Pile Squat",1,0,0,0));
+//        workoutList.add(new ExerciseObject(R.drawable.ic_alternate_bicep_curl_1, "Curl",2,0,0,0));
+//        workoutList.add(new ExerciseObject(R.drawable.ic_leg_press_2_1024x670, "Leg Press",3,0,0,0));
+//        workoutList.add(new ExerciseObject(R.drawable.ic_jm_press_2, "Bench Press",4,0,0,0));
+//        workoutList.add(new ExerciseObject(R.drawable.ic_triceps_kickback_2, "Tricep Kickback",5,0,0,0));
+//        workoutList.add(new ExerciseObject(R.drawable.ic_good_mornings_1, "Good Mornings",6,0,0,0));
 //        workoutList.add(new ExerciseObject(R.drawable.ic_hammer_curls_with_rope_2, "Hammer Curl",7,0,0,0));
 //        workoutList.add(new ExerciseObject(R.drawable.ic_preacher_hammer_curl_1, "Preacher Curl",8,0,0,0));
 //        workoutList.add(new ExerciseObject(R.drawable.ic_tricep_dips_1, "Tricept Dip",9,0,0,0));
@@ -111,7 +172,8 @@ public class WorkoutActivityV2 extends AppCompatActivity {
 //        workoutList.add(new ExerciseObject(R.drawable.ic_chin_ups_1, "Chin Ups",14,0,0,0));
 //        workoutList.add(new ExerciseObject(R.drawable.ic_decline_crunch_2, "Decline Crunch",15,0,0,0));
 
-    }
+//}
+
     public void buildRecylcerView(){
         mRecyclerView = findViewById(R.id.exerciseRecycleView); // view
         mRecyclerView.setHasFixedSize(true);
@@ -130,11 +192,31 @@ public class WorkoutActivityV2 extends AppCompatActivity {
     }
 
     public void saveToDatabase(){
-        for (ExerciseObject exercise: workoutList) {
+        for (ExerciseObject exercise: workouts) {
             int number = exercise.getExerciseNumber();
             String id = Integer.toString(number);
             //String id = databaseExercise.push().getKey();
             databaseExercise.child(id).setValue(exercise);
         }
+    }
+
+    protected void onStart(){
+        super.onStart();
+        if(adapter !=null)
+            adapter.startListening();
+    }
+
+    @Override
+    protected void onStop(){
+        if(adapter !=null)
+            adapter.stopListening();
+        super.onStop();
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        if(adapter !=null)
+            adapter.startListening();
     }
 }

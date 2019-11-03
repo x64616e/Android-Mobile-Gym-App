@@ -18,7 +18,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".CompletedDayActivity" />
         <activity android:name=".ExerciseActivity" />
-        <activity android:name=".AddExcercise" />
+        <activity android:name=".AddExercise" />
         <activity android:name=".CalculatorActivity" />
         <activity android:name=".HeartRateActivity" />
         <activity android:name=".PlanRoutineActivity" />
