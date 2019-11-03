@@ -25,9 +25,7 @@ import java.util.Locale;
 
 public class ExerciseActivity extends AppCompatActivity {
 
-    Date currentDate = Calendar.getInstance().getTime();
-    SimpleDateFormat df = new SimpleDateFormat("ddMMMyyyy");
-    String formattedDate = df.format(currentDate);
+    Date dateCurrentlyViewing = Calendar.getInstance().getTime();
     StringBuilder completeDate = new StringBuilder("complete");
     private Button doneButton;
     private Button setExercise;
@@ -59,6 +57,14 @@ public class ExerciseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.exercise);
         Intent intent = getIntent();
+
+        if(getIntent().hasExtra("com.example.jimv2.PASSDATE")) {
+            long passedDate = getIntent().getExtras().getLong("com.example.jimv2.PASSDATE");
+            dateCurrentlyViewing.setTime(passedDate);
+        }
+
+        SimpleDateFormat df = new SimpleDateFormat("ddMMMyyyy");
+        String formattedDate = df.format(dateCurrentlyViewing);
         completeDate.append(formattedDate);
         String Date = completeDate.toString();
         databaseExercise = FirebaseDatabase.getInstance().getReference(Date);
