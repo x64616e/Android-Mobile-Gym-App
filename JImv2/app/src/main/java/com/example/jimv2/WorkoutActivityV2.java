@@ -152,6 +152,7 @@ public class WorkoutActivityV2 extends AppCompatActivity {
     }
     public void launchExercise(){
         Intent intent = new Intent(this,ExerciseActivity.class);
+        intent.putExtra("com.example.jimv2.PASSDATE", dateCurrentlyViewing.getTime());
         startActivity(intent);
     }
 
