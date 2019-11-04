@@ -9,6 +9,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import com.squareup.picasso.Picasso;
 
 public class WorkoutAdapter extends RecyclerView.Adapter<WorkoutAdapter.ExerciseViewHolder> {
     public ArrayList<ExerciseObject> mExerciseList;
@@ -71,6 +72,7 @@ public class WorkoutAdapter extends RecyclerView.Adapter<WorkoutAdapter.Exercise
         Log.d(TAG, "onBindViewHolder: called.");
 
         ExerciseObject currentExercise = mExerciseList.get(position);
+        Picasso.get().load(currentExercise.getImageLink()).into(holder.exerciseImage);
         holder.exerciseImage.setImageResource(currentExercise.getmImageResource());
         holder.exerciseName.setText(currentExercise.getmText());
     }

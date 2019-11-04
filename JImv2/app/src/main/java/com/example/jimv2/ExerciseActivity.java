@@ -278,7 +278,7 @@ public class ExerciseActivity extends AppCompatActivity {
 
             if (!TextUtils.isEmpty(sets) && !TextUtils.isEmpty(weight) && !TextUtils.isEmpty(reps)) {
                 String id = databaseExercise.push().getKey();
-                ExerciseObject exercise = new ExerciseObject(1, name, exerciseSets, 1, exerciseReps, exerciseWeight);
+                ExerciseObject exercise = new ExerciseObject(1, name, exerciseSets, 1, exerciseReps, exerciseWeight, "");
                 databaseExercise.child(id).setValue(exercise);
                 Toast.makeText(this, "Statistics Recorded", Toast.LENGTH_LONG).show();
             } else {
