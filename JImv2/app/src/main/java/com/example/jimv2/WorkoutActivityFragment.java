@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -41,6 +42,8 @@ public class WorkoutActivityFragment extends Fragment {
     private Button addExercise;
     private ImageView heartIcon;
 
+    private static final String TAG = "WorkoutActivityFragment";
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.workoutv3, container, false);
@@ -60,12 +63,11 @@ public class WorkoutActivityFragment extends Fragment {
         options = new FirebaseRecyclerOptions.Builder<ExerciseObject>().setQuery(databaseref,ExerciseObject.class).build();
 
         try {
-            if (!exercise.equals(null)) {
+            if ( exercise != (null)) {
                 workouts.add(exercise);
                 saveToDatabase();
             }
-        }
-        catch (NullPointerException nfe){
+        } catch (NullPointerException nfe){
             nfe.printStackTrace();
         }
 
@@ -132,19 +134,35 @@ public class WorkoutActivityFragment extends Fragment {
         addExercise.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d(TAG, "addExerciseButton: clicked.");
+
                 addExercise();
             }
         });
 
+        updateUI();
+
         return view;
+    }
+
+    private void updateUI() {
+
+        if (mAdapter == null ) {
+            mAdapter = new WorkoutAdapter(workoutList);
+            mRecyclerView.setLayoutManager(layoutManager);
+            mRecyclerView.setAdapter(mAdapter);
+        } else {
+            mAdapter.notifyDataSetChanged();
+        }
     }
     public void backToLanding(){
         getActivity().finish();
     }
 
     public void addExercise(){
-        Intent intent = new Intent(getActivity(), AddExercise.class);
-        intent.putExtra("com.example.jimv2.PASSDATE", dateCurrentlyViewing.getTime());
+        Log.d(TAG, "addExercise: called.");
+        Intent intent = AddExercise.newIntent(getActivity(), dateCurrentlyViewing.getTime());
+        //intent.putExtra("com.example.jimv2.PASSDATE", dateCurrentlyViewing.getTime());
         startActivity(intent);
     }
     public void launchExercise(){
@@ -203,5 +221,6 @@ public class WorkoutActivityFragment extends Fragment {
         super.onResume();
         if(adapter !=null)
             adapter.startListening();
+        updateUI();
     }
 }
