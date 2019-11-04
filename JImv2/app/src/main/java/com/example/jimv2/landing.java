@@ -27,8 +27,6 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import org.w3c.dom.Text;
-
 
 public class landing extends AppCompatActivity {
 
@@ -200,7 +198,7 @@ public class landing extends AppCompatActivity {
         startActivity(intent);
     }
     public void openWorkoutScreen(){
-        Intent intent = new Intent(this,WorkoutActivityV2.class);
+        Intent intent = new Intent(this, WorkoutActivity.class);
         intent.putExtra("com.example.jimv2.PASSDATE", dateCurrentlyViewing.getTime());
         startActivity(intent);
     }

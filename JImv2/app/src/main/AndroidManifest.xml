@@ -17,6 +17,7 @@
             android:label="@string/title_activity_plan_workout"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".CompletedDayActivity" />
+        <activity android:name=".WorkoutActivity" />
         <activity android:name=".ExerciseActivity" />
         <activity android:name=".AddExercise" />
         <activity android:name=".CalculatorActivity" />
@@ -24,7 +25,7 @@
         <activity android:name=".PlanRoutineActivity" />
         <activity android:name=".ReportActivity" />
         <activity android:name=".CalendarActivity" />
-        <activity android:name=".WorkoutActivityV2"/>
+        <activity android:name=".WorkoutActivityFragment"/>
         <activity android:name=".DatabaseWorkout"/>
         <activity android:name=".landing" />
         <activity android:name=".ProfileActivity" />

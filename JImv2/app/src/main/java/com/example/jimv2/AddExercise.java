@@ -27,7 +27,6 @@ public class AddExercise extends AppCompatActivity {
 
     Date dateCurrentlyViewing = Calendar.getInstance().getTime();
 
-
     DatabaseReference databaseref;
     public ArrayList<ExerciseObject> exerciseList;
     public ArrayList<ExerciseObject> sendToWorkout;
@@ -81,7 +80,7 @@ public class AddExercise extends AppCompatActivity {
 
 
                 //TODO
-//                Intent intent = new Intent(AddExcercise.this,WorkoutActivityV2.class);
+//                Intent intent = new Intent(AddExcercise.this,WorkoutActivityFragment.class);
 //                Bundle bundle = new Bundle();
 //                bundle.putParcelableArrayList("list", (ArrayList<ExerciseObject>)sendToWorkout);
 //                intent.putExtras(bundle);

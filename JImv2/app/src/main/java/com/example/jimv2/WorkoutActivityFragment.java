@@ -2,31 +2,28 @@ package com.example.jimv2;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.Button;
 import java.util.ArrayList;
 import android.content.Intent;
 import android.view.View;
-import android.content.Intent;
+
 import java.text.SimpleDateFormat;
-import android.widget.ImageButton;
 import java.util.Date;
 import java.util.Calendar;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class WorkoutActivityV2 extends AppCompatActivity {
+public class WorkoutActivityFragment extends Fragment {
 
     Date dateCurrentlyViewing = Calendar.getInstance().getTime();
 
@@ -44,15 +41,15 @@ public class WorkoutActivityV2 extends AppCompatActivity {
     private Button addExercise;
     private ImageView heartIcon;
 
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.workoutv3);
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.workoutv3, container, false);
         //populateArray();
-        buildRecylcerView();
-        Intent intent = getIntent();
+        buildRecylcerView(view);
+        Intent intent = getActivity().getIntent();
 
-        if(getIntent().hasExtra("com.example.jimv2.PASSDATE")) {
-            long passedDate = getIntent().getExtras().getLong("com.example.jimv2.PASSDATE");
+        if(getActivity().getIntent().hasExtra("com.example.jimv2.PASSDATE")) {
+            long passedDate = getActivity().getIntent().getExtras().getLong("com.example.jimv2.PASSDATE");
             dateCurrentlyViewing.setTime(passedDate);
         }
 
@@ -87,11 +84,7 @@ public class WorkoutActivityV2 extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         DatabaseReference myRef = adapter.getRef(position);
-
-                        //myRef.removeValue();
-                        //adapter.notifyDataSetChanged();
-                        //ExerciseObject exercise = (ExerciseObject) new ExerciseObject(myRef.getDatabase());
-                        Intent intent = new Intent(WorkoutActivityV2.this,ExerciseActivity.class);
+                        Intent intent = new Intent(getActivity(), ExerciseActivity.class);
                         intent.putExtra("exercise",model);
                         startActivity(intent);
                     }
@@ -112,13 +105,15 @@ public class WorkoutActivityV2 extends AppCompatActivity {
 
         };
 
-        layoutManager = new GridLayoutManager(this,2);
-        mRecyclerView.setLayoutManager(layoutManager);
+        //layoutManager = new GridLayoutManager(this,2);
+        //mRecyclerView.setLayoutManager(layoutManager);
+        mRecyclerView = (RecyclerView) view.findViewById(R.id.exerciseRecycleView);
+        mRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
         adapter.startListening();
         mRecyclerView.setAdapter(adapter);
 
 
-        heartIcon = (ImageView) findViewById(R.id.heartIcon);
+        heartIcon = (ImageView) view.findViewById(R.id.heartIcon);
         heartIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -126,53 +121,55 @@ public class WorkoutActivityV2 extends AppCompatActivity {
             }
         });
 
-        doneButton = (Button) findViewById(R.id.doneButtonWorkout);
+        doneButton = (Button) view.findViewById(R.id.doneButtonWorkout);
         doneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                getActivity().finish();
             }
         });
-        addExercise = (Button) findViewById(R.id.addExerciseButton);
+        addExercise = (Button) view.findViewById(R.id.addExerciseButton);
         addExercise.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 addExercise();
             }
         });
+
+        return view;
     }
     public void backToLanding(){
-        finish();
+        getActivity().finish();
     }
 
     public void addExercise(){
-        Intent intent = new Intent(this,AddExercise.class);
+        Intent intent = new Intent(getActivity(), AddExercise.class);
         intent.putExtra("com.example.jimv2.PASSDATE", dateCurrentlyViewing.getTime());
         startActivity(intent);
     }
     public void launchExercise(){
-        Intent intent = new Intent(this,ExerciseActivity.class);
+        Intent intent = new Intent(getActivity(), ExerciseActivity.class);
         intent.putExtra("com.example.jimv2.PASSDATE", dateCurrentlyViewing.getTime());
         startActivity(intent);
     }
 
     public void launchHeartRate(){
-        Intent intent = new Intent(this,HeartRateActivity.class);
+        Intent intent = new Intent(getActivity(), HeartRateActivity.class);
         startActivity(intent);
     }
 
 
-    public void buildRecylcerView(){
-        mRecyclerView = findViewById(R.id.exerciseRecycleView); // view
+    public void buildRecylcerView(View view){
+        mRecyclerView = view.findViewById(R.id.exerciseRecycleView); // view
         mRecyclerView.setHasFixedSize(true);
-        layoutManager = new GridLayoutManager(this,2);
+        layoutManager = new GridLayoutManager(getActivity(),2);
         mAdapter = new WorkoutAdapter(workoutList);
         mRecyclerView.setLayoutManager(layoutManager);
         mRecyclerView.setAdapter(mAdapter);
         mAdapter.setOnItemClickListner(new WorkoutAdapter.OnClickListner() {
             @Override
             public void onItemClick(int position) {
-                Intent intent = new Intent(WorkoutActivityV2.this,ExerciseActivity.class);
+                Intent intent = new Intent(getActivity(), ExerciseActivity.class);
                 intent.putExtra("exercise",workoutList.get(position));
                 startActivity(intent);
             }
@@ -188,21 +185,21 @@ public class WorkoutActivityV2 extends AppCompatActivity {
         }
     }
 
-    protected void onStart(){
+    public void onStart(){
         super.onStart();
         if(adapter !=null)
             adapter.startListening();
     }
 
     @Override
-    protected void onStop(){
+    public void onStop(){
         if(adapter !=null)
             adapter.stopListening();
         super.onStop();
     }
 
     @Override
-    protected void onResume(){
+    public void onResume(){
         super.onResume();
         if(adapter !=null)
             adapter.startListening();

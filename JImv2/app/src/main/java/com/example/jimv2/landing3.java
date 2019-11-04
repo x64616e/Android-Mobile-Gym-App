@@ -208,7 +208,7 @@ public class landing3 extends AppCompatActivity {
         startActivity(intent);
     }
     public void openWorkoutScreen(){
-        Intent intent = new Intent(this,WorkoutActivityV2.class);
+        Intent intent = new Intent(this, WorkoutActivity.class);
         startActivity(intent);
     }
     public void openAddExercise(){
