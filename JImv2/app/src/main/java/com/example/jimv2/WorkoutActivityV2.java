@@ -82,7 +82,7 @@ public class WorkoutActivityV2 extends AppCompatActivity {
             @Override
             protected void onBindViewHolder(@NonNull WorkoutHolder holder, final int position, @NonNull final ExerciseObject model) {
                 holder.exerciseName.setText(model.getExerciseName());
-
+                holder.exerciseImage.setImageResource(model.getmImageResource());
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

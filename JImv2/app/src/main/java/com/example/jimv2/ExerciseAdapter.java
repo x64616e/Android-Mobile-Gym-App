@@ -12,7 +12,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 
 import androidx.annotation.NonNull;
@@ -95,6 +95,7 @@ public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.Exerci
         Log.d(TAG, "onBindViewHolder: called.");
 
         holder.bind(position);
+        //Picasso.get().load("http://i.imgur.com/DvpvklR.png").into(holder.exerciseImage);
         final ExerciseObject currentExercise = mExerciseList.get(position);
         holder.exerciseImage.setImageResource(currentExercise.getmImageResource());
         holder.exerciseName.setText(currentExercise.getmText());
