@@ -172,7 +172,7 @@ public class WorkoutActivityFragment extends Fragment {
     }
 
     public void launchHeartRate(){
-        Intent intent = new Intent(getActivity(), HeartRateActivity.class);
+        Intent intent = new Intent(getActivity(), HeartRateMonitor.class);
         startActivity(intent);
     }
 
