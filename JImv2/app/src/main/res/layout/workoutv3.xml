@@ -69,11 +69,8 @@
         android:id="@+id/heartIcon"
         android:layout_width="142dp"
         android:layout_height="66dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
+        android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="134dp"
-        android:layout_marginRight="134dp"
         android:layout_marginBottom="3dp"
         android:clickable="true"
         android:src="@drawable/ic_fduv4ts_heart_vector" />
