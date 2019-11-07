@@ -72,7 +72,6 @@ public class WorkoutAdapter extends RecyclerView.Adapter<WorkoutAdapter.Exercise
         Log.d(TAG, "onBindViewHolder: called.");
 
         ExerciseObject currentExercise = mExerciseList.get(position);
-        Picasso.get().load(currentExercise.getImageLink()).into(holder.exerciseImage);
         holder.exerciseImage.setImageResource(currentExercise.getmImageResource());
         holder.exerciseName.setText(currentExercise.getmText());
     }

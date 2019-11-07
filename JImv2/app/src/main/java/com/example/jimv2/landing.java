@@ -74,7 +74,6 @@ public class landing extends AppCompatActivity {
         adapter = new FirebaseRecyclerAdapter<ExerciseObject, DatabaseHolder>(options) {
             @Override
             protected void onBindViewHolder(@NonNull DatabaseHolder holder, final int position, @NonNull ExerciseObject model) {
-//                findViewById(R.id.loadingBarDB).setVisibility(View.GONE);
                 holder.exerciseName.setText(model.getExerciseName());
 
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
