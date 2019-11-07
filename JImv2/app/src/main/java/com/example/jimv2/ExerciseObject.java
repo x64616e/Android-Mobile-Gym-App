@@ -12,18 +12,23 @@ public class ExerciseObject implements Parcelable {
     public int exerciseSets;
     public int exerciseReps;
     public int exerciseWeight;
+    public String imageLink;
 
-    public ExerciseObject(int imageSource, String text, int number, int sets, int reps, int weight){
+    public ExerciseObject(int imageSource, String text, int number, int sets, int reps, int weight, String imagelink){
         exerciseImage = imageSource;
         exerciseName = text;
         exerciseID = number;
         exerciseSets = sets;
         exerciseReps = reps;
         exerciseWeight = weight;
+        imageLink= imagelink;
     }
 
     public int getExerciseImage() {
         return exerciseImage;
+    }
+    public String getImageLink() {
+        return imageLink;
     }
     public void setExerciseImage(int exerciseImage) {
         this.exerciseImage = exerciseImage;
@@ -57,6 +62,7 @@ public class ExerciseObject implements Parcelable {
         this.exerciseWeight = exerciseWeight;
     }
 
+    public void setImageLink(String imageLink){this.imageLink = imageLink;}
     public ExerciseObject() {
     }
 

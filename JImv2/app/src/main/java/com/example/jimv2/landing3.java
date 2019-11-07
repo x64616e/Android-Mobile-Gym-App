@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -28,7 +29,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 
-public class landing extends AppCompatActivity {
+
+public class landing3 extends AppCompatActivity {
 
     RecyclerView recyclerView;
     DatabaseReference databaseref;
@@ -36,40 +38,33 @@ public class landing extends AppCompatActivity {
     FirebaseRecyclerOptions <ExerciseObject> options;
     FirebaseRecyclerAdapter <ExerciseObject, DatabaseHolder> adapter;
     Date currentDate = Calendar.getInstance().getTime();
-    Date dateCurrentlyViewing = Calendar.getInstance().getTime();
-
+    SimpleDateFormat df = new SimpleDateFormat("ddMMMyyyy");
+    String formattedDate = df.format(currentDate);
     private static final String TAG = "Landing";
 
     private Button calendarButton;
     private Button statisticsButton;
     private ImageButton userIconButton;
     private Button workoutButton;
-    //private Button exercise1;
+    private Button Exercise1;
     private ImageButton leftArrow;
     private ImageButton rightArrow;
     private Button friendsButton;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.landing);
-
-
-        if(getIntent().hasExtra("com.example.jimv2.PASSDATE")) {
-            long passedDate = getIntent().getExtras().getLong("com.example.jimv2.PASSDATE");
-            dateCurrentlyViewing.setTime(passedDate);
-        }
-
-        getCurrentDate();
-
+        setContentView(R.layout.landing3);
+        //getCurrentDate();
         recyclerView = (RecyclerView) findViewById(R.id.landingRecyclerView);
         recyclerView.setHasFixedSize(true);
+        getForwardDateString();
+
+        //String fdate =  getForwardDateString();
 
         //****
         //Recycler View from Database Query
         //***
-        SimpleDateFormat df = new SimpleDateFormat("ddMMMyyyy");
-        String formattedDate = df.format(dateCurrentlyViewing);
-        databaseref = FirebaseDatabase.getInstance().getReference().child(formattedDate);
+        databaseref = FirebaseDatabase.getInstance().getReference().child(setForwardDateString());
         options = new FirebaseRecyclerOptions.Builder<ExerciseObject>().setQuery(databaseref,ExerciseObject.class).build();
         adapter = new FirebaseRecyclerAdapter<ExerciseObject, DatabaseHolder>(options) {
             @Override
@@ -80,7 +75,7 @@ public class landing extends AppCompatActivity {
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Toast.makeText(landing.this, "This item is removed from workout: " + position, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(landing3.this, "This item is removed from workout: " + position, Toast.LENGTH_SHORT).show();
                         DatabaseReference myRef = adapter.getRef(position);
                         myRef.removeValue();
                         adapter.notifyDataSetChanged();
@@ -142,13 +137,6 @@ public class landing extends AppCompatActivity {
             }
         });
 
-        rightArrow = (ImageButton) findViewById(R.id.rightArrow);
-        rightArrow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                forwardDay();
-            }
-        });
 
 
 
@@ -173,9 +161,31 @@ public class landing extends AppCompatActivity {
     }
 
     public void getCurrentDate(){
-        String date_n = new SimpleDateFormat("MMM dd, yyyy", Locale.getDefault()).format(dateCurrentlyViewing.getTime());
+        String date_n = new SimpleDateFormat("MMM dd, yyyy", Locale.getDefault()).format(new Date());
         TextView date  = (TextView) findViewById(R.id.currentDate);
         date.setText(date_n);
+    }
+
+    private Date forwardday() {
+        final Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.DATE, +1);
+        return cal.getTime();
+    }
+
+    private String getForwardDateString() {
+        String fdate;
+        DateFormat dateFormat = new SimpleDateFormat("MMM dd, yyyy");
+        TextView date  = (TextView) findViewById(R.id.currentDate);
+        fdate = dateFormat.format(forwardday());
+        date.setText(fdate);
+        return fdate;
+    }
+
+    private String setForwardDateString() {
+        String fdate;
+        DateFormat dateFormat = new SimpleDateFormat("ddMMMyyyy");
+        fdate = dateFormat.format(forwardday());
+        return fdate;
     }
 
     public void openCalendarScreen(){
@@ -199,7 +209,6 @@ public class landing extends AppCompatActivity {
     }
     public void openWorkoutScreen(){
         Intent intent = new Intent(this, WorkoutActivity.class);
-        intent.putExtra("com.example.jimv2.PASSDATE", dateCurrentlyViewing.getTime());
         startActivity(intent);
     }
     public void openAddExercise(){
@@ -212,22 +221,9 @@ public class landing extends AppCompatActivity {
     }
     public void previousDay(){
         Intent intent = new Intent(this,landing.class);
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(dateCurrentlyViewing);
-        cal.add(Calendar.DATE, -1);
-        Date passDate = cal.getTime();
-        intent.putExtra("com.example.jimv2.PASSDATE", passDate.getTime());
         startActivity(intent);
     }
-    public void forwardDay(){
-        Intent intent = new Intent(this,landing.class);
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(dateCurrentlyViewing);
-        cal.add(Calendar.DATE, 1);
-        Date passDate = cal.getTime();
-        intent.putExtra("com.example.jimv2.PASSDATE", passDate.getTime());
-        startActivity(intent);
-    }
+
     public void openFriends(){
         Intent intent = new Intent(this,DatabaseWorkout.class);
         startActivity(intent);

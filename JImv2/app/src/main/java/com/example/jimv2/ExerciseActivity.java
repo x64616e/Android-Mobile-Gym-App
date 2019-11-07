@@ -15,8 +15,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -64,13 +62,9 @@ public class ExerciseActivity extends AppCompatActivity {
             long passedDate = getIntent().getExtras().getLong("com.example.jimv2.PASSDATE");
             dateCurrentlyViewing.setTime(passedDate);
         }
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String userID = user.getUid();
-        userID = userID.substring(0, Math.min(userID.length(), 6));
 
         SimpleDateFormat df = new SimpleDateFormat("ddMMMyyyy");
         String formattedDate = df.format(dateCurrentlyViewing);
-        completeDate.append(userID);
         completeDate.append(formattedDate);
         String Date = completeDate.toString();
         databaseExercise = FirebaseDatabase.getInstance().getReference(Date);
@@ -290,7 +284,7 @@ public class ExerciseActivity extends AppCompatActivity {
 
             if (!TextUtils.isEmpty(sets) && !TextUtils.isEmpty(weight) && !TextUtils.isEmpty(reps)) {
                 String id = databaseExercise.push().getKey();
-                ExerciseObject exercise = new ExerciseObject(1, name, exerciseSets, 1, exerciseReps, exerciseWeight);
+                ExerciseObject exercise = new ExerciseObject(1, name, exerciseSets, 1, exerciseReps, exerciseWeight, "");
                 databaseExercise.child(id).setValue(exercise);
                 Toast.makeText(this, "Statistics Recorded", Toast.LENGTH_LONG).show();
             } else {

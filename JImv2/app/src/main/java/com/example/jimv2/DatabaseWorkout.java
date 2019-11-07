@@ -9,8 +9,6 @@ import android.widget.TextView;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.FirebaseOptions;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -45,17 +43,10 @@ public class DatabaseWorkout extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.databaseworkout);
         recyclerView = (RecyclerView) findViewById(R.id.databaseRecyclerView);
-
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String userID = user.getUid();
-        userID = userID.substring(0, Math.min(userID.length(), 6));
-
         recyclerView.setHasFixedSize(true);
         getCurrentDate();
-        completeDate.append(userID);
         completeDate.append(formattedDate);
         String Date = completeDate.toString();
-
         numberBox = findViewById(R.id.numberOfExercises);
         databaseref = FirebaseDatabase.getInstance().getReference().child(Date);
         options = new FirebaseRecyclerOptions.Builder<ExerciseObject>().setQuery(databaseref,ExerciseObject.class).build();

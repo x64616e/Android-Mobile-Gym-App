@@ -1,68 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
+    android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-    <TextView
-        android:id="@+id/currentDate"
-        android:layout_width="wrap_content"
-        android:layout_height="35dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="83dp"
-        android:layout_marginLeft="83dp"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/rectangledb"
-        android:clickable="true"
-        android:ems="10"
-        android:enabled="false"
-        android:inputType="date"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="20dp" />
-
-    <ImageButton
-        android:id="@+id/rightArrow2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="41dp"
-        android:layout_marginRight="41dp"
-        android:background="@android:color/transparent"
-        android:clickable="true"
-        app:srcCompat="@mipmap/right2_arrow" />
-
-
-    <ImageButton
-        android:id="@+id/leftArrow2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="35dp"
-        android:layout_marginLeft="35dp"
-        android:layout_marginTop="-2dp"
-        android:background="@android:color/transparent"
-        android:clickable="true"
-        app:srcCompat="@mipmap/left2_arrow" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/exerciseRecycleView"
         android:layout_width="match_parent"
-        android:layout_height="541dp"
+        android:layout_height="482dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="45dp"
+        android:layout_marginStart="0dp"
         android:padding="4dp"
         android:scrollbars="vertical" />
 
@@ -73,40 +20,41 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
         android:layout_gravity="center"
-        android:layout_marginStart="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginBottom="9dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="115dp"
         android:background="@drawable/rectangle"
         android:gravity="center"
         android:text="Add Exercise"
         android:textColor="@color/white"
         android:textSize="20sp" />
 
+
     <Button
-        android:id="@+id/heartRateButton"
+        android:id="@+id/doneButtonWorkout"
         android:layout_width="180dp"
         android:layout_height="60dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
         android:layout_gravity="center"
         android:layout_marginStart="210dp"
         android:layout_marginLeft="210dp"
-        android:layout_marginBottom="9dp"
+        android:layout_marginEnd="21dp"
+        android:layout_marginBottom="115dp"
         android:background="@drawable/rectangle"
         android:gravity="center"
-        android:text="Heart Rate"
+        android:text="Done"
         android:textColor="@color/white"
-        android:textSize="20sp"
-        />
+        android:textSize="20sp" />
+
 
     <TextView
         android:id="@+id/editText"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="110dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="0dp"
@@ -114,10 +62,30 @@
         android:background="@color/medium_blue"
         android:inputType="time"
         android:textColor="@color/white"
-        android:textSize="30sp"
-        android:src="@drawable/ic_fduv4ts_heart_vector"/>
+        android:textSize="30sp" />
 
 
+    <ImageView
+        android:id="@+id/heartIcon"
+        android:layout_width="142dp"
+        android:layout_height="66dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="3dp"
+        android:clickable="true"
+        android:src="@drawable/ic_fduv4ts_heart_vector" />
 
-
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="135dp"
+        android:layout_marginRight="135dp"
+        android:layout_marginBottom="72dp"
+        android:text="Heart Rate"
+        android:textColor="@color/white"
+        android:textSize="30dp" />
 </RelativeLayout>
