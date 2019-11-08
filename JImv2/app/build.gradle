@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     signingConfigs {
         release {
-            storeFile file('~COMP350_JIM_APP\\JImv2\\app\\src\\main\\my-release-key.keystore')
+            storeFile file('C:\\Users\\Dan\\my-release-key.keystore')
             storePassword 'comp350'
             keyAlias = 'upload'
             keyPassword 'comp350'
