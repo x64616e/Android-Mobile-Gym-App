@@ -3,9 +3,9 @@ apply plugin: 'com.android.application'
 android {
     signingConfigs {
         release {
-            storeFile file('C:\\Users\\Dan\\Documents\\GitHub\\COMP350_JIM_APP\\JImv2\\app\\src\\main\\my-release-key.keystore')
+            storeFile file('~COMP350_JIM_APP\\JImv2\\app\\src\\main\\my-release-key.keystore')
             storePassword 'comp350'
-            keyAlias = 'alias_name'
+            keyAlias = 'upload'
             keyPassword 'comp350'
         }
     }
@@ -17,7 +17,6 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        signingConfig signingConfigs.release
     }
     buildTypes {
         release {

@@ -6,7 +6,7 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/heartratetext"
+        android:id="@+id/editText"
         android:layout_width="match_parent"
         android:layout_height="86dp"
         android:layout_alignParentTop="true"
@@ -57,7 +57,7 @@
         android:textSize="20sp"/>
 
     <TextView
-        android:id="@+id/bpm"
+        android:id="@+id/editText"
         android:layout_width="match_parent"
         android:layout_height="140dp"
         android:layout_alignParentBottom="true"
