@@ -287,6 +287,7 @@ public class ExerciseActivity extends AppCompatActivity {
     }
     public void openCalculatorScreen(){
         Intent intent = new Intent(this,CalculatorActivity.class);
+        intent.putExtra("com.example.jimv2.PASSWEIGHT", Double.parseDouble(exerciseWeight.getText().toString()));
         startActivity(intent);
     }
 
