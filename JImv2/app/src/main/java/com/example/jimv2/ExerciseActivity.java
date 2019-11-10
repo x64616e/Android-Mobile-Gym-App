@@ -2,6 +2,8 @@ package com.example.jimv2;
 
 import androidx.appcompat.app.AppCompatActivity;
 import java.lang.*;
+
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -138,7 +140,9 @@ public class ExerciseActivity extends AppCompatActivity {
         calculatorButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openCalculatorScreen();
+                if (hasValidWeightEntered()) {
+                    openCalculatorScreen();
+                }
             }
         });
 
@@ -149,6 +153,20 @@ public class ExerciseActivity extends AppCompatActivity {
             addExercise();
             }
         });
+    }
+
+
+    private boolean hasValidWeightEntered() {
+        if (TextUtils.isEmpty(exerciseWeight.getText())) {
+            Context context = getApplicationContext();
+            CharSequence text = "Enter a Weight";
+            int duration = Toast.LENGTH_SHORT;
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
+            return(false);
+        } else {
+            return(true);
+        }
     }
 
     private void setTime( long milliseconds){
@@ -269,6 +287,7 @@ public class ExerciseActivity extends AppCompatActivity {
     }
     public void openCalculatorScreen(){
         Intent intent = new Intent(this,CalculatorActivity.class);
+        intent.putExtra("com.example.jimv2.PASSWEIGHT", Double.parseDouble(exerciseWeight.getText().toString()));
         startActivity(intent);
     }
 
