@@ -27,7 +27,7 @@ public class ReportActivity extends AppCompatActivity {
     public void backToLanding(){
         Log.d(TAG, "backToLanding: called.");
 
-        Intent intent = new Intent(this,landing.class);
+        Intent intent = new Intent(this, LandingActivity.class);
         startActivity(intent);
     }
 }
