@@ -13,8 +13,6 @@
         android:theme="@style/AppTheme">
         <activity android:name=".AddExerciseFragment"></activity>
         <activity android:name=".FriendsActivity" />
-        <activity android:name=".landing3" />
-        <activity android:name=".landing2" />
         <activity
             android:name=".PlanWorkoutActivity"
             android:label="@string/title_activity_plan_workout"
@@ -30,19 +28,18 @@
         <activity android:name=".CalendarActivity" />
         <activity android:name=".WorkoutActivityFragment" />
         <activity android:name=".DatabaseWorkout" />
-        <activity android:name=".landing" />
+        <activity android:name=".LandingActivity" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".HeartRateMonitor" />
         <activity android:name=".HeartbeatView" />
         <activity android:name=".ImageProcessing" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LandingActivity" />
     </application>
 
 </manifest>
