@@ -27,68 +27,172 @@
         android:textSize="32dp" />
 
     <ImageView
-        android:id="@+id/icon"
+        android:id="@+id/userIcon"
         android:layout_width="97dp"
         android:layout_height="103dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="23dp"
+        android:layout_marginTop="18dp"
         android:layout_marginEnd="263dp"
         android:layout_marginRight="263dp"
-        android:src="@drawable/shrek_icon" />
+        android:src="@drawable/icon_user" />
 
-    <TextView
+    <ImageView
+        android:id="@+id/icon_plus"
+        android:layout_width="37dp"
+        android:layout_height="103dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="255dp"
+        android:layout_marginRight="250dp"
+        android:src="@drawable/icon_plus" />
+
+    <RadioGroup
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="120dp"
+        android:layout_marginBottom="550dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginLeft="20dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radioButtonMale"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/radio_button"
+            android:button="@null"
+            android:gravity="center_horizontal"
+            android:padding="2dp"
+            android:text="@string/maleGender"
+            android:textColor="@android:color/black" />
+
+        <RadioButton
+            android:id="@+id/radioButtonFemale"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/radio_button"
+            android:button="@null"
+            android:checked="true"
+            android:gravity="center_horizontal"
+            android:padding="2dp"
+            android:text="@string/femaleGender"
+            android:textColor="@android:color/black" />
+
+        <RadioButton
+            android:id="@+id/radioButtonOtherGender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/radio_button"
+            android:button="@null"
+            android:gravity="center_horizontal"
+            android:padding="2dp"
+            android:text="@string/otherGender"
+            android:textColor="@android:color/black" />
+
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/profileName"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
-        android:layout_marginEnd="30dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
         android:layout_marginStart="30dp"
-        android:layout_marginRight="163dp"
-        android:background="@color/gray"
-        android:gravity="center_horizontal"
-        android:padding="5dp"
-        android:text="Full Name"
-        android:textColor="@color/white" />
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="190dp"
+        android:ems="10"
+        android:hint="Enter Name "
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:layout_width="match_parent"
+    <EditText
+        android:id="@+id/DOBMonth"
+        android:layout_width="50dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="280dp"
-        android:layout_marginEnd="330dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
         android:layout_marginStart="30dp"
-        android:layout_marginRight="63dp"
-        android:padding="5dp"
-        android:text="mm"
-        android:gravity="center_horizontal"
-        android:background="@color/gray"
-        android:textColor="@color/white" />
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="270dp"
+        android:ems="10"
+        android:hint="MM"
+        android:inputType="number"
+        android:maxLength="2"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:layout_width="match_parent"
+    <EditText
+        android:id="@+id/DOBDay"
+        android:layout_width="50dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="280dp"
-        android:layout_marginEnd="270dp"
-        android:layout_marginStart="90dp"
-        android:layout_marginRight="63dp"
-        android:padding="5dp"
-        android:text="dd"
-        android:gravity="center_horizontal"
-        android:background="@color/gray"
-        android:textColor="@color/white" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="85dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="270dp"
+        android:ems="10"
+        android:hint="DD"
+        android:inputType="number"
+        android:maxLength="2"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:layout_width="match_parent"
+    <EditText
+        android:id="@+id/DOBYear"
+        android:layout_width="60dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="280dp"
-        android:layout_marginEnd="170dp"
-        android:layout_marginStart="150dp"
-        android:layout_marginRight="63dp"
-        android:padding="5dp"
-        android:text="yyyy"
-        android:gravity="center_horizontal"
-        android:background="@color/gray"
-        android:textColor="@color/white" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="140dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="270dp"
+        android:ems="10"
+        android:hint="YYYY"
+        android:maxLength="4"
+        android:inputType="number"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/calendar"
         android:layout_width="74dp"
@@ -101,37 +205,53 @@
         android:layout_marginRight="30dp"
         app:srcCompat="@mipmap/calendar" />
 
-    <TextView
-        android:layout_width="match_parent"
+    <EditText
+        android:id="@+id/profileWeight"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="370dp"
-        android:layout_marginEnd="30dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
         android:layout_marginStart="30dp"
-        android:layout_marginRight="163dp"
-        android:padding="5dp"
-        android:text="Weight"
-        android:gravity="center_horizontal"
-        android:background="@color/gray"
-        android:textColor="@color/white" />
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="355dp"
+        android:ems="10"
+        android:hint="Enter Weight"
+        android:maxLength="3"
+        android:inputType="number"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:layout_width="match_parent"
+    <EditText
+        android:id="@+id/profileHeight"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="440dp"
-        android:layout_marginEnd="30dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
         android:layout_marginStart="30dp"
-        android:layout_marginRight="163dp"
-        android:padding="5dp"
-        android:text="Height"
-        android:gravity="center_horizontal"
-        android:background="@color/gray"
-        android:textColor="@color/white" />
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="430dp"
+        android:ems="10"
+        android:hint="Enter Height"
+        android:maxLength="3"
+        android:inputType="number"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
         android:id="@+id/spinner1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="510dp"
+        android:layout_marginTop="520dp"
         android:layout_marginEnd="180dp"
         android:layout_marginStart="30dp"
         android:layout_marginRight="140dp"
@@ -142,83 +262,100 @@
         android:id="@+id/spinner2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="580dp"
+        android:layout_marginTop="590dp"
         android:layout_marginEnd="180dp"
         android:layout_marginStart="30dp"
         android:layout_marginRight="163dp"
         android:gravity="center_horizontal"
         android:textColor="@color/white" />
 
-    <EditText
+    <Button
+        android:id="@+id/create_profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="650dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginStart="30dp"
+        android:background="@drawable/rectangledb"
+        android:text="@string/create"
+        android:textColor="@color/white"/>
+
+    <TextView
         android:id="@+id/editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="169dp"
         android:layout_marginEnd="30dp"
         android:layout_marginStart="30dp"
         android:layout_marginRight="163dp"
-        android:ems="3"
-        android:inputType="textPersonName"
+        android:ems="5"
+        android:textColor="@color/black"
+        android:textSize="20dp"
         android:text="Name" />
 
-    <EditText
+    <TextView
         android:id="@+id/editText1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="235dp"
+        android:layout_marginTop="245dp"
         android:layout_marginEnd="30dp"
         android:layout_marginStart="30dp"
         android:layout_marginRight="163dp"
         android:ems="3"
-        android:inputType="textPersonName"
+        android:textColor="@color/black"
+        android:textSize="20dp"
         android:text="DOB" />
 
-    <EditText
+    <TextView
         android:id="@+id/editText2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="325dp"
+        android:layout_marginTop="330dp"
         android:layout_marginEnd="30dp"
         android:layout_marginStart="30dp"
         android:layout_marginRight="163dp"
         android:ems="3"
-        android:inputType="textPersonName"
+        android:textColor="@color/black"
+        android:textSize="20dp"
         android:text="Weight" />
 
-    <EditText
+    <TextView
         android:id="@+id/editText3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="395dp"
+        android:layout_marginTop="405dp"
         android:layout_marginEnd="30dp"
         android:layout_marginStart="30dp"
         android:layout_marginRight="163dp"
         android:ems="3"
-        android:inputType="textPersonName"
+        android:textColor="@color/black"
+        android:textSize="20dp"
         android:text="Height" />
 
-    <EditText
+    <TextView
         android:id="@+id/editText4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="465dp"
+        android:layout_marginTop="485dp"
         android:layout_marginEnd="50dp"
         android:layout_marginStart="30dp"
         android:layout_marginRight="183dp"
         android:ems="7"
-        android:inputType="textPersonName"
+        android:textColor="@color/black"
+        android:textSize="20dp"
         android:text="Gym Experience" />
 
-    <EditText
+    <TextView
         android:id="@+id/editText5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="535dp"
+        android:layout_marginTop="555dp"
         android:layout_marginEnd="30dp"
         android:layout_marginStart="30dp"
         android:layout_marginRight="163dp"
         android:ems="7"
-        android:inputType="textPersonName"
+        android:textColor="@color/black"
+        android:textSize="20dp"
         android:text="Training Type" />
 
 

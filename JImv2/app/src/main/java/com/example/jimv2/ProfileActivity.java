@@ -13,6 +13,7 @@ import android.widget.Toast;
 public class ProfileActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
     private Button mBtGoBack;
+    //private Button create_profile;
     private static final String TAG = "ProfileActivity";
 
     @Override
@@ -32,6 +33,13 @@ public class ProfileActivity extends AppCompatActivity implements AdapterView.On
         spinner1.setAdapter(adapter1);
         spinner1.setOnItemSelectedListener(this);
 
+        Button create_profile = (Button) findViewById(R.id.create_profile);
+        create_profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                backToLanding();
+            }
+        });
 
 //        mBtGoBack = (Button) findViewById(R.id.bt_go_back);
 //
@@ -39,6 +47,9 @@ public class ProfileActivity extends AppCompatActivity implements AdapterView.On
 //            // Handle the back button event
 //        }
 
+    }
+    public void backToLanding(){
+        finish();
     }
 
     @Override

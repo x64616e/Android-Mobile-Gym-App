@@ -3,16 +3,23 @@
     <string name="title_activity_plan_workout">PlanWorkoutActivity</string>
 
     <string-array name="gymexperience">
+        <item>-Select-</item>
         <item>Beginner</item>
         <item>Intermediate</item>
         <item>Advance</item>
     </string-array>
 
     <string-array name="trainingtype">
+        <item>-Select</item>
         <item>WeightLifting</item>
         <item>Bodybuilder</item>
         <item>PowerLifting</item>
     </string-array>
+    <string name="maleGender">Male</string>
+    <string name="femaleGender">Female</string>
+    <string name="otherGender">Other</string>
+    <string name="create">Create</string>
+
 
 </resources>
 
