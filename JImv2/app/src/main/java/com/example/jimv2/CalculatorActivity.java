@@ -50,7 +50,7 @@ public class CalculatorActivity extends AppCompatActivity {
         for(int i = 0; i < plateSizes.length; i++) {
             while(Math.floor(remainingWeight / (2 * plateSizes[i])) > 0) {
                 plateCount[i] += 2;
-                remainingWeight -= plateSizes[i];
+                remainingWeight -= (2 * plateSizes[i]);
             }
         }
         return plateCount;
