@@ -48,8 +48,8 @@ public class CalculatorActivity extends AppCompatActivity {
         int[] plateCount = new int[plateSizes.length];
         double remainingWeight = input - barWeight;
         for(int i = 0; i < plateSizes.length; i++) {
-            while(remainingWeight / plateSizes[i] > 0) {
-                plateCount[i]++;
+            while(Math.floor(remainingWeight / (2 * plateSizes[i])) > 0) {
+                plateCount[i] += 2;
                 remainingWeight -= plateSizes[i];
             }
         }
