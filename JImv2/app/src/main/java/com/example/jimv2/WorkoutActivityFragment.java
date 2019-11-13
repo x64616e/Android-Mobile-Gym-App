@@ -13,7 +13,8 @@ import android.widget.Button;
 import java.util.ArrayList;
 import android.content.Intent;
 import android.view.View;
-
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Calendar;
@@ -41,6 +42,8 @@ public class WorkoutActivityFragment extends Fragment {
     private Button doneButton;
     private Button addExercise;
     private ImageView heartIcon;
+    public String userId;
+    public String queryCurrentUser;
 
     private static final String TAG = "WorkoutActivityFragment";
 
@@ -51,6 +54,11 @@ public class WorkoutActivityFragment extends Fragment {
         buildRecylcerView(view);
         Intent intent = getActivity().getIntent();
 
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String userID = user.getUid();
+        userId = userID.substring(0, Math.min(userID.length(), 6));
+        StringBuilder queryUserDate = new StringBuilder(userId);
+
         if(getActivity().getIntent().hasExtra("com.example.jimv2.PASSDATE")) {
             long passedDate = getActivity().getIntent().getExtras().getLong("com.example.jimv2.PASSDATE");
             dateCurrentlyViewing.setTime(passedDate);
@@ -59,7 +67,13 @@ public class WorkoutActivityFragment extends Fragment {
         SimpleDateFormat df = new SimpleDateFormat("ddMMMyyyy");
         String formattedDate = df.format(dateCurrentlyViewing);
         ExerciseObject exercise = intent.getParcelableExtra("exercise");
-        databaseref = FirebaseDatabase.getInstance().getReference().child(formattedDate);
+
+        queryUserDate.append(formattedDate);
+        queryCurrentUser = queryUserDate.toString();
+
+
+        databaseref = FirebaseDatabase.getInstance().getReference().child(queryCurrentUser);
+        //databaseref = FirebaseDatabase.getInstance().getReference().child(formattedDate);
         options = new FirebaseRecyclerOptions.Builder<ExerciseObject>().setQuery(databaseref,ExerciseObject.class).build();
 
         try {
