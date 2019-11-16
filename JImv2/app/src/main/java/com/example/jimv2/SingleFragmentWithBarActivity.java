@@ -6,7 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
-public abstract class SingleFragmentActivity extends AppCompatActivity {
+import com.google.android.material.navigation.NavigationView;
+
+public abstract class SingleFragmentWithBarActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     protected abstract Fragment createFragment();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,5 +22,22 @@ public abstract class SingleFragmentActivity extends AppCompatActivity {
             fragment = createFragment();
             fm.beginTransaction().add(R.id.fragment_container, fragment).commit();
         }
+
+
+
+
     }
+    /*
+    if (fragment == null) {
+            fragment = createFragment();
+            fm.beginTransaction().add(R.id.EXERCISE_ACTIVITY, fragment).commit();
+    } else if (fragment == null) {
+            fragment = createFragment();
+            fm.beginTransaction().add(R.id., fragment).commit();
+    } else if (fragment == null) {
+            fragment = createFragment();
+            fm.beginTransaction().add(R.id.CALANDER_FRAGMENT, fragment).commit();
+    }
+
+     */
 }

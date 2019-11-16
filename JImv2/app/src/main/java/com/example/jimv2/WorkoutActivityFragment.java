@@ -53,6 +53,8 @@ public class WorkoutActivityFragment extends Fragment {
 
         if(getActivity().getIntent().hasExtra("com.example.jimv2.PASSDATE")) {
             long passedDate = getActivity().getIntent().getExtras().getLong("com.example.jimv2.PASSDATE");
+        //if(savedInstanceState.containsKey("com.example.jimv2.PASSDATE")   ) {//getActivity().getIntent().hasExtra("com.example.jimv2.PASSDATE")) {
+        //    long passedDate = getActivity().getIntent().getExtras().getLong("com.example.jimv2.PASSDATE");
             dateCurrentlyViewing.setTime(passedDate);
         }
 
@@ -124,12 +126,12 @@ public class WorkoutActivityFragment extends Fragment {
         });
 
         doneButton = (Button) view.findViewById(R.id.doneButtonWorkout);
-        doneButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getActivity().finish();
-            }
-        });
+        //doneButton.setOnClickListener(new View.OnClickListener() {
+            //@Override
+            //public void onClick(View v) {
+            //    getActivity().finish();
+            //}
+        //});
         addExercise = (Button) view.findViewById(R.id.addExerciseButton);
         addExercise.setOnClickListener(new View.OnClickListener() {
             @Override
