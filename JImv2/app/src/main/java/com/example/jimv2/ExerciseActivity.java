@@ -30,7 +30,6 @@ public class ExerciseActivity extends AppCompatActivity {
     Date dateCurrentlyViewing = Calendar.getInstance().getTime();
     StringBuilder completeDate = new StringBuilder("complete");
     private Button doneButton;
-    private Button setExercise;
     private Button calculatorButton;
     public TextView exerciseName;
     public ImageView imageview;
@@ -132,7 +131,7 @@ public class ExerciseActivity extends AppCompatActivity {
         doneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                backToWorkout();
+                addExercise();
             }
         });
 
@@ -143,14 +142,6 @@ public class ExerciseActivity extends AppCompatActivity {
                 if (hasValidWeightEntered()) {
                     openCalculatorScreen();
                 }
-            }
-        });
-
-        setExercise = (Button) findViewById(R.id.setExercise);
-        setExercise.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-            addExercise();
             }
         });
     }
@@ -310,6 +301,7 @@ public class ExerciseActivity extends AppCompatActivity {
                 Toast.makeText(this, "Please Enter the Info", Toast.LENGTH_LONG).show();
                 finish();
             }
+            finish();
         }
         catch (NumberFormatException nfe){
             Toast.makeText(this, "Please Enter the Info", Toast.LENGTH_LONG).show();
