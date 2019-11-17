@@ -42,23 +42,12 @@ public class LandingPageV2 extends AppCompatActivity implements NavigationView.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment);
 
-        //mImageView = (ImageView) findViewById(R.id.userIcon);
+        mImageView = (ImageView) findViewById(R.id.userIcon);
 
         //profile Image
 
-//        StorageReference storageRef = storage.getReferenceFromUrl("gs://jym350-de9ff.appspot.com/");
-//        storageRef.child("uploads/profile.jpg").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-//            @Override
-//            public void onSuccess(Uri uri) {
-//                // Got the download URL for 'users/me/profile.png'
-//                Picasso.get().load(uri).into(mImageView);
-//            }
-//        }).addOnFailureListener(new OnFailureListener() {
-//            @Override
-//            public void onFailure(@NonNull Exception exception) {
-//                // Handle any errors
-//            }
-//        });
+
+
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -67,6 +56,21 @@ public class LandingPageV2 extends AppCompatActivity implements NavigationView.O
         drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        final ImageView profile = (ImageView) navigationView.getHeaderView(0).findViewById(R.id.userIcon);
+        StorageReference storageRef = storage.getReferenceFromUrl("gs://jym350-de9ff.appspot.com/");
+        storageRef.child("uploads/profile.jpg").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                // Got the download URL for 'users/me/profile.png'
+                Picasso.get().load(uri).into(profile);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                // Handle any errors
+            }
+        });
+
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -90,6 +94,7 @@ public class LandingPageV2 extends AppCompatActivity implements NavigationView.O
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
         switch (item.getItemId()) {
             case R.id.nav_calendar:
                 Log.d(TAG, "onNavigationItemSelected: nav_calendar clicked.");
