@@ -1,39 +1,41 @@
 package com.example.jimv2;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-public class ProfileActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+public class ProfileFragment extends Fragment implements AdapterView.OnItemSelectedListener{
 
     private Button mBtGoBack;
     //private Button create_profile;
-    private static final String TAG = "ProfileActivity";
+    private static final String TAG = "ProfileFragment";
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.profile);
+        View view = inflater.inflate(R.layout.profile, container, false);
 
-        Spinner spinner = findViewById(R.id.spinner1);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.gymexperience, android.R.layout.simple_spinner_item);
+        Spinner spinner = view.findViewById(R.id.spinner1);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(), R.array.gymexperience, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
 
-        Spinner spinner1 = findViewById(R.id.spinner2);
-        ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this, R.array.trainingtype, android.R.layout.simple_spinner_item);
+        Spinner spinner1 = view.findViewById(R.id.spinner2);
+        ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(getActivity(), R.array.trainingtype, android.R.layout.simple_spinner_item);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner1.setAdapter(adapter1);
         spinner1.setOnItemSelectedListener(this);
 
-        Button create_profile = (Button) findViewById(R.id.create_profile);
+        Button create_profile = (Button) view.findViewById(R.id.create_profile);
         create_profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -47,9 +49,11 @@ public class ProfileActivity extends AppCompatActivity implements AdapterView.On
 //            // Handle the back button event
 //        }
 
+    return view;
+
     }
     public void backToLanding(){
-        finish();
+        getFragmentManager().popBackStack();
     }
 
     @Override

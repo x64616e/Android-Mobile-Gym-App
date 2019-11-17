@@ -67,19 +67,5 @@
         android:textColor="@color/white"
         android:textSize="20dp" />
 
-    <Button
-        android:id="@+id/backButtonCalendar"
-        android:layout_width="380dp"
-        android:layout_height="60dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center"
-        android:layout_marginBottom="40dp"
-        android:background="@drawable/rectangledb"
-        android:gravity="center"
-        android:text="Done"
-        android:textColor="@color/white"
-        android:textSize="35sp" />
-
 
 </RelativeLayout>

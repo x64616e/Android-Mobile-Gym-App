@@ -27,17 +27,5 @@ public abstract class SingleFragmentWithBarActivity extends AppCompatActivity im
 
 
     }
-    /*
-    if (fragment == null) {
-            fragment = createFragment();
-            fm.beginTransaction().add(R.id.EXERCISE_ACTIVITY, fragment).commit();
-    } else if (fragment == null) {
-            fragment = createFragment();
-            fm.beginTransaction().add(R.id., fragment).commit();
-    } else if (fragment == null) {
-            fragment = createFragment();
-            fm.beginTransaction().add(R.id.CALANDER_FRAGMENT, fragment).commit();
-    }
 
-     */
 }

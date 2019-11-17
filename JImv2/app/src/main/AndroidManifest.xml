@@ -30,14 +30,14 @@
         <activity android:name=".HeartRateActivity" />
         <activity android:name=".PlanRoutineActivity" />
         <activity android:name=".ReportActivity" />
-        <activity android:name=".CalendarActivity" />
+        <activity android:name=".CalendarFragment" />
         <activity android:name=".WorkoutActivityFragment" />
         <activity android:name=".DatabaseWorkout" />
         <activity android:name=".LandingActivity" />
         <activity
             android:name=".LandingPageV2"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ProfileActivity" />
+        <activity android:name=".ProfileFragment" />
         <activity android:name=".HeartRateMonitor" />
         <activity android:name=".HeartbeatView" />
         <activity android:name=".ImageProcessing" />
