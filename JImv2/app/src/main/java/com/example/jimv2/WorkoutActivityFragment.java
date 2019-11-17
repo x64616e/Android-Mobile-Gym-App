@@ -58,6 +58,11 @@ public class WorkoutActivityFragment extends Fragment {
             dateCurrentlyViewing.setTime(passedDate);
         }
 
+        if(getActivity().getIntent().hasExtra("com.example.jimv2.CALENDER")) {
+            long passedDate = getActivity().getIntent().getExtras().getLong("com.example.jimv2.CALENDER");
+            dateCurrentlyViewing.setTime(passedDate);
+        }
+
         SimpleDateFormat df = new SimpleDateFormat("ddMMMyyyy");
         String formattedDate = df.format(dateCurrentlyViewing);
         ExerciseObject exercise = intent.getParcelableExtra("exercise");

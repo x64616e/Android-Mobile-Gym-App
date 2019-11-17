@@ -9,16 +9,57 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CalendarView;
+import android.widget.Toast;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class CalendarFragment extends Fragment {
 
     private Button doneButton;
     private Button planRoutine;
     private Button completedButton;
-    public static final String TAG = "CalenderActivity";
+    Date nowDate = new Date();
+    Date dateCurrentlyViewing = Calendar.getInstance().getTime();
+    public Calendar calendar = Calendar.getInstance();
 
+    public static final String TAG = "CalenderActivity";
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.calendar, container, false);
+        final CalendarView calendarView = (CalendarView) view.findViewById(R.id.simpleCalendarView);
+
+
+
+        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+
+            @Override
+            public void onSelectedDayChange(CalendarView view, int year, int month,
+                                            int dayOfMonth) {
+                Intent intent = new Intent(getContext(), WorkoutActivityFragment.class);
+
+                //startActivity(intent);
+                calendar = new GregorianCalendar( year, month, dayOfMonth );
+
+                SimpleDateFormat df = new SimpleDateFormat("ddMMMyyyy");
+                String formattedDate = df.format(calendar.getTime());
+                Date passedDate = calendar.getTime();
+                intent.putExtra("com.example.jimv2.CALENDER", passedDate);
+                Toast.makeText(getActivity(),
+                        ""+ passedDate, Toast.LENGTH_SHORT).show();
+                //startActivity(intent);
+
+            }
+
+        });
+
+
+
+
+
+
 
         planRoutine = (Button) view.findViewById(R.id.planRoutineButton);
         planRoutine.setOnClickListener(new View.OnClickListener() {
