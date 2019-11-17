@@ -104,7 +104,6 @@ public class ProfileFragment extends Fragment implements AdapterView.OnItemSelec
             @Override
             public void onClick(View v) {
                 openFileChooser();
-            uploadFile();
             }
         });
 
