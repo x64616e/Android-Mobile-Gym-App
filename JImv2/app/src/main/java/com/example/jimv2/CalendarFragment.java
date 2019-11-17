@@ -1,6 +1,5 @@
 package com.example.jimv2;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
@@ -43,7 +42,7 @@ public class CalendarFragment extends Fragment {
     public void openPlanRoutine() {
         Log.d(TAG, "openPlanRoutine: called.");
 
-        Intent intent = new Intent(getActivity(), PlanRoutineActivity.class);
+        Intent intent = new Intent(getActivity(), PlanRoutineFragment.class);
         startActivity(intent);
     }
 

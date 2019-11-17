@@ -28,8 +28,8 @@
         <activity android:name=".AddExercise" />
         <activity android:name=".CalculatorActivity" />
         <activity android:name=".HeartRateActivity" />
-        <activity android:name=".PlanRoutineActivity" />
-        <activity android:name=".ReportActivity" />
+        <activity android:name=".PlanRoutineFragment" />
+        <activity android:name=".ReportFragment" />
         <activity android:name=".CalendarFragment" />
         <activity android:name=".WorkoutActivityFragment" />
         <activity android:name=".DatabaseWorkout" />

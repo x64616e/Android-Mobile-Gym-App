@@ -184,7 +184,7 @@ public class LandingActivity extends AppCompatActivity {
     }
 
     public void openStatisticsScreen(){
-        Intent intent = new Intent(this,ReportActivity.class);
+        Intent intent = new Intent(this, ReportFragment.class);
         startActivity(intent);
     }
 

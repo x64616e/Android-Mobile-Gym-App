@@ -77,6 +77,16 @@ public class LandingPageV2 extends AppCompatActivity implements NavigationView.O
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new ProfileFragment()).commit();
                 break;
+            case R.id.nav_routine:
+                Log.d(TAG, "onNavigationItemSelected: nav_routine clicked.");
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new PlanRoutineFragment()).commit();
+                break;
+            case R.id.nav_report:
+                Log.d(TAG, "onNavigationItemSelected: nav_report clicked.");
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new ReportFragment()).commit();
+                break;
         }
 
         drawer.closeDrawer(GravityCompat.START);
