@@ -17,6 +17,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -49,6 +51,8 @@ public class ExerciseActivity extends AppCompatActivity {
 
     private boolean mTimerRunning;
     public String name;
+    public String userId;
+    public String queryCurrentUser;
 
     private long mStartTimeInMillis;
     private long mTimeLeftInMillis = mStartTimeInMillis;
@@ -58,6 +62,16 @@ public class ExerciseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.exercise);
         Intent intent = getIntent();
+
+
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String userID = user.getUid();
+        userId = userID.substring(0, Math.min(userID.length(), 6));
+        StringBuilder queryUserDate = new StringBuilder(userId);
+
+
+
 
         if(getIntent().hasExtra("com.example.jimv2.PASSDATE")) {
             long passedDate = getIntent().getExtras().getLong("com.example.jimv2.PASSDATE");

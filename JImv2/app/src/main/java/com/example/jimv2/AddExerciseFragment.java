@@ -18,6 +18,8 @@ import java.util.Date;
 
 import android.view.View;
 import android.widget.EditText;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -34,7 +36,8 @@ public class AddExerciseFragment extends Fragment {
     DatabaseReference databaseExercise;
     private RecyclerView.LayoutManager layoutManager;
     private static final String TAG = "AddExerciseFragment";
-
+    public String userId;
+    public String queryCurrentUser;
     private Button doneButton;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -45,6 +48,11 @@ public class AddExerciseFragment extends Fragment {
         EditText editText = view.findViewById(R.id.search);
         buildRecylcerView(view);
 
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String userID = user.getUid();
+        userId = userID.substring(0, Math.min(userID.length(), 6));
+        StringBuilder queryUserDate = new StringBuilder(userId);
+
         if(getActivity().getIntent().hasExtra("com.example.jimv2.PASSDATE")) {
             long passedDate = getActivity().getIntent().getExtras().getLong("com.example.jimv2.PASSDATE");
             dateCurrentlyViewing.setTime(passedDate);
@@ -52,7 +60,10 @@ public class AddExerciseFragment extends Fragment {
 
         SimpleDateFormat df = new SimpleDateFormat("ddMMMyyyy");
         String formattedDate = df.format(dateCurrentlyViewing);
-        databaseref = FirebaseDatabase.getInstance().getReference().child(formattedDate);
+
+        queryUserDate.append(formattedDate);
+        queryCurrentUser = queryUserDate.toString();
+        databaseref = FirebaseDatabase.getInstance().getReference().child(queryCurrentUser);
 
         editText.addTextChangedListener(new TextWatcher() {
             @Override

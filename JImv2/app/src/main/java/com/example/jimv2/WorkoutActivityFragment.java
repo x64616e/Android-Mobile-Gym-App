@@ -18,7 +18,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Calendar;
 import android.widget.ImageView;
-
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
@@ -41,7 +42,8 @@ public class WorkoutActivityFragment extends Fragment {
     private Button Statistics;
     private Button addExercise;
     private Button heartRate;
-
+    public String userId;
+    public String queryCurrentUser;
     private static final String TAG = "WorkoutActivityFragment";
 
     @Override
@@ -50,6 +52,11 @@ public class WorkoutActivityFragment extends Fragment {
         //populateArray();
         buildRecylcerView(view);
         Intent intent = getActivity().getIntent();
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String userID = user.getUid();
+        userId = userID.substring(0, Math.min(userID.length(), 6));
+        StringBuilder queryUserDate = new StringBuilder(userId);
 
         if(getActivity().getIntent().hasExtra("com.example.jimv2.PASSDATE")) {
             long passedDate = getActivity().getIntent().getExtras().getLong("com.example.jimv2.PASSDATE");
@@ -66,8 +73,18 @@ public class WorkoutActivityFragment extends Fragment {
         SimpleDateFormat df = new SimpleDateFormat("ddMMMyyyy");
         String formattedDate = df.format(dateCurrentlyViewing);
         ExerciseObject exercise = intent.getParcelableExtra("exercise");
-        databaseref = FirebaseDatabase.getInstance().getReference().child(formattedDate);
+
+        queryUserDate.append(formattedDate);
+        queryCurrentUser = queryUserDate.toString();
+
+        databaseref = FirebaseDatabase.getInstance().getReference().child(queryCurrentUser);
+        //databaseref = FirebaseDatabase.getInstance().getReference().child(formattedDate);
         options = new FirebaseRecyclerOptions.Builder<ExerciseObject>().setQuery(databaseref,ExerciseObject.class).build();
+        
+
+        queryUserDate.append(formattedDate);
+        queryCurrentUser = queryUserDate.toString();
+        databaseref = FirebaseDatabase.getInstance().getReference().child(queryCurrentUser);
 
         try {
             if ( exercise != (null)) {
