@@ -84,7 +84,7 @@ public class LoginActivity extends AppCompatActivity {
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 Toast.makeText(this,""+user.getEmail(), Toast.LENGTH_SHORT).show();
                 signOut.setEnabled(true);
-                Intent intent = new Intent(this,WorkoutActivity.class);
+                Intent intent = new Intent(this,LandingPageV2.class);
                 startActivity(intent);
             }
             else{
