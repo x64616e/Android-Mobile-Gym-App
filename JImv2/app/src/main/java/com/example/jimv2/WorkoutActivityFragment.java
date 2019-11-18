@@ -38,9 +38,9 @@ public class WorkoutActivityFragment extends Fragment {
     public ArrayList<ExerciseObject> workoutList = new ArrayList<>();
     public ArrayList<ExerciseObject> workouts = new ArrayList<>();
     DatabaseReference databaseExercise;
-    private Button doneButton;
+    private Button Statistics;
     private Button addExercise;
-    private ImageView heartIcon;
+    private Button heartRate;
 
     private static final String TAG = "WorkoutActivityFragment";
 
@@ -53,6 +53,13 @@ public class WorkoutActivityFragment extends Fragment {
 
         if(getActivity().getIntent().hasExtra("com.example.jimv2.PASSDATE")) {
             long passedDate = getActivity().getIntent().getExtras().getLong("com.example.jimv2.PASSDATE");
+        //if(savedInstanceState.containsKey("com.example.jimv2.PASSDATE")   ) {//getActivity().getIntent().hasExtra("com.example.jimv2.PASSDATE")) {
+        //    long passedDate = getActivity().getIntent().getExtras().getLong("com.example.jimv2.PASSDATE");
+            dateCurrentlyViewing.setTime(passedDate);
+        }
+
+        if(getActivity().getIntent().hasExtra("com.example.jimv2.CALENDER")) {
+            long passedDate = getActivity().getIntent().getExtras().getLong("com.example.jimv2.CALENDER");
             dateCurrentlyViewing.setTime(passedDate);
         }
 
@@ -115,19 +122,19 @@ public class WorkoutActivityFragment extends Fragment {
         mRecyclerView.setAdapter(adapter);
 
 
-        heartIcon = (ImageView) view.findViewById(R.id.heartIcon);
-        heartIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                launchHeartRate();
-            }
-        });
+//        heartIcon = (ImageView) view.findViewById(R.id.heartIcon);
+//        heartIcon.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                launchHeartRate();
+//            }
+//        });
 
-        doneButton = (Button) view.findViewById(R.id.doneButtonWorkout);
-        doneButton.setOnClickListener(new View.OnClickListener() {
+        Statistics = (Button) view.findViewById(R.id.doneButtonWorkout);
+        Statistics.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getActivity().finish();
+                launchStats();
             }
         });
         addExercise = (Button) view.findViewById(R.id.addExerciseButton);
@@ -139,7 +146,13 @@ public class WorkoutActivityFragment extends Fragment {
                 addExercise();
             }
         });
-
+        heartRate = (Button) view.findViewById(R.id.heartRate);
+        heartRate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                launchHeartRate();
+            }
+        });
         updateUI();
 
         return view;
@@ -165,8 +178,8 @@ public class WorkoutActivityFragment extends Fragment {
         //intent.putExtra("com.example.jimv2.PASSDATE", dateCurrentlyViewing.getTime());
         startActivity(intent);
     }
-    public void launchExercise(){
-        Intent intent = new Intent(getActivity(), ExerciseActivity.class);
+    public void launchStats(){
+        Intent intent = new Intent(getActivity(), DatabaseWorkout.class);
         intent.putExtra("com.example.jimv2.PASSDATE", dateCurrentlyViewing.getTime());
         startActivity(intent);
     }

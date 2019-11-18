@@ -22,7 +22,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
     public void openLandingScreen(){
-        Intent intent = new Intent(this, LandingActivity.class);
+        Intent intent = new Intent(this, LandingPageV2.class);
         startActivity(intent);
     }
 

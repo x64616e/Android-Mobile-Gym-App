@@ -179,17 +179,17 @@ public class LandingActivity extends AppCompatActivity {
     }
 
     public void openCalendarScreen(){
-        Intent intent = new Intent(this,CalendarActivity.class);
+        Intent intent = new Intent(this, CalendarFragment.class);
         startActivity(intent);
     }
 
     public void openStatisticsScreen(){
-        Intent intent = new Intent(this,ReportActivity.class);
+        Intent intent = new Intent(this, ReportFragment.class);
         startActivity(intent);
     }
 
     public void openProfileScreen(){
-        Intent intent = new Intent(this,ProfileActivity.class);
+        Intent intent = new Intent(this, ProfileFragment.class);
         startActivity(intent);
     }
 

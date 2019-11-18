@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.jimv2">
+
     <uses-permission android:name="android.permission.CAMERA" />
+
     <uses-feature android:name="android.hardware.camera" />
-    <uses-feature android:name="android.hardware.camera.autofocus"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/logo"
@@ -11,7 +14,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AddExerciseFragment"></activity>
+        <activity
+            android:name=".AddExerciseFragment"
+            android:theme="@style/AppTheme.ActionBar" />
         <activity android:name=".FriendsActivity" />
         <activity
             android:name=".PlanWorkoutActivity"
@@ -23,13 +28,16 @@
         <activity android:name=".AddExercise" />
         <activity android:name=".CalculatorActivity" />
         <activity android:name=".HeartRateActivity" />
-        <activity android:name=".PlanRoutineActivity" />
-        <activity android:name=".ReportActivity" />
-        <activity android:name=".CalendarActivity" />
+        <activity android:name=".PlanRoutineFragment" />
+        <activity android:name=".ReportFragment" />
+        <activity android:name=".CalendarFragment" />
         <activity android:name=".WorkoutActivityFragment" />
         <activity android:name=".DatabaseWorkout" />
         <activity android:name=".LandingActivity" />
-        <activity android:name=".ProfileActivity" />
+        <activity
+            android:name=".LandingPageV2"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ProfileFragment" />
         <activity android:name=".HeartRateMonitor" />
         <activity android:name=".HeartbeatView" />
         <activity android:name=".ImageProcessing" />
