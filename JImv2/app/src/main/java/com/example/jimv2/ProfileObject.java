@@ -25,6 +25,36 @@ public class ProfileObject implements Parcelable {
         profileTraining = training;
     }
 
+    public void setName(String name) { profileName = name; }
+    public void setDOB(Calendar dob) { profileDOB = dob; }
+    public void setHeight(double height) { profileHeight = height; }
+    public void setWeight(double weight) { profileWeight = weight; }
+    public void setExperience(int experience) { profileExperience = experience; }
+    public void setTraining(int training) { profileTraining = training; }
+
+    public String getName() { return profileName; }
+    public Calendar getDOB() { return profileDOB; }
+    public double getHeight() { return profileHeight; }
+    public double getWeight() { return profileWeight; }
+    public int getExperience() { return profileExperience; }
+    public int getTraining() { return profileTraining; }
+
+    public ProfileObject() { }
+
+    protected ProfileObject(Parcel in) { }
+
+    public static final Creator<ProfileObject> CREATOR = new Creator<ProfileObject>() {
+        @Override
+        public ProfileObject createFromParcel(Parcel in) {
+            return new ProfileObject(in);
+        }
+
+        @Override
+        public ProfileObject[] newArray(int size) {
+            return new ProfileObject[size];
+        }
+    };
+
     @Override
     public int describeContents() {
         return 0;
@@ -32,8 +62,6 @@ public class ProfileObject implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(0);
-        dest.writeInt(0);
-        dest.writeString("0");
+
     }
 }
