@@ -6,8 +6,8 @@
 
     <CalendarView
         android:id="@+id/simpleCalendarView"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="566dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
@@ -15,10 +15,11 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="51dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="0dp"
         android:layout_marginEnd="2dp"
-        android:layout_marginBottom="0dp"
+        android:layout_marginBottom="165dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -28,10 +29,8 @@
         android:layout_height="60dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_gravity="center"
-        android:layout_marginBottom="103dp"
+android:layout_marginBottom="20dp"
         android:background="@drawable/rectangle"
-        android:gravity="center"
         android:text="Plan Routine"
         android:textColor="@color/white"
         android:textSize="20dp" />
@@ -42,10 +41,8 @@
         android:layout_height="60dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_gravity="center"
-        android:layout_marginBottom="169dp"
+android:layout_marginBottom="100dp"
         android:background="@drawable/rectangle"
-        android:gravity="center"
         android:text="Completed Days"
         android:textColor="@color/white"
         android:textSize="20dp" />

@@ -83,7 +83,7 @@ public class CalendarFragment extends Fragment {
     public void openPlanRoutine() {
         Log.d(TAG, "openPlanRoutine: called.");
 
-        Intent intent = new Intent(getActivity(), PlanRoutineFragment.class);
+        Intent intent = new Intent(getActivity(), PlanWorkoutActivity.class);
         startActivity(intent);
     }
 
