@@ -15,6 +15,15 @@
         <item>Bodybuilder</item>
         <item>PowerLifting</item>
     </string-array>
+    <array name="division">
+        <item>-Select-</item>
+        <item>ARMS</item>
+        <item>BACK</item>
+        <item>CHEST</item>
+        <item>LEGS</item>
+        <item>SHOULDERS</item>
+    </array>
+
     <string name="maleGender">Male</string>
     <string name="femaleGender">Female</string>
     <string name="otherGender">Other</string>
