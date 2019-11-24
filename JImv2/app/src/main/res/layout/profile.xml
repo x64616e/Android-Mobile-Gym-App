@@ -132,7 +132,7 @@
     </RadioGroup>
 
     <EditText
-        android:id="@+id/edit_text_file_name"
+        android:id="@+id/nameEditText"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -153,7 +153,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/DOBMonth"
+        android:id="@+id/monthEditText"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -174,7 +174,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/DOBDay"
+        android:id="@+id/dayEditText"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -195,7 +195,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/DOBYear"
+        android:id="@+id/yearEditText"
         android:layout_width="60dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -229,7 +229,7 @@
         app:srcCompat="@mipmap/calendar" />
 
     <EditText
-        android:id="@+id/profileWeight"
+        android:id="@+id/weightEditText"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -251,7 +251,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/profileHeight"
+        android:id="@+id/heightEditText"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -273,7 +273,7 @@
 
 
     <Spinner
-        android:id="@+id/spinner1"
+        android:id="@+id/experienceSpinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -285,7 +285,7 @@
         android:textColor="@color/white" />
 
     <Spinner
-        android:id="@+id/spinner2"
+        android:id="@+id/trainingSpinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"

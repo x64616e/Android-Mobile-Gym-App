@@ -1,24 +1,25 @@
 package com.example.jimv2;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 import java.util.Calendar;
 
-public class ProfileObject implements Parcelable {
+public class ProfileObject {
 
     private String profileUID;
     private String profileName;
-    private Calendar profileDOB;
-    private double profileWeight;
-    private double profileHeight;
+    private String profileMonth;
+    private String profileDay;
+    private String profileYear;
+    private String profileWeight;
+    private String profileHeight;
     private int profileExperience;
     private int profileTraining;
 
-    public ProfileObject(String name, Calendar dob, double weight, double height, int experience, int training) {
+    public ProfileObject(String uid, String name, String month, String day, String year, String weight, String height, int experience, int training) {
+        profileUID = uid;
         profileName = name;
-        profileUID = name + "_dummyUID";
-        profileDOB = dob;
+        profileMonth = month;
+        profileDay = day;
+        profileYear = year;
         profileWeight = weight;
         profileHeight = height;
         profileExperience = experience;
@@ -26,42 +27,21 @@ public class ProfileObject implements Parcelable {
     }
 
     public void setName(String name) { profileName = name; }
-    public void setDOB(Calendar dob) { profileDOB = dob; }
-    public void setHeight(double height) { profileHeight = height; }
-    public void setWeight(double weight) { profileWeight = weight; }
+    public void setMonth(String month) { profileMonth = month; }
+    public void setDay(String day) { profileDay = day; }
+    public void setYear(String year) { profileYear = year; }
+    public void setHeight(String height) { profileHeight = height; }
+    public void setWeight(String weight) { profileWeight = weight; }
     public void setExperience(int experience) { profileExperience = experience; }
     public void setTraining(int training) { profileTraining = training; }
 
     public String getName() { return profileName; }
-    public Calendar getDOB() { return profileDOB; }
-    public double getHeight() { return profileHeight; }
-    public double getWeight() { return profileWeight; }
+    public String getMonth() { return profileMonth; }
+    public String getDay() { return profileDay; }
+    public String getYear() { return profileYear; }
+    public String getHeight() { return profileHeight; }
+    public String getWeight() { return profileWeight; }
     public int getExperience() { return profileExperience; }
     public int getTraining() { return profileTraining; }
 
-    public ProfileObject() { }
-
-    protected ProfileObject(Parcel in) { }
-
-    public static final Creator<ProfileObject> CREATOR = new Creator<ProfileObject>() {
-        @Override
-        public ProfileObject createFromParcel(Parcel in) {
-            return new ProfileObject(in);
-        }
-
-        @Override
-        public ProfileObject[] newArray(int size) {
-            return new ProfileObject[size];
-        }
-    };
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-
-    }
 }
