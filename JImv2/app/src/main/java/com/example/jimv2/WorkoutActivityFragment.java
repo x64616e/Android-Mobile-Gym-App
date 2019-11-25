@@ -53,6 +53,11 @@ public class WorkoutActivityFragment extends Fragment {
         buildRecylcerView(view);
         Intent intent = getActivity().getIntent();
 
+//        try {
+//            Date passedDate2 = (Date) getArguments().getSerializable("passedDate");
+//
+//        } catch(NullPointerException NPE){}
+
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String userID = user.getUid();
         userId = userID.substring(0, Math.min(userID.length(), 6));

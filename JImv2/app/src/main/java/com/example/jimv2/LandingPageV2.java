@@ -27,6 +27,7 @@ import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
 
@@ -34,19 +35,27 @@ public class LandingPageV2 extends AppCompatActivity implements NavigationView.O
     private DrawerLayout drawer;
     private ImageView mImageView;
     FirebaseStorage storage = FirebaseStorage.getInstance();
-
+    public TextView textViewDate;
     private static final String TAG = "Landing";
 
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment);
-
+        textViewDate = findViewById(R.id.toolbar_text_view_date);
         mImageView = (ImageView) findViewById(R.id.userIcon);
-
+        Calendar calendar = Calendar.getInstance();
         //profile Image
 
-
+        if(getIntent().hasExtra("passedDate")) {
+            Date passedDate = (Date) getIntent().getExtras().getSerializable("passedDate");
+                    String currentPassed = java.text.DateFormat.getDateInstance().format(passedDate);
+                    textViewDate.setText(currentPassed);
+        }
+        else{
+            String currentDate = java.text.DateFormat.getDateInstance().format(calendar.getTime());
+            textViewDate.setText(currentDate);
+        }
 
 
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -85,11 +94,6 @@ public class LandingPageV2 extends AppCompatActivity implements NavigationView.O
             navigationView.setCheckedItem(R.id.nav_workout);
         }
 
-        Calendar calendar = Calendar.getInstance();
-        String currentDate = java.text.DateFormat.getDateInstance().format(calendar.getTime());
-
-        TextView textViewDate = findViewById(R.id.toolbar_text_view_date);
-        textViewDate.setText(currentDate);
     }
 
     @Override

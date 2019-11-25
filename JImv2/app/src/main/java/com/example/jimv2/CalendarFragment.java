@@ -1,6 +1,7 @@
 package com.example.jimv2;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -38,7 +39,7 @@ public class CalendarFragment extends Fragment {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month,
                                             int dayOfMonth) {
-                Intent intent = new Intent(getContext(), WorkoutActivityFragment.class);
+                Intent intent = new Intent(getContext(), LandingPageV2.class);
 
                 //startActivity(intent);
                 calendar = new GregorianCalendar( year, month, dayOfMonth );
@@ -46,10 +47,25 @@ public class CalendarFragment extends Fragment {
                 SimpleDateFormat df = new SimpleDateFormat("ddMMMyyyy");
                 String formattedDate = df.format(calendar.getTime());
                 Date passedDate = calendar.getTime();
-                intent.putExtra("com.example.jimv2.CALENDER", passedDate);
+                intent.putExtra("passedDate", passedDate);
+
                 Toast.makeText(getActivity(),
                         ""+ passedDate, Toast.LENGTH_SHORT).show();
                 //startActivity(intent);
+
+
+
+//                Bundle bundle = new Bundle();
+//                bundle.putSerializable("passedDate", passedDate);
+//                // set Fragmentclass Arguments
+//                WorkoutActivityFragment fragobj = new WorkoutActivityFragment();
+//                fragobj.setArguments(bundle);
+
+
+//                final FragmentTransaction ft = getFragmentManager().beginTransaction();
+//                ft.replace(R.id.fragment_container, fragobj, "NewFragmentTag");
+//                ft.commit();
+                startActivity(intent);
 
             }
 

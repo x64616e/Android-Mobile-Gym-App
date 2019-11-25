@@ -21,4 +21,6 @@ public abstract class SingleFragmentActivity extends AppCompatActivity {
             fm.beginTransaction().add(R.id.fragment_container, fragment).commit();
         }
     }
+
+    public abstract void setArguments(Bundle bundle);
 }
