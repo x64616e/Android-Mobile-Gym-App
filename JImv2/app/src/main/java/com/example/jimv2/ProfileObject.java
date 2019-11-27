@@ -14,6 +14,10 @@ public class ProfileObject {
     private int profileExperience;
     private int profileTraining;
 
+    public ProfileObject() {
+        //?
+    }
+
     public ProfileObject(String uid, String name, String month, String day, String year, String weight, String height, int experience, int training) {
         profileUID = uid;
         profileName = name;

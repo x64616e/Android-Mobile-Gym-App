@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +24,9 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
@@ -107,6 +111,36 @@ public class ProfileFragment extends Fragment implements AdapterView.OnItemSelec
         spinner1.setAdapter(adapter1);
         spinner1.setOnItemSelectedListener(this);
 
+        DatabaseReference profileReference = FirebaseDatabase.getInstance().getReference(userID);
+        if (profileReference != null) {
+            ValueEventListener profileListener = new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    ProfileObject profileObject = dataSnapshot.getValue(ProfileObject.class);
+                    nameEditText.setText(profileObject.getName());
+                    monthEditText.setText(profileObject.getMonth());
+                    dayEditText.setText(profileObject.getDay());
+                    yearEditText.setText(profileObject.getYear());
+                    weightEditText.setText(profileObject.getWeight());
+                    heightEditText.setText(profileObject.getHeight());
+                    experienceSpinner.setSelection(profileObject.getExperience());
+                    trainingSpinner.setSelection(profileObject.getTraining());
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                    Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
+                    Toast.makeText(getActivity(), "Failed to load post.",
+                            Toast.LENGTH_SHORT).show();
+                }
+            };
+            profileReference.addValueEventListener(profileListener);
+        }
+
+
+
+
+
 
         mButtonChooseImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -186,6 +220,7 @@ public class ProfileFragment extends Fragment implements AdapterView.OnItemSelec
         MimeTypeMap mime = MimeTypeMap.getSingleton();
         return mime.getExtensionFromMimeType(cR.getType(uri));
     }
+
 
 //    private void uploadFile() {
 //        if (mImageUri != null) {
