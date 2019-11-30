@@ -40,6 +40,9 @@ public class AddExerciseFragment extends Fragment {
     public String queryCurrentUser;
     private Button doneButton;
 
+    public AddExerciseFragment(){
+    }
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         Log.d(TAG, "onCreate: called.");
         exerciseList = new ArrayList<>();

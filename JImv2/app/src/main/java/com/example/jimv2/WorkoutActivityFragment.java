@@ -53,10 +53,12 @@ public class WorkoutActivityFragment extends Fragment {
         buildRecylcerView(view);
         Intent intent = getActivity().getIntent();
 
-//        try {
-//            Date passedDate2 = (Date) getArguments().getSerializable("passedDate");
-//
-//        } catch(NullPointerException NPE){}
+        try {
+
+            Date passedDate2 = (Date) getArguments().get("intentDate");
+            long passedDate3 =passedDate2.getTime();
+            dateCurrentlyViewing.setTime(passedDate3);
+        } catch(NullPointerException NPE){}
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String userID = user.getUid();
@@ -74,6 +76,11 @@ public class WorkoutActivityFragment extends Fragment {
             long passedDate = getActivity().getIntent().getExtras().getLong("com.example.jimv2.CALENDER");
             dateCurrentlyViewing.setTime(passedDate);
         }
+
+//        if(getActivity().getIntent().hasExtra("intentDate")) {
+//            long passedDate =  getActivity().getIntent().getExtras().getLong("intentDate");
+//            dateCurrentlyViewing.setTime(passedDate);
+//        }
 
         SimpleDateFormat df = new SimpleDateFormat("ddMMMyyyy");
         String formattedDate = df.format(dateCurrentlyViewing);

@@ -1,5 +1,6 @@
 package com.example.jimv2;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.format.DateFormat;
@@ -51,6 +52,8 @@ public class LandingPageV2 extends AppCompatActivity implements NavigationView.O
             Date passedDate = (Date) getIntent().getExtras().getSerializable("passedDate");
                     String currentPassed = java.text.DateFormat.getDateInstance().format(passedDate);
                     textViewDate.setText(currentPassed);
+            Intent intent = new Intent(this, WorkoutActivityFragment.class);
+            intent.putExtra("intentDate", currentPassed);
         }
         else{
             String currentDate = java.text.DateFormat.getDateInstance().format(calendar.getTime());
