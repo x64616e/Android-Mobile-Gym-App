@@ -13,12 +13,13 @@ public class ProfileObject {
     private String profileHeight;
     private int profileExperience;
     private int profileTraining;
+    private int profileScore;
 
     public ProfileObject() {
         //?
     }
 
-    public ProfileObject(String uid, String name, String month, String day, String year, String weight, String height, int experience, int training) {
+    public ProfileObject(String uid, String name, String month, String day, String year, String weight, String height, int experience, int training, int score) {
         profileUID = uid;
         profileName = name;
         profileMonth = month;
@@ -28,6 +29,7 @@ public class ProfileObject {
         profileHeight = height;
         profileExperience = experience;
         profileTraining = training;
+        profileScore = score;
     }
 
     public void setName(String name) { profileName = name; }
@@ -38,6 +40,7 @@ public class ProfileObject {
     public void setWeight(String weight) { profileWeight = weight; }
     public void setExperience(int experience) { profileExperience = experience; }
     public void setTraining(int training) { profileTraining = training; }
+    public void setScore(int score) { profileScore = score; }
 
     public String getName() { return profileName; }
     public String getMonth() { return profileMonth; }
@@ -47,5 +50,6 @@ public class ProfileObject {
     public String getWeight() { return profileWeight; }
     public int getExperience() { return profileExperience; }
     public int getTraining() { return profileTraining; }
+    public int getScore() { return profileScore; }
 
 }
