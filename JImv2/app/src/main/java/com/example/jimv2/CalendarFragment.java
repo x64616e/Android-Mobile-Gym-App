@@ -47,7 +47,8 @@ public class CalendarFragment extends Fragment {
                 SimpleDateFormat df = new SimpleDateFormat("ddMMMyyyy");
                 String formattedDate = df.format(calendar.getTime());
                 Date passedDate = calendar.getTime();
-                intent.putExtra("passedDate", passedDate);
+                long passedDate2 = passedDate.getTime();
+                intent.putExtra("passedDate", passedDate2);
 
                 Toast.makeText(getActivity(),
                         ""+ passedDate, Toast.LENGTH_SHORT).show();

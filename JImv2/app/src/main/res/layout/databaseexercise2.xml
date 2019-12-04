@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="75dp"
+    android:layout_marginTop="4dp"
+    app:cardElevation="10dp" android:background="@drawable/rectangle_border_sb">
+
+    <TextView
+        android:id="@+id/exerciseNameDB"
+        android:layout_width="143dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="11dp"
+        android:layout_marginLeft="11dp"
+        android:layout_marginTop="5dp"
+        android:text="Name"
+        android:textColor="@color/medium_blue"
+        android:textSize="20dp" />
+
+
+    <EditText
+        android:id="@+id/exerciseSetsDB"
+        android:layout_width="34dp"
+        android:layout_height="49dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="328dp"
+        android:layout_marginLeft="328dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginBottom="3dp"
+        android:enabled="true"
+        android:inputType="number"
+        android:text="0"
+        android:textColor="@color/medium_blue"
+        android:textSize="25dp" />
+
+    <EditText
+        android:id="@+id/exerciseRepsDB"
+        android:layout_width="42dp"
+        android:layout_height="49dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="229dp"
+        android:layout_marginLeft="229dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="1dp"
+        android:enabled="true"
+        android:inputType="number"
+        android:text="0"
+        android:textColor="@color/medium_blue"
+        android:textSize="25dp" />
+
+    <EditText
+        android:id="@+id/exerciseWeightDB"
+        android:layout_width="57dp"
+        android:layout_height="47dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="82dp"
+        android:layout_marginLeft="82dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginBottom="0dp"
+        android:enabled="true"
+        android:inputType="number"
+        android:text="0"
+        android:textColor="@color/medium_blue"
+        android:textSize="25dp" />
+
+    <TextView
+        android:id="@+id/editText6"
+        android:layout_width="72dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:enabled="false"
+        android:inputType="textPersonName"
+        android:text="Weight:"
+        android:textColor="@color/medium_blue"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/editText9"
+        android:layout_width="34dp"
+        android:layout_height="27dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="137dp"
+        android:layout_marginLeft="137dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="16dp"
+        android:ems="10"
+        android:enabled="false"
+        android:inputType="textPersonName"
+        android:text="lbs"
+        android:textColor="@color/medium_blue"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/editText7"
+        android:layout_width="53dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="175dp"
+        android:layout_marginLeft="175dp"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:enabled="false"
+        android:inputType="textPersonName"
+        android:text="Reps:"
+        android:textColor="@color/medium_blue"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/editText8"
+        android:layout_width="46dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="274dp"
+        android:layout_marginLeft="274dp"
+        android:layout_marginTop="31dp"
+        android:ems="10"
+        android:enabled="false"
+        android:inputType="textPersonName"
+        android:text="Sets:"
+
+        android:textColor="@color/medium_blue"
+        android:textSize="20dp" />
+
+</RelativeLayout>

@@ -20,19 +20,19 @@ public class PlanRoutineFragment extends Fragment {
     private Button createRoutine;
     //private Button planExercise;
     private static final String TAG = "PlanRoutineFragment";
-    Spinner Mon,Tues,Wed,Thur,Fri,Sat,Sun;
+    Spinner Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday;
     int currentItem = 0;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.plan_routine, container, false);
 
-        Mon =(Spinner)view.findViewById(R.id.Mon);
-        Tues =(Spinner)view.findViewById(R.id.Tues);
-        Wed =(Spinner)view.findViewById(R.id.Wed);
-        Thur =(Spinner)view.findViewById(R.id.Thur);
-        Fri =(Spinner)view.findViewById(R.id.Fri);
-        Sat =(Spinner)view.findViewById(R.id.Sat);
-        Sun =(Spinner)view.findViewById(R.id.Sun);
+        Monday =(Spinner)view.findViewById(R.id.Mon);
+        Tuesday =(Spinner)view.findViewById(R.id.Tues);
+        Wednesday =(Spinner)view.findViewById(R.id.Wed);
+        Thursday =(Spinner)view.findViewById(R.id.Thur);
+        Friday =(Spinner)view.findViewById(R.id.Fri);
+        Saturday =(Spinner)view.findViewById(R.id.Sat);
+        Sunday =(Spinner)view.findViewById(R.id.Sun);
 
         //planExercise = (Button) view.findViewById(R.id.legDay);
         createRoutine = (Button) view.findViewById(R.id.create_routine);
@@ -42,7 +42,7 @@ public class PlanRoutineFragment extends Fragment {
                 openDialog();
             }
         });
-        Mon.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        Monday.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
 
@@ -50,6 +50,7 @@ public class PlanRoutineFragment extends Fragment {
                     return;
                 }else{
                     Intent intent = new Intent(getActivity(),PlanWorkoutActivity.class);
+                    intent.putExtra("day","Monday");
                     startActivity(intent);
                 }
             }
@@ -60,7 +61,7 @@ public class PlanRoutineFragment extends Fragment {
             }
         });
 
-        Tues.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        Tuesday.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
 
@@ -68,6 +69,7 @@ public class PlanRoutineFragment extends Fragment {
                     return;
                 }else{
                     Intent intent = new Intent(getActivity(),PlanWorkoutActivity.class);
+                    intent.putExtra("day","Tuesday");
                     startActivity(intent);
                 }
             }
@@ -78,7 +80,7 @@ public class PlanRoutineFragment extends Fragment {
             }
         });
 
-        Wed.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        Wednesday.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
 
@@ -86,6 +88,7 @@ public class PlanRoutineFragment extends Fragment {
                     return;
                 }else{
                     Intent intent = new Intent(getActivity(),PlanWorkoutActivity.class);
+                    intent.putExtra("day","Wednesday");
                     startActivity(intent);
                 }
             }

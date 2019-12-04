@@ -10,6 +10,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import android.content.Intent;
 import android.view.View;
@@ -17,6 +19,8 @@ import android.view.View;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Calendar;
+
+import android.widget.EditText;
 import android.widget.ImageView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -42,6 +46,7 @@ public class WorkoutActivityFragment extends Fragment {
     private Button Statistics;
     private Button addExercise;
     private Button heartRate;
+    public EditText dates;
     public String userId;
     public String queryCurrentUser;
     private static final String TAG = "WorkoutActivityFragment";
@@ -51,19 +56,35 @@ public class WorkoutActivityFragment extends Fragment {
         View view = inflater.inflate(R.layout.workoutv3, container, false);
         //populateArray();
         buildRecylcerView(view);
+
         Intent intent = getActivity().getIntent();
 
-        try {
-
-            Date passedDate2 = (Date) getArguments().get("intentDate");
-            long passedDate3 =passedDate2.getTime();
-            dateCurrentlyViewing.setTime(passedDate3);
-        } catch(NullPointerException NPE){}
+//        try {
+//            if(getActivity().getIntent().hasExtra("intentDate")) {
+//                Date passedDate2 = (Date) getArguments().get("intentDate");
+//                long passedDate3 = passedDate2.getTime();
+//                dateCurrentlyViewing.setTime(passedDate3);
+//                dates = getView().findViewById(R.id.dateDisplay);
+//                String passedDate4 = String.valueOf(passedDate3);
+//                dates.setText(passedDate4);
+//            }
+//        } catch(NullPointerException NPE){}
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String userID = user.getUid();
         userId = userID.substring(0, Math.min(userID.length(), 6));
         StringBuilder queryUserDate = new StringBuilder(userId);
+
+
+        if(getActivity().getIntent().hasExtra("intentDate")) {
+            //Date passedDate2 = (Date) getArguments().get("intentDate");
+            //long passedDate3 = passedDate2.getTime();
+            long passedDate3 = (long) getActivity().getIntent().getExtras().getLong("intentDate");
+            dateCurrentlyViewing.setTime(passedDate3);
+            dates = getView().findViewById(R.id.dateDisplay);
+            String passedDate5 = String.valueOf(dateCurrentlyViewing);
+            dates.setText(String.valueOf(passedDate3));
+        }
 
         if(getActivity().getIntent().hasExtra("com.example.jimv2.PASSDATE")) {
             long passedDate = getActivity().getIntent().getExtras().getLong("com.example.jimv2.PASSDATE");
@@ -72,10 +93,10 @@ public class WorkoutActivityFragment extends Fragment {
             dateCurrentlyViewing.setTime(passedDate);
         }
 
-        if(getActivity().getIntent().hasExtra("com.example.jimv2.CALENDER")) {
-            long passedDate = getActivity().getIntent().getExtras().getLong("com.example.jimv2.CALENDER");
-            dateCurrentlyViewing.setTime(passedDate);
-        }
+//        if(getActivity().getIntent().hasExtra("com.example.jimv2.CALENDER")) {
+//            long passedDate = getActivity().getIntent().getExtras().getLong("com.example.jimv2.CALENDER");
+//            dateCurrentlyViewing.setTime(passedDate);
+//        }
 
 //        if(getActivity().getIntent().hasExtra("intentDate")) {
 //            long passedDate =  getActivity().getIntent().getExtras().getLong("intentDate");

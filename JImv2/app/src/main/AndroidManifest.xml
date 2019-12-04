@@ -17,6 +17,9 @@
         <activity
             android:name=".AddExerciseFragment"
             android:theme="@style/AppTheme.ActionBar" />
+        <activity
+            android:name=".AddExerciseFragment2"
+            android:theme="@style/AppTheme.ActionBar" />
         <activity android:name=".FriendsActivity" />
         <activity
             android:name=".PlanWorkoutActivity"
@@ -26,7 +29,7 @@
         <activity android:name=".WorkoutActivity" />
         <activity android:name=".ExerciseActivity" />
         <activity android:name=".AddExercise" />
-
+        <activity android:name=".AddExercise2" />
         <activity android:name=".CalculatorActivity" />
         <activity android:name=".HeartRateActivity" />
         <activity android:name=".PlanRoutineFragment" />
