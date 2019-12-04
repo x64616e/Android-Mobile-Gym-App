@@ -71,7 +71,6 @@ public class WorkoutActivityFragment extends Fragment {
 //                dates.setText(passedDate4);
 //            }
 //        } catch(NullPointerException NPE){}
-        dates = getActivity().findViewById(R.id.dateDisplay);
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String userID = user.getUid();
         userId = userID.substring(0, Math.min(userID.length(), 6));
@@ -89,8 +88,6 @@ public class WorkoutActivityFragment extends Fragment {
             LandingPageV2 activity = (LandingPageV2) getActivity();
             long passedDate = activity.getMyData();
             dateCurrentlyViewing.setTime(passedDate);
-            Toast.makeText(getActivity(),
-                    "Passed", Toast.LENGTH_SHORT).show();
 
         } catch (NullPointerException nfe){
             nfe.printStackTrace();
