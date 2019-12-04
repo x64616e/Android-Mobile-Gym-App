@@ -309,11 +309,10 @@ public class ExerciseActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 ProfileObject profileObject = dataSnapshot.getValue(ProfileObject.class);
-                int score = profileObject.getScore() + 1;
+                profileObject.addScore();
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 String userID = user.getUid();
                 DatabaseReference userDB = FirebaseDatabase.getInstance().getReference(userID);
-                profileObject.setScore(score);
                 userDB.setValue(profileObject);
             }
 
@@ -322,8 +321,8 @@ public class ExerciseActivity extends AppCompatActivity {
 
             }
         };
-        userDB.addValueEventListener(userListener);
-        Toast.makeText(this, "Good Job!  Score Increased", Toast.LENGTH_LONG).show();
+        userDB.addListenerForSingleValueEvent(userListener);
+        Toast.makeText(this, "Score Increased", Toast.LENGTH_LONG).show();
     }
 
     private void addExercise() {

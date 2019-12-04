@@ -42,6 +42,8 @@ public class ProfileObject {
     public void setTraining(int training) { profileTraining = training; }
     public void setScore(int score) { profileScore = score; }
 
+    public void addScore() { profileScore++; }
+
     public String getName() { return profileName; }
     public String getMonth() { return profileMonth; }
     public String getDay() { return profileDay; }
