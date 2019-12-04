@@ -22,6 +22,8 @@ import java.util.Calendar;
 
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -36,7 +38,7 @@ public class WorkoutActivityFragment extends Fragment {
     DatabaseReference databaseref;
     FirebaseRecyclerOptions<ExerciseObject> options;
     FirebaseRecyclerAdapter<ExerciseObject, WorkoutHolder> adapter;
-
+    public long passedDate3;
     private RecyclerView mRecyclerView;
     private WorkoutAdapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
@@ -69,28 +71,52 @@ public class WorkoutActivityFragment extends Fragment {
 //                dates.setText(passedDate4);
 //            }
 //        } catch(NullPointerException NPE){}
-
+        dates = getActivity().findViewById(R.id.dateDisplay);
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String userID = user.getUid();
         userId = userID.substring(0, Math.min(userID.length(), 6));
         StringBuilder queryUserDate = new StringBuilder(userId);
+//        long passed = getArguments().getLong("intentDate");
 
 
-        if(getActivity().getIntent().hasExtra("intentDate")) {
-            //Date passedDate2 = (Date) getArguments().get("intentDate");
-            //long passedDate3 = passedDate2.getTime();
-            long passedDate3 = (long) getActivity().getIntent().getExtras().getLong("intentDate");
-            dateCurrentlyViewing.setTime(passedDate3);
-            dates = getView().findViewById(R.id.dateDisplay);
-            String passedDate5 = String.valueOf(dateCurrentlyViewing);
-            dates.setText(String.valueOf(passedDate3));
+
+        try {
+//            if ( exercise != (null)) {
+//                workouts.add(exercise);
+//                saveToDatabase();
+//            }
+
+            LandingPageV2 activity = (LandingPageV2) getActivity();
+            long passedDate = activity.getMyData();
+            dateCurrentlyViewing.setTime(passedDate);
+            Toast.makeText(getActivity(),
+                    "Passed", Toast.LENGTH_SHORT).show();
+
+        } catch (NullPointerException nfe){
+            nfe.printStackTrace();
+//            Toast.makeText(getActivity(),
+//                    "Error", Toast.LENGTH_SHORT).show();
         }
 
+        if(getActivity().getIntent().hasExtra("intentDate")) {
+            Toast.makeText(getActivity(),
+                    "Passed", Toast.LENGTH_SHORT).show();
+
+
+            //Date passedDate2 = (Date) getArguments().get("intentDate");
+            //long passedDate3 = passedDate2.getTime();
+            passedDate3 = (long) getActivity().getIntent().getExtras().getLong("intentDate");
+            dateCurrentlyViewing.setTime(passedDate3);
+
+            String passedDate5 = String.valueOf(dateCurrentlyViewing);
+            dates.setText("test");
+        }
+//        dates.setText(String.valueOf(passedDate3));
         if(getActivity().getIntent().hasExtra("com.example.jimv2.PASSDATE")) {
-            long passedDate = getActivity().getIntent().getExtras().getLong("com.example.jimv2.PASSDATE");
+            //long passedDate = getActivity().getIntent().getExtras().getLong("com.example.jimv2.PASSDATE");
         //if(savedInstanceState.containsKey("com.example.jimv2.PASSDATE")   ) {//getActivity().getIntent().hasExtra("com.example.jimv2.PASSDATE")) {
         //    long passedDate = getActivity().getIntent().getExtras().getLong("com.example.jimv2.PASSDATE");
-            dateCurrentlyViewing.setTime(passedDate);
+            //dateCurrentlyViewing.setTime(passedDate);
         }
 
 //        if(getActivity().getIntent().hasExtra("com.example.jimv2.CALENDER")) {
@@ -119,14 +145,8 @@ public class WorkoutActivityFragment extends Fragment {
         queryCurrentUser = queryUserDate.toString();
         databaseref = FirebaseDatabase.getInstance().getReference().child(queryCurrentUser);
 
-        try {
-            if ( exercise != (null)) {
-                workouts.add(exercise);
-                saveToDatabase();
-            }
-        } catch (NullPointerException nfe){
-            nfe.printStackTrace();
-        }
+
+
 
 
 
@@ -265,6 +285,8 @@ public class WorkoutActivityFragment extends Fragment {
             databaseExercise.child(id).setValue(exercise);
         }
     }
+
+
 
     public void onStart(){
         super.onStart();

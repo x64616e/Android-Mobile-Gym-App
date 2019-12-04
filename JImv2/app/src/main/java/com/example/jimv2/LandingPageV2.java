@@ -38,7 +38,7 @@ public class LandingPageV2 extends AppCompatActivity implements NavigationView.O
     FirebaseStorage storage = FirebaseStorage.getInstance();
     public TextView textViewDate;
     private static final String TAG = "Landing";
-
+    public Long pass;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,11 +49,17 @@ public class LandingPageV2 extends AppCompatActivity implements NavigationView.O
         //profile Image
 
         if(getIntent().hasExtra("passedDate")) {
-            Date passedDate = (Date) getIntent().getExtras().getSerializable("passedDate");
+            Intent intent = new Intent(this, WorkoutActivityFragment.class);
+            Long passedDate =  getIntent().getExtras().getLong("passedDate");
                     String currentPassed = java.text.DateFormat.getDateInstance().format(passedDate);
                     textViewDate.setText(currentPassed);
-            Intent intent = new Intent(this, WorkoutActivityFragment.class);
-            intent.putExtra("intentDate", currentPassed);
+                    pass = passedDate;
+
+            Bundle bundle = new Bundle();
+            bundle.putLong("passed", passedDate);
+            WorkoutActivityFragment fragobj = new WorkoutActivityFragment();
+            fragobj.setArguments(bundle);
+            intent.putExtra("intentDate", passedDate);
         }
         else{
             String currentDate = java.text.DateFormat.getDateInstance().format(calendar.getTime());
@@ -97,6 +103,11 @@ public class LandingPageV2 extends AppCompatActivity implements NavigationView.O
             navigationView.setCheckedItem(R.id.nav_workout);
         }
 
+    }
+
+
+    public Long getMyData() {
+        return pass;
     }
 
     @Override
