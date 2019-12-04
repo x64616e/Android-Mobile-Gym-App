@@ -20,6 +20,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -61,6 +62,7 @@ public class ProfileFragment extends Fragment implements AdapterView.OnItemSelec
     private EditText heightEditText;
     private Spinner experienceSpinner;
     private Spinner trainingSpinner;
+    private TextView scoreTextView;
     private String userID;
     private static final int PICK_IMAGE_REQUEST = 1;
     private static final String TAG = "ProfileFragment";
@@ -97,6 +99,8 @@ public class ProfileFragment extends Fragment implements AdapterView.OnItemSelec
         weightEditText = view.findViewById(R.id.weightEditText);
         experienceSpinner = view.findViewById(R.id.experienceSpinner);
         trainingSpinner = view.findViewById(R.id.trainingSpinner);
+        scoreTextView = view.findViewById(R.id.scoreTextView);
+
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         userID = user.getUid();
         Spinner spinner = view.findViewById(R.id.experienceSpinner);
@@ -125,6 +129,7 @@ public class ProfileFragment extends Fragment implements AdapterView.OnItemSelec
                     heightEditText.setText(profileObject.getHeight());
                     experienceSpinner.setSelection(profileObject.getExperience());
                     trainingSpinner.setSelection(profileObject.getTraining());
+                    scoreTextView.setText(String.valueOf(profileObject.getScore()));
                 }
 
                 @Override
@@ -170,7 +175,7 @@ public class ProfileFragment extends Fragment implements AdapterView.OnItemSelec
                 monthEditText.getText().toString(), dayEditText.getText().toString(),
                 yearEditText.getText().toString(), weightEditText.getText().toString(),
                 heightEditText.getText().toString(), experienceSpinner.getSelectedItemPosition(),
-                trainingSpinner.getSelectedItemPosition());
+                trainingSpinner.getSelectedItemPosition(), Integer.parseInt(scoreTextView.getText().toString()));
         FirebaseDatabase firebaseDB = FirebaseDatabase.getInstance();
         DatabaseReference dbReference = firebaseDB.getReference().child(userID);
         dbReference.setValue(newProfile);
