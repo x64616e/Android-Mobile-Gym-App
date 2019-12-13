@@ -199,7 +199,7 @@ public class ProfileFragment extends Fragment implements AdapterView.OnItemSelec
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long l) {
         String text = parent.getItemAtPosition(position).toString();
-        Toast.makeText(parent.getContext(), text, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(parent.getContext(), text, Toast.LENGTH_SHORT).show();
     }
 
     @Override
