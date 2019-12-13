@@ -137,6 +137,7 @@ public class AddExerciseFragment extends Fragment {
         exerciseList.add(new ExerciseObject(R.drawable.ic_crunches_2, "Crunches", 13, 0, 0, 0,"https://firebasestorage.googleapis.com/v0/b/jym350-de9ff.appspot.com/o/Crunches-1.png?alt=media&token=31ae77fe-7407-4dfa-8da5-cb8e3e3fd451"));
         exerciseList.add(new ExerciseObject(R.drawable.ic_chin_ups_1, "Chin Ups", 14, 0, 0, 0,"https://firebasestorage.googleapis.com/v0/b/jym350-de9ff.appspot.com/o/Chin-ups-2.png?alt=media&token=7d76c613-7f3e-4d5f-ac32-9b24bb6037f4"));
         exerciseList.add(new ExerciseObject(R.drawable.ic_decline_crunch_2, "Decline Crunch", 15, 0, 0, 0,"https://firebasestorage.googleapis.com/v0/b/jym350-de9ff.appspot.com/o/Decline-crunch-2.png?alt=media&token=338f3400-78d6-4bc8-904c-5c88270a316a"));
+        exerciseList.add(new ExerciseObject(R.drawable.ic_dumbbell, "Custom", 15, 0, 0, 0,"https://firebasestorage.googleapis.com/v0/b/jym350-de9ff.appspot.com/o/Decline-crunch-2.png?alt=media&token=338f3400-78d6-4bc8-904c-5c88270a316a"));
     }
 
     public void buildRecylcerView(View view) {
