@@ -139,6 +139,12 @@ public class LandingPageV2 extends AppCompatActivity implements NavigationView.O
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new ReportFragment()).commit();
                 break;
+
+            case R.id.nav_music:
+                Log.d(TAG, "onNavigationItemSelected: nav_report clicked.");
+                startActivity(new Intent(this, musicPlayerr.class));
+                break;
+
         }
 
         drawer.closeDrawer(GravityCompat.START);

@@ -31,8 +31,44 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string-array name="DanceTitles">
+        <item>DarkSide</item>
+        <item>The Spectre</item>
+        <item>Ignite</item>
+        <item>Alone</item>
+        <item>Diamond Heart</item>
+        <item>Routine</item>
 
+    </string-array>
+
+
+    <string-array name="PopTitles">
+        <item>Bad Guy</item>
+        <item>beautiful</item>
+        <item>Lovely</item>
+        <item>Seniorita</item>
+        <item>speechless</item>
+        <item>Can we pretend</item>
+        <item>Sucker</item>
+    </string-array>
+
+    <string-array name="PArtists">
+        <item>Billie Eilish,Justin Bieber</item>
+        <item>Bazzi</item>
+        <item>Billie Eilish,Khaled</item>
+        <item>Shawn Mendes,Camila Cabello</item>
+        <item>Naomi Scott</item>
+        <item>Pink</item>
+        <item>Jonas Brothers</item>
+    </string-array>
+
+    <string-array name="DArtists">
+        <item>Alan Walker</item>
+        <item>Alan Walker</item>
+        <item>Alan Walker</item>
+        <item>Alan Walker</item>
+        <item>Alan Walker</item>
+        <item>Alan Walker</item>
+    </string-array>
 
 </resources>
-
-

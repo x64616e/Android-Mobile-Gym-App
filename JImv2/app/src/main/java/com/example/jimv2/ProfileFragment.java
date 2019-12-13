@@ -181,9 +181,9 @@ public class ProfileFragment extends Fragment implements AdapterView.OnItemSelec
         dbReference.setValue(newProfile);
 
 
-        Toast.makeText(getActivity(),
-                "Debug: OnPause() ran",
-                Toast.LENGTH_LONG).show();
+//        Toast.makeText(getActivity(),
+//                "Debug: OnPause() ran",
+//                Toast.LENGTH_LONG).show();
     }
 
     public void backToLanding(){

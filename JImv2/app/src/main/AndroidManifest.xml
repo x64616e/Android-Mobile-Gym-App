@@ -41,10 +41,20 @@
         <activity
             android:name=".LandingPageV2"
             android:theme="@style/AppTheme.NoActionBar" />
+
         <activity android:name=".ProfileFragment" />
         <activity android:name=".HeartRateMonitor" />
         <activity android:name=".HeartbeatView" />
         <activity android:name=".ImageProcessing" />
+        <activity android:name=".MusicPlayerActivity"> </activity>
+
+        <activity android:name=".PlaylistActivity"> </activity>
+
+
+        <activity android:name=".musicPlayerr">
+
+
+    </activity>
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
