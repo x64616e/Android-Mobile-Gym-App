@@ -3,6 +3,7 @@ package com.example.jimv2;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
@@ -22,6 +23,7 @@ import java.util.Calendar;
 
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -52,79 +54,107 @@ public class WorkoutActivityFragment extends Fragment {
     public String userId;
     public String queryCurrentUser;
     private static final String TAG = "WorkoutActivityFragment";
+    private Button nextDay;
+    private Button previousDay;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.workoutv3, container, false);
-        //populateArray();
         buildRecylcerView(view);
 
         Intent intent = getActivity().getIntent();
 
-//        try {
-//            if(getActivity().getIntent().hasExtra("intentDate")) {
-//                Date passedDate2 = (Date) getArguments().get("intentDate");
-//                long passedDate3 = passedDate2.getTime();
-//                dateCurrentlyViewing.setTime(passedDate3);
-//                dates = getView().findViewById(R.id.dateDisplay);
-//                String passedDate4 = String.valueOf(passedDate3);
-//                dates.setText(passedDate4);
-//            }
-//        } catch(NullPointerException NPE){}
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String userID = user.getUid();
         userId = userID.substring(0, Math.min(userID.length(), 6));
         StringBuilder queryUserDate = new StringBuilder(userId);
-//        long passed = getArguments().getLong("intentDate");
-
-
 
         try {
-//            if ( exercise != (null)) {
-//                workouts.add(exercise);
-//                saveToDatabase();
-//            }
-
             LandingPageV2 activity = (LandingPageV2) getActivity();
             long passedDate = activity.getMyData();
             dateCurrentlyViewing.setTime(passedDate);
 
         } catch (NullPointerException nfe){
             nfe.printStackTrace();
-//            Toast.makeText(getActivity(),
-//                    "Error", Toast.LENGTH_SHORT).show();
         }
 
+
+        Bundle bundle=getArguments();
+
+        if(bundle !=null) {
+
+            if (bundle.containsKey("intentDate")) {
+                Toast.makeText(getActivity(),
+                        "Passed", Toast.LENGTH_SHORT).show();
+
+                passedDate3 = bundle.getLong("intentDate");
+                dateCurrentlyViewing.setTime(passedDate3);
+
+                String passedDate5 = String.valueOf(dateCurrentlyViewing);
+                //dates.setText("test");
+                Log.d(TAG, "intentDate: received.");
+
+                TextView textViewDate = getActivity().findViewById(R.id.toolbar_text_view_date);
+                String currentDate = java.text.DateFormat.getDateInstance().format(dateCurrentlyViewing.getTime());
+                textViewDate.setText(currentDate);
+            }
+        }
+        /*
         if(getActivity().getIntent().hasExtra("intentDate")) {
             Toast.makeText(getActivity(),
                     "Passed", Toast.LENGTH_SHORT).show();
 
-
-            //Date passedDate2 = (Date) getArguments().get("intentDate");
-            //long passedDate3 = passedDate2.getTime();
-            passedDate3 = (long) getActivity().getIntent().getExtras().getLong("intentDate");
+            passedDate3 = getActivity().getIntent().getExtras().getLong("intentDate");
             dateCurrentlyViewing.setTime(passedDate3);
 
             String passedDate5 = String.valueOf(dateCurrentlyViewing);
-            dates.setText("test");
+            //dates.setText("test");
+            Log.d(TAG, "intentDate: received.");
         }
-//        dates.setText(String.valueOf(passedDate3));
         if(getActivity().getIntent().hasExtra("com.example.jimv2.PASSDATE")) {
-            //long passedDate = getActivity().getIntent().getExtras().getLong("com.example.jimv2.PASSDATE");
-        //if(savedInstanceState.containsKey("com.example.jimv2.PASSDATE")   ) {//getActivity().getIntent().hasExtra("com.example.jimv2.PASSDATE")) {
-        //    long passedDate = getActivity().getIntent().getExtras().getLong("com.example.jimv2.PASSDATE");
-            //dateCurrentlyViewing.setTime(passedDate);
+
         }
+        */
 
-//        if(getActivity().getIntent().hasExtra("com.example.jimv2.CALENDER")) {
-//            long passedDate = getActivity().getIntent().getExtras().getLong("com.example.jimv2.CALENDER");
-//            dateCurrentlyViewing.setTime(passedDate);
-//        }
 
-//        if(getActivity().getIntent().hasExtra("intentDate")) {
-//            long passedDate =  getActivity().getIntent().getExtras().getLong("intentDate");
-//            dateCurrentlyViewing.setTime(passedDate);
-//        }
+        nextDay = (Button) view.findViewById(R.id.NextDay);
+        nextDay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment currentFragment = getActivity().getSupportFragmentManager().findFragmentById(R.id.fragment_container);
+                if (currentFragment instanceof WorkoutActivityFragment) {
+                    addDay();
+                    Bundle arg = currentFragment.getArguments();
+                    arg.putLong("intentDate", dateCurrentlyViewing.getTime());
+                    FragmentTransaction fragTransaction = (getActivity()).getSupportFragmentManager().beginTransaction();
+                    fragTransaction.detach(currentFragment);
+                    fragTransaction.attach(currentFragment);
+                    fragTransaction.commit();
+                    Log.d(TAG, "nextDay: clicked.");
+                    //updateUI();
+                }
+            }
+        });
+
+        previousDay = (Button) view.findViewById(R.id.PreviousDay);
+        previousDay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment currentFragment = getActivity().getSupportFragmentManager().findFragmentById(R.id.fragment_container);
+                if (currentFragment instanceof WorkoutActivityFragment) {
+                    substractDay();
+                    Bundle arg = currentFragment.getArguments();
+                    arg.putLong("intentDate", dateCurrentlyViewing.getTime());
+                    FragmentTransaction fragTransaction = (getActivity()).getSupportFragmentManager().beginTransaction();
+                    fragTransaction.detach(currentFragment);
+                    fragTransaction.attach(currentFragment);
+                    fragTransaction.commit();
+                    Log.d(TAG, "PreviousDay: clicked.");
+                    //updateUI();
+                }
+            }
+        });
+
 
         SimpleDateFormat df = new SimpleDateFormat("ddMMMyyyy");
         String formattedDate = df.format(dateCurrentlyViewing);
@@ -134,23 +164,8 @@ public class WorkoutActivityFragment extends Fragment {
         queryCurrentUser = queryUserDate.toString();
 
         databaseref = FirebaseDatabase.getInstance().getReference().child(queryCurrentUser);
-        //databaseref = FirebaseDatabase.getInstance().getReference().child(formattedDate);
         options = new FirebaseRecyclerOptions.Builder<ExerciseObject>().setQuery(databaseref,ExerciseObject.class).build();
         
-
-        queryUserDate.append(formattedDate);
-        queryCurrentUser = queryUserDate.toString();
-        databaseref = FirebaseDatabase.getInstance().getReference().child(queryCurrentUser);
-
-
-
-
-
-
-//        databaseExercise = FirebaseDatabase.getInstance().getReference(formattedDate);
-//        saveToDatabase();
-
-
         adapter = new FirebaseRecyclerAdapter<ExerciseObject, WorkoutHolder>(options) {
             @Override
             protected void onBindViewHolder(@NonNull WorkoutHolder holder, final int position, @NonNull final ExerciseObject model) {
@@ -171,8 +186,6 @@ public class WorkoutActivityFragment extends Fragment {
             @NonNull
             @Override
             public WorkoutHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                //numberOfExercises = adapter.getItemCount();
-
                 View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.exercisesquare,parent,false);
                 return new WorkoutHolder(view);
 
@@ -181,21 +194,11 @@ public class WorkoutActivityFragment extends Fragment {
 
         };
 
-        //layoutManager = new GridLayoutManager(this,2);
-        //mRecyclerView.setLayoutManager(layoutManager);
         mRecyclerView = (RecyclerView) view.findViewById(R.id.exerciseRecycleView);
         mRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
         adapter.startListening();
         mRecyclerView.setAdapter(adapter);
 
-
-//        heartIcon = (ImageView) view.findViewById(R.id.heartIcon);
-//        heartIcon.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                launchHeartRate();
-//            }
-//        });
 
         Statistics = (Button) view.findViewById(R.id.doneButtonWorkout);
         Statistics.setOnClickListener(new View.OnClickListener() {
@@ -242,7 +245,6 @@ public class WorkoutActivityFragment extends Fragment {
     public void addExercise(){
         Log.d(TAG, "addExercise: called.");
         Intent intent = AddExercise.newIntent(getActivity(), dateCurrentlyViewing.getTime());
-        //intent.putExtra("com.example.jimv2.PASSDATE", dateCurrentlyViewing.getTime());
         startActivity(intent);
     }
     public void launchStats(){
@@ -305,4 +307,23 @@ public class WorkoutActivityFragment extends Fragment {
             adapter.startListening();
         updateUI();
     }
+    public void addDay() {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(dateCurrentlyViewing);
+        cal.add(Calendar.DATE, 1);
+        dateCurrentlyViewing = cal.getTime();
+    }
+
+    public void substractDay() {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(dateCurrentlyViewing);
+        cal.add(Calendar.DATE, -1);
+        dateCurrentlyViewing = cal.getTime();
+    }
+
+    public WorkoutActivityFragment() {
+        this.setArguments(new Bundle());
+    }
 }
+
+
