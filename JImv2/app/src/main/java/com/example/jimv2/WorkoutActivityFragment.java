@@ -86,8 +86,8 @@ public class WorkoutActivityFragment extends Fragment {
         if(bundle !=null) {
 
             if (bundle.containsKey("intentDate")) {
-                Toast.makeText(getActivity(),
-                        "Passed", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getActivity(),
+//                        "Passed", Toast.LENGTH_SHORT).show();
 
                 passedDate3 = bundle.getLong("intentDate");
                 dateCurrentlyViewing.setTime(passedDate3);
