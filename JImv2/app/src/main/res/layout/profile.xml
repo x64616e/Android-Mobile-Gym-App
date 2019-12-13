@@ -10,16 +10,16 @@
 
     <TextView
         android:id="@+id/scoreTextView"
-        android:layout_width="175dp"
+        android:layout_width="99dp"
 
-        android:layout_height="52dp"
+        android:layout_height="wrap_content"
 
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginRight="30dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
         android:background="@drawable/rectangle"
         android:text="0"
         android:textAlignment="center"
@@ -336,6 +336,18 @@
         android:text="Weight"
         android:textColor="@color/black"
         android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/editText10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="220dp"
+        android:layout_marginTop="71dp"
+        android:layout_marginEnd="14dp"
+        android:text="Score:"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        />
 
     <TextView
         android:id="@+id/editText3"
