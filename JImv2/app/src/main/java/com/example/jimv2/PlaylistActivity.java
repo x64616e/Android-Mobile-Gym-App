@@ -63,9 +63,9 @@ public class PlaylistActivity extends AppCompatActivity  {
         mockData=new ArrayList<>();
 
         final ArrayList<Song> pop=new ArrayList<>();
-        pop.add(new Song("Song1 pop","test",1,1));
-        pop.add(new Song("Song2 pop","test",1,1));
-        pop.add(new Song("Song3 pop","test",1,1));
+        pop.add(new Song("Eye of the Tiger","Survivor",R.raw.eyeofthetiger,R.drawable.tiger));
+        pop.add(new Song("Despacito","Justin Beiber",R.raw.despacito,R.drawable.despacito));
+        pop.add(new Song("Monster","Professor Green",R.raw.monster,R.drawable.shrekss));
         mockData.add(new PlayListModel(pop));
 
         ArrayList<Song> dance=new ArrayList<>();
@@ -76,28 +76,28 @@ public class PlaylistActivity extends AppCompatActivity  {
 
 
         ArrayList<Song> jazz=new ArrayList<>();
-        jazz.add(new Song("Song1 jazz","test",1,1));
-        jazz.add(new Song("Song2 jazz","test",1,1));
-        jazz.add(new Song("Song3 jazz","test",1,1));
+        jazz.add(new Song("You Spin me Right Round","Dead or Alive",R.raw.spin,R.drawable.generic));
+        //jazz.add(new Song("Song2 jazz","test",1,1));
+        //jazz.add(new Song("Song3 jazz","test",1,1));
 
         mockData.add(new PlayListModel(jazz));
 
-        ArrayList<Song> hiphop=new ArrayList<>();
-        hiphop.add(new Song("Song1 hiphop","test",1,1));
-        hiphop.add(new Song("Song2 hiphop","test",1,1));
-        hiphop.add(new Song("Song3 hiphop","test",1,1));
-        mockData.add(new PlayListModel(hiphop));
+//        ArrayList<Song> hiphop=new ArrayList<>();
+//        //hiphop.add(new Song("Song1 hiphop","test",1,1));
+//        //hiphop.add(new Song("Song2 hiphop","test",1,1));
+//       // hiphop.add(new Song("Song3 hiphop","test",1,1));
+//        mockData.add(new PlayListModel(hiphop));
 
-        ArrayList<Song> rap=new ArrayList<>();
-        rap.add(new Song("Song1 rap","test",1,1));
-        rap.add(new Song("Song2 rap","test",1,1));
-        rap.add(new Song("Song3 rap","test",1,1));
-        mockData.add(new PlayListModel(rap));
+//        ArrayList<Song> rap=new ArrayList<>();
+//        //rap.add(new Song("Song1 rap","test",1,1));
+//        //rap.add(new Song("Song2 rap","test",1,1));
+//        //rap.add(new Song("Song3 rap","test",1,1));
+//        mockData.add(new PlayListModel(rap));
 
         ArrayList<Song> latin=new ArrayList<>();
-        latin.add(new Song("Song1 latin","test",1,1));
-        latin.add(new Song("Song2 latin","test",1,1));
-        latin.add(new Song("Song3 latin","test",1,1));
+        latin.add(new Song("Despacito","Justin Beiber",R.raw.despacito,R.drawable.despacito));
+        latin.add(new Song("Despacito","Justin Beiber",R.raw.despacito,R.drawable.despacito));
+        latin.add(new Song("Despacito","Justin Beiber",R.raw.despacito,R.drawable.despacito));
 
         mockData.add(new PlayListModel(latin));
 

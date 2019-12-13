@@ -18,12 +18,12 @@ public class musicPlayerr extends AppCompatActivity {
 
 
         lstType = new ArrayList<>();
-        lstType.add(new SongTypes("Dance Music","Dance","Music composed specifically to facilitate or accompany dancing",R.drawable.djdance));
-        lstType.add(new SongTypes("Pop Music","Pop","A consistent and noticeable rhythmic elements",R.drawable.poporiginal));
-        lstType.add(new SongTypes("Jazz Music","Blues","A distinctive tone colors & performance techniques",R.drawable.jazz2));
-        lstType.add(new SongTypes("HipHop Music","HipHop","A stylized rhythmic music",R.drawable.hiphoporiginal));
-        lstType.add(new SongTypes("Rap Music","Rap","A rapid, slangy and boastful rhyming pattern intoned by a vocalist",R.drawable.raporiginal));
-        lstType.add(new SongTypes("Latin Music","Latin","A wide variety of styles with highly syncretic nature",R.drawable.latinoriginal2));
+        lstType.add(new SongTypes("Beast Mode","Beast Mode","Unleash the Beast.",R.drawable.beast));
+        lstType.add(new SongTypes("Do You Even Lift Bro","Do You Even Lift Bro","A consistent and noticeable rhythmic elements",R.drawable.shrekss));
+        lstType.add(new SongTypes("Jazzercise","Jazzercise","A distinctive tone colors & performance techniques",R.drawable.jazzercise));
+        //lstType.add(new SongTypes("HipHop Music","HipHop","A stylized rhythmic music",R.drawable.hiphoporiginal));
+        //lstType.add(new SongTypes("Rap Music","Rap","A rapid, slangy and boastful rhyming pattern intoned by a vocalist",R.drawable.raporiginal));
+        lstType.add(new SongTypes("Redpill Mix","Latin","A wide variety of styles with highly syncretic waves",R.drawable.dope));
 
 
 
