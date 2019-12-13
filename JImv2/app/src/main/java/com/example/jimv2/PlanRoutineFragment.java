@@ -98,6 +98,78 @@ public class PlanRoutineFragment extends Fragment {
 
             }
         });
+        Thursday.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
+
+                if(currentItem==position){
+                    return;
+                }else{
+                    Intent intent = new Intent(getActivity(),PlanWorkoutActivity.class);
+                    intent.putExtra("day","Thursday");
+                    startActivity(intent);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+        Friday.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
+
+                if(currentItem==position){
+                    return;
+                }else{
+                    Intent intent = new Intent(getActivity(),PlanWorkoutActivity.class);
+                    intent.putExtra("day","Friday");
+                    startActivity(intent);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+        Saturday.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
+
+                if(currentItem==position){
+                    return;
+                }else{
+                    Intent intent = new Intent(getActivity(),PlanWorkoutActivity.class);
+                    intent.putExtra("day","Saturday");
+                    startActivity(intent);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+        Sunday.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
+
+                if(currentItem==position){
+                    return;
+                }else{
+                    Intent intent = new Intent(getActivity(),PlanWorkoutActivity.class);
+                    intent.putExtra("day","Sunday");
+                    startActivity(intent);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
 //        planExercise.setOnClickListener(new View.OnClickListener() {
 //            @Override
