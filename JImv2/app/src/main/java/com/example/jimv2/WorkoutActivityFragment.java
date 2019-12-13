@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.util.Log;
@@ -44,7 +45,7 @@ public class WorkoutActivityFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private WorkoutAdapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
-    public ArrayList<ExerciseObject> workoutList = new ArrayList<>();
+    //public ArrayList<ExerciseObject> workoutList = new ArrayList<>();
     public ArrayList<ExerciseObject> workouts = new ArrayList<>();
     DatabaseReference databaseExercise;
     private Button Statistics;
@@ -56,6 +57,7 @@ public class WorkoutActivityFragment extends Fragment {
     private static final String TAG = "WorkoutActivityFragment";
     private Button nextDay;
     private Button previousDay;
+    private ItemTouchHelper mItemTouchHelper;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -168,7 +170,8 @@ public class WorkoutActivityFragment extends Fragment {
         
         adapter = new FirebaseRecyclerAdapter<ExerciseObject, WorkoutHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull WorkoutHolder holder, final int position, @NonNull final ExerciseObject model) {
+            protected void onBindViewHolder(@NonNull WorkoutHolder holder, final int position, @NonNull final ExerciseObject model)
+            {
                 holder.exerciseName.setText(model.getExerciseName());
                 holder.exerciseImage.setImageResource(model.getmImageResource());
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -194,10 +197,20 @@ public class WorkoutActivityFragment extends Fragment {
 
         };
 
+        mAdapter.updateFirebaseAdapter(adapter);
+
         mRecyclerView = (RecyclerView) view.findViewById(R.id.exerciseRecycleView);
         mRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
         adapter.startListening();
         mRecyclerView.setAdapter(adapter);
+
+
+
+        ItemTouchHelper.Callback callback = new SimpleItemTouchHelperCallback(mAdapter);
+        mItemTouchHelper = new ItemTouchHelper(callback);
+        mItemTouchHelper.attachToRecyclerView(mRecyclerView);
+
+
 
 
         Statistics = (Button) view.findViewById(R.id.doneButtonWorkout);
@@ -231,7 +244,8 @@ public class WorkoutActivityFragment extends Fragment {
     private void updateUI() {
 
         if (mAdapter == null ) {
-            mAdapter = new WorkoutAdapter(workoutList);
+            //mAdapter = new WorkoutAdapter(workoutList);
+            mAdapter = new WorkoutAdapter(new ArrayList<ExerciseObject>(), adapter);
             mRecyclerView.setLayoutManager(layoutManager);
             mRecyclerView.setAdapter(mAdapter);
         } else {
@@ -263,14 +277,16 @@ public class WorkoutActivityFragment extends Fragment {
         mRecyclerView = view.findViewById(R.id.exerciseRecycleView); // view
         mRecyclerView.setHasFixedSize(true);
         layoutManager = new GridLayoutManager(getActivity(),2);
-        mAdapter = new WorkoutAdapter(workoutList);
+        //mAdapter = new WorkoutAdapter(workoutList);
+        mAdapter = new WorkoutAdapter(new ArrayList<ExerciseObject>(), adapter);
         mRecyclerView.setLayoutManager(layoutManager);
         mRecyclerView.setAdapter(mAdapter);
         mAdapter.setOnItemClickListner(new WorkoutAdapter.OnClickListner() {
             @Override
             public void onItemClick(int position) {
                 Intent intent = new Intent(getActivity(), ExerciseActivity.class);
-                intent.putExtra("exercise",workoutList.get(position));
+                //intent.putExtra("exercise",workoutList.get(position));
+                intent.putExtra("exercise",mAdapter.get(position));
                 startActivity(intent);
             }
         });
