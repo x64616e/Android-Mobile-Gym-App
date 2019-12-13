@@ -213,13 +213,13 @@ public class WorkoutActivityFragment extends Fragment {
 
 
 
-        Statistics = (Button) view.findViewById(R.id.doneButtonWorkout);
-        Statistics.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                launchStats();
-            }
-        });
+//        Statistics = (Button) view.findViewById(R.id.doneButtonWorkout);
+//        Statistics.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                launchStats();
+//            }
+//        });
         addExercise = (Button) view.findViewById(R.id.addExerciseButton);
         addExercise.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -136,8 +136,7 @@ public class LandingPageV2 extends AppCompatActivity implements NavigationView.O
                 break;
             case R.id.nav_report:
                 Log.d(TAG, "onNavigationItemSelected: nav_report clicked.");
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new ReportFragment()).commit();
+                startActivity(new Intent(this, DatabaseWorkout.class));
                 break;
 
             case R.id.nav_music:
