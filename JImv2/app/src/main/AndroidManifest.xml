@@ -25,18 +25,32 @@
             android:name=".PlanWorkoutActivity"
             android:label="@string/title_activity_plan_workout"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".CompletedDayActivity" />
+        <activity android:name=".CompletedDayActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
         <activity android:name=".WorkoutActivity" />
-        <activity android:name=".ExerciseActivity" />
-        <activity android:name=".AddExercise" />
+        <activity android:name=".ExerciseActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
+        <activity android:name=".AddExercise"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
         <activity android:name=".AddExercise2" />
-        <activity android:name=".CalculatorActivity" />
-        <activity android:name=".HeartRateActivity" />
+        <activity android:name=".CalculatorActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
+        <activity android:name=".HeartRateActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
         <activity android:name=".PlanRoutineFragment" />
         <activity android:name=".ReportFragment" />
-        <activity android:name=".CalendarFragment" />
+        <activity android:name=".CalendarFragment"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
         <activity android:name=".WorkoutActivityFragment" />
-        <activity android:name=".DatabaseWorkout" />
+        <activity android:name=".DatabaseWorkout"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
         <activity android:name=".LandingActivity" />
         <activity
             android:name=".LandingPageV2"
@@ -46,16 +60,21 @@
         <activity android:name=".HeartRateMonitor" />
         <activity android:name=".HeartbeatView" />
         <activity android:name=".ImageProcessing" />
-        <activity android:name=".MusicPlayerActivity"> </activity>
+        <activity android:name=".MusicPlayerActivity"
+            > </activity>
 
-        <activity android:name=".PlaylistActivity"> </activity>
+        <activity android:name=".PlaylistActivity"
+            > </activity>
 
 
-        <activity android:name=".musicPlayerr">
+        <activity android:name=".musicPlayerr"
+            >
 
 
     </activity>
-        <activity android:name=".LoginActivity">
+        <activity android:name=".LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
