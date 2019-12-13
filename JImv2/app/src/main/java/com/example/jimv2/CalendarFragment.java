@@ -86,13 +86,6 @@ public class CalendarFragment extends Fragment {
             }
         });
 
-        completedButton = (Button) view.findViewById(R.id.completedDays);
-        completedButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openCompletedDay();
-            }
-        });
 
         return view;
     }
