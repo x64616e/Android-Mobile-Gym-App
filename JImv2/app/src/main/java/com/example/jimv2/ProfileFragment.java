@@ -19,6 +19,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -63,6 +64,7 @@ public class ProfileFragment extends Fragment implements AdapterView.OnItemSelec
     private Spinner experienceSpinner;
     private Spinner trainingSpinner;
     private TextView scoreTextView;
+    private RadioGroup genderRadioGroup;
     private String userID;
     private static final int PICK_IMAGE_REQUEST = 1;
     private static final String TAG = "ProfileFragment";
@@ -100,6 +102,7 @@ public class ProfileFragment extends Fragment implements AdapterView.OnItemSelec
         experienceSpinner = view.findViewById(R.id.experienceSpinner);
         trainingSpinner = view.findViewById(R.id.trainingSpinner);
         scoreTextView = view.findViewById(R.id.scoreTextView);
+        genderRadioGroup = view.findViewById(R.id.genderRadioGroup);
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         userID = user.getUid();
@@ -130,6 +133,7 @@ public class ProfileFragment extends Fragment implements AdapterView.OnItemSelec
                     experienceSpinner.setSelection(profileObject.getExperience());
                     trainingSpinner.setSelection(profileObject.getTraining());
                     scoreTextView.setText(String.valueOf(profileObject.getScore()));
+                    genderRadioGroup.check(profileObject.getGender());
                 }
 
                 @Override
@@ -175,7 +179,9 @@ public class ProfileFragment extends Fragment implements AdapterView.OnItemSelec
                 monthEditText.getText().toString(), dayEditText.getText().toString(),
                 yearEditText.getText().toString(), weightEditText.getText().toString(),
                 heightEditText.getText().toString(), experienceSpinner.getSelectedItemPosition(),
-                trainingSpinner.getSelectedItemPosition(), Integer.parseInt(scoreTextView.getText().toString()));
+                trainingSpinner.getSelectedItemPosition(), Integer.parseInt(scoreTextView.getText().toString()),
+                genderRadioGroup.getCheckedRadioButtonId()
+        );
         FirebaseDatabase firebaseDB = FirebaseDatabase.getInstance();
         DatabaseReference dbReference = firebaseDB.getReference().child(userID);
         dbReference.setValue(newProfile);
